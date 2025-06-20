@@ -31,7 +31,7 @@
     git
   ];
 
-  time.timeZone = "Europe/Moskow";
+  time.timeZone = "Europe/Moscow";
   # Select internationalisation properties.
   i18n = {
     defaultLocale = "en_US.UTF-8"; # Основной язык
@@ -51,28 +51,13 @@
       "ru_RU.UTF-8/UTF-8" # Дополнительный язык
     ];
   };
-  
-  # (Опционально) Настройка раскладки клавиатуры
-  services.xserver.xkb = {
-    layout = "us,ru";
-    options = "grp:alt_shift_toggle"; # Переключение раскладок по Alt+Shift
-  };
-  
+   
   # Fonts
   fonts.packages = [
     pkgs.nerd-fonts.fira-code
     pkgs.nerd-fonts.fantasque-sans-mono
   ];
-  
-  # Window sharing
-  xdg.portal = {
-    enable = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-gtk
-#      xdg-desktop-portal-hyprland
-    ];
-  };
-  
+   
   nixpkgs.config.allowUnfree = true;
   system.stateVersion = "25.05";
 }
