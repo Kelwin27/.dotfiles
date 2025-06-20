@@ -29,8 +29,8 @@ in
       ];
 
       input = {
-        kb_layout = "us,fr";
-        kb_options = "grp:alt_caps_toggle";
+        kb_layout = "us,ru";
+        kb_options = "grp:alt_shift_toggle";
         numlock_by_default = true;
         repeat_delay = 300;
         follow_mouse = 0;
