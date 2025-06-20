@@ -17,8 +17,14 @@
         src = pkgs.zsh-powerlevel10k;
         file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
       }
-      #{ name = "zsh-users/zsh-autosuggestions"; }
-      #{ name = "zsh-users/zsh-syntax-highlighting"; }
+      { 
+      	name = "zsh-users/zsh-autosuggestions";
+      	src = pkgs.zsh-autosuggestions;	
+	}
+      { 
+      	name = "zsh-users/zsh-syntax-highlighting";
+	src = pkgs.zsh-syntax-highlighting;
+	}
       #{ name = "zsh-users/zsh-history-substring-search"; }
     ];
 

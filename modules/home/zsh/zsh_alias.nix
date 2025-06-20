@@ -40,6 +40,12 @@
       # python
       piv = "python -m venv .venv";
       psv = "source .venv/bin/activate";
+      
+      # Garbage
+      sugc = "sudo nix-collect-garbage -d";
+      cg = "nix-collect-garbage -d";
+      sugc-list = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
+      cg-list = "nix-env --list-generations";
     };
   };
 }
