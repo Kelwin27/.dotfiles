@@ -33,7 +33,6 @@
     };
 
     nur.url = "github:nix-community/NUR";
-    nix-gaming.url = "github:fufexan/nix-gaming";
 
     nix-flatpak.url = "github:gmodena/nix-flatpak";
 
@@ -45,7 +44,7 @@
   outputs =
     { nixpkgs, self, ... }@inputs:
     let
-      username = "frostphoenix";
+      username = "kelwin";
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;

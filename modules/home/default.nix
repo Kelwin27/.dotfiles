@@ -11,13 +11,13 @@
     ./fastfetch.nix                   # fetch tool
     ./flow.nix                        # terminal text editor
     ./fzf.nix                         # fuzzy finder
-    ./gaming.nix                      # packages related to gaming
+    #./gaming.nix                      # packages related to gaming
     ./ghostty.nix                     # terminal
     ./git.nix                         # version control
     ./gnome.nix                       # gnome apps
     ./gtk.nix                         # gtk theme
     ./hyprland                        # window manager
-    ./kitty.nix                       # terminal
+   # ./kitty.nix                       # terminal
     ./lazygit.nix
     ./micro.nix                       # nano replacement
     ./nemo.nix                        # file manager

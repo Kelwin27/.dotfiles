@@ -31,8 +31,48 @@
     git
   ];
 
-  time.timeZone = "Europe/Paris";
-  i18n.defaultLocale = "en_US.UTF-8";
+  time.timeZone = "Europe/Moskow";
+  # Select internationalisation properties.
+  i18n = {
+    defaultLocale = "en_US.UTF-8"; # Основной язык
+    extraLocaleSettings = {
+      LC_ADDRESS = "ru_RU.UTF-8";
+      LC_IDENTIFICATION = "ru_RU.UTF-8";
+      LC_MEASUREMENT = "ru_RU.UTF-8";
+      LC_MONETARY = "ru_RU.UTF-8";
+      LC_NAME = "ru_RU.UTF-8";
+      LC_NUMERIC = "ru_RU.UTF-8";
+      LC_PAPER = "ru_RU.UTF-8";
+      LC_TELEPHONE = "ru_RU.UTF-8";
+      LC_TIME = "ru_RU.UTF-8";
+    };
+    supportedLocales = [
+      "en_US.UTF-8/UTF-8"
+      "ru_RU.UTF-8/UTF-8" # Дополнительный язык
+    ];
+  };
+  
+  # (Опционально) Настройка раскладки клавиатуры
+  services.xserver.xkb = {
+    layout = "us,ru";
+    options = "grp:alt_shift_toggle"; # Переключение раскладок по Alt+Shift
+  };
+  
+  # Fonts
+  fonts.packages = [
+    pkgs.nerd-fonts.fira-code
+    pkgs.nerd-fonts.fantasque-sans-mono
+  ];
+  
+  # Window sharing
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+#      xdg-desktop-portal-hyprland
+    ];
+  };
+  
   nixpkgs.config.allowUnfree = true;
-  system.stateVersion = "24.05";
+  system.stateVersion = "25.05";
 }
