@@ -4,6 +4,7 @@
     shellAliases = {
       # Utils
       c = "clear";
+      v = "nvim";
       cd = "z";
       tt = "gtrash put";
       cat = "bat";
@@ -13,17 +14,17 @@
       less = "bat";
       f = "superfile";
       py = "python";
-      ipy = "ipython";
-      icat = "kitten icat";
       dsize = "du -hs";
       pdf = "tdf";
       open = "xdg-open";
       space = "ncdu";
       man = "BAT_THEME='default' batman";
+      upgrade = "sudo nixos-rebuild switch --flake $HOME/nixos-config";
 
       l = "eza --icons  -a --group-directories-first -1"; # EZA_ICON_SPACING=2
       ll = "eza --icons  -a --group-directories-first -1 --no-user --long";
       tree = "eza --icons --tree --group-directories-first";
+      la = "ls -la";
 
       # Nixos
       cdnix = "cd ~/nixos-config && codium ~/nixos-config";
