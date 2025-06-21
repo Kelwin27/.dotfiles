@@ -37,15 +37,12 @@
     programmer-calculator
     smassh                            # typing test in the terminal
     toipe                             # typing test in the terminal
-    tomato-c                          # TUI pomodoro timer
     ttyper                            # cli typing test
 
     ## Monitoring / fetch
-    htop
     neofetch
-    nitch                             # systhem fetch util
     onefetch                          # fetch utility for git repo
-    wavemon                           # monitoring for wireless network devices
+    # wavemon                           # monitoring for wireless network devices
 
     ## Fun / screensaver
     asciiquarium-transparent
@@ -84,7 +81,7 @@
     wl-clipboard                      # clipboard utils for wayland (wl-copy, wl-paste)
     xdg-utils
 
-    winetricks
-    wineWowPackages.waylandFull
+    # winetricks
+    # wineWowPackages.waylandFull
   ];
 }
