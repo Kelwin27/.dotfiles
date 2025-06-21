@@ -1,5 +1,5 @@
 {
-  description = "FrostPhoenix's nixos configuration";
+  description = "KelWin's fork of FrostPhoenix's nixos configuration";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
