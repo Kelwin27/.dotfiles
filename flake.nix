@@ -39,10 +39,15 @@
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
 
     ghostty.url = "github:ghostty-org/ghostty";
+
+    nvf = {
+        url = "github:notashelf/nvf";
+        inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
-    { nixpkgs, self, ... }@inputs:
+    { nixpkgs, nvf, self, ... }@inputs:
     let
       username = "kelwin";
       system = "x86_64-linux";
@@ -56,7 +61,10 @@
       nixosConfigurations = {
         desktop = nixpkgs.lib.nixosSystem {
           inherit system;
-          modules = [ ./hosts/desktop ];
+          modules = [ 
+	    ./hosts/desktop
+	    nvf.nixosModules.default
+	    ];
           specialArgs = {
             host = "desktop";
             inherit self inputs username;
