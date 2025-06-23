@@ -17,4 +17,9 @@
     indent-blankline.enable = true;
     nvim-web-devicons.enable = true;
   };
+  statusline.lualine = {
+    enable = true;
+    globalStatus = true;
+    icons.enable = true;
+  };
 }
