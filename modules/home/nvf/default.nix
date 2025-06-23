@@ -5,6 +5,7 @@ let
   treesitter = import ./treesitter.nix;
   lang = import ./languages.nix;
   lsp = import ./lsp.nix;
+  util = import ./utility.nix;
 in
 {
   programs.nvf = {
@@ -16,9 +17,13 @@ in
       treesitter
       lang
       lsp
+      util
       {
         viAlias = false;
         vimAlias = true;
+        autocomplete.blink-cmp = {
+          enable = true;
+        };
       }
     ];
   };

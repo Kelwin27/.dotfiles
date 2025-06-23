@@ -1,13 +1,13 @@
 {
   languages = {
     # languages
-    astro = {
-      enable = true;
-      extraDiagnostics.enable = false; # refers to vim/nvim-lint/linters
-      format.enable = false;
-      lsp.enable = true;
-      treesitter.enable = true;
-    };
+    # astro = {
+    # enable = true;
+    #  extraDiagnostics.enable = false; # refers to vim/nvim-lint/linters
+    #  format.enable = false;
+    #  lsp.enable = true;
+    #  treesitter.enable = true;
+    # };
 
     bash = {
       enable = true;
