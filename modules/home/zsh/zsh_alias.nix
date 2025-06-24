@@ -22,7 +22,7 @@
       upgrade = "sudo nixos-rebuild switch --flake $HOME/nixos-config";
 
       l = "eza --icons  -a --group-directories-first -1"; # EZA_ICON_SPACING=2
-      ll = "eza --icons  -a --group-directories-first -1 --no-user --long";
+      ll = "eza --icons  -a --group-directories-first -1 --no-user --long --total-size";
       tree = "eza --icons --tree --group-directories-first";
       la = "ls -la";
 
@@ -40,11 +40,11 @@
       # python
       piv = "python -m venv .venv";
       psv = "source .venv/bin/activate";
-      
+
       # Garbage
-      sugc = "sudo nix-collect-garbage -d";
+      sucg = "sudo nix-collect-garbage -d";
       cg = "nix-collect-garbage -d";
-      sugc-list = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
+      sucg-list = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
       cg-list = "nix-env --list-generations";
     };
   };
