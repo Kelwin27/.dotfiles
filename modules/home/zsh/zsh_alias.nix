@@ -46,6 +46,10 @@
       cg = "nix-collect-garbage -d";
       sucg-list = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
       cg-list = "nix-env --list-generations";
+
+      # DPI
+
+      dpi = "py ~/NoDPI/src/main.py --blacklist ~/NoDPI/blacklist.txt";
     };
   };
 }
