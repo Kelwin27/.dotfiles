@@ -41,13 +41,18 @@
     ghostty.url = "github:ghostty-org/ghostty";
 
     nvf = {
-        url = "github:notashelf/nvf";
-        inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
   outputs =
-    { nixpkgs, nvf, self, ... }@inputs:
+    {
+      nixpkgs,
+      nvf,
+      self,
+      ...
+    }@inputs:
     let
       username = "kelwin";
       system = "x86_64-linux";
@@ -61,10 +66,10 @@
       nixosConfigurations = {
         desktop = nixpkgs.lib.nixosSystem {
           inherit system;
-          modules = [ 
-	    ./hosts/desktop
-	    nvf.nixosModules.default
-	    ];
+          modules = [
+            ./hosts/desktop
+            nvf.nixosModules.default
+          ];
           specialArgs = {
             host = "desktop";
             inherit self inputs username;
