@@ -24,10 +24,11 @@ in
 
         "hyprlock"
 
+        "~/NoDPI/src/main.py --blacklist ~/NoDPI/blacklist.txt &"
+
         "[workspace 1 silent] ${browser}"
         "[workspace 2 silent] ${terminal}"
         "[workspace 4 silent] ${pdf}"
-        "[workspace 5 silent] ${terminal} -e dpi"
       ];
 
       input = {
