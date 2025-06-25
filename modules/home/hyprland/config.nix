@@ -2,6 +2,7 @@
 let
   browser = "zen-beta";
   terminal = "ghostty";
+  pdf = "";
 in
 {
   wayland.windowManager.hyprland = {
@@ -25,6 +26,7 @@ in
 
         "[workspace 1 silent] ${browser}"
         "[workspace 2 silent] ${terminal}"
+        "[workspace 5 silent] ${terminal} -e dpi"
       ];
 
       input = {
