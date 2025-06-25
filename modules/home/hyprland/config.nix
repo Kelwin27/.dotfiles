@@ -23,7 +23,6 @@ in
 
         "hyprlock"
 
-        "${terminal} --gtk-single-instance=true --quit-after-last-window-closed=false --initial-window=false"
         "[workspace 1 silent] ${browser}"
         "[workspace 2 silent] ${terminal}"
       ];
@@ -148,10 +147,10 @@ in
         "$mainMod, F1, exec, show-keybinds"
 
         # keybindings
-        "$mainMod, Return, exec, ${terminal} --gtk-single-instance=true"
+        "$mainMod, Return, exec, ${terminal}"
         "ALT, Return, exec, [float; size 1111 700] ${terminal}"
         "$mainMod SHIFT, Return, exec, [fullscreen] ${terminal}"
-        "$mainMod, B, exec, [workspace 1 silent] ${browser}"
+        "$mainMod, B, exec, ${browser}"
         "$mainMod, Q, killactive,"
         "$mainMod, F, fullscreen, 0"
         "$mainMod SHIFT, F, fullscreen, 1"
