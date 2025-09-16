@@ -66,6 +66,13 @@
       treesitter.enable = true;
     };
 
+    scala = {
+      enable = true;
+      lsp.enable = true;
+      treesitter.enable = true;
+
+    };
+
     ts = {
       enable = true;
       extensions.ts-error-translator.enable = true;

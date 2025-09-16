@@ -21,5 +21,11 @@
     ## Python
     python3
     python312Packages.ipython
+
+    ## Scala
+    scala
+    jdk17
+    sbt
+    coursier
   ];
 }
