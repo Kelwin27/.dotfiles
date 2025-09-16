@@ -2,7 +2,7 @@
 {
   home.packages = with pkgs; [
     swww
-    # inputs.hypr-contrib.packages.${pkgs.system}.grimblast
+    #inputs.hypr-contrib.packages.${pkgs.system}.grimblast
     inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
     grim
     slurp
