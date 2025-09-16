@@ -66,11 +66,15 @@
       treesitter.enable = true;
     };
 
-    scala = {
+    odin = {
       enable = true;
       lsp.enable = true;
       treesitter.enable = true;
+    };
 
+    tailwind = {
+      enable = true;
+      lsp.enable = true;
     };
 
     ts = {
