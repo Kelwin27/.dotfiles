@@ -21,5 +21,8 @@
     scala
     jdk17
     sbt
+
+    ## Odin
+    odin
   ];
 }
