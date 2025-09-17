@@ -58,6 +58,12 @@
       treesitter.enable = true;
     };
 
+    scala = {
+      enable = true;
+      lsp.enable = true;
+      treesitter.enable = true;
+    };
+
     sql = {
       enable = true;
       extraDiagnostics.enable = true;
