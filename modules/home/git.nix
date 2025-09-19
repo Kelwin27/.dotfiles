@@ -3,8 +3,8 @@
   programs.git = {
     enable = true;
 
-    userName = "Frost-Phoenix";
-    userEmail = "67cyril6767@gmail.com";
+    userName = username;
+    userEmail = "kelwin90210@gmail.com";
 
     extraConfig = {
       init.defaultBranch = "main";
@@ -13,11 +13,14 @@
       pull.ff = "only";
       color.ui = true;
       url = {
-        "git@github.com:".insteadOf = [
-          "gh:"
-          "https://github.com/"
+        "git@kelwin:".insteadOf = [
+          "https://github.com/Kelwin27/"
+          "git@github.com:Kelwin27/"
         ];
-        "git@github.com:frost-phoenix/".insteadOf = "fp:";
+        "git@mrrobot:".insteadOf = [
+          "https://github.com/mrrobot911/"
+          "git@github.com:mrrobot911/"
+        ];
       };
       core.excludesFile = "/home/${username}/.config/git/.gitignore";
     };
@@ -37,6 +40,18 @@
 
   xdg.configFile."git/.gitignore".text = ''
     .vscode
+    node_modules/
+    dist/
+    build/
+    coverage/
+    .env
+    .bsp/
+    target/
+    .bloop/
+    .metals/
+    *.log
+    *.exe
+    tmp/
   '';
 
   programs.zsh.shellAliases = {
