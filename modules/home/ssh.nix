@@ -35,6 +35,14 @@
         identityFile = "~/.ssh/id_ed25519_mrrobot";
         identitiesOnly = true;
       };
+      codemasters = {
+        host = "codemasters";
+        hostname = "gitlab.itschool.pro";
+        user = "git";
+        port = 22;
+        identityFile = "~/.ssh/id_ed25519_codemasters";
+        identitiesOnly = true;
+      };
     };
   };
 

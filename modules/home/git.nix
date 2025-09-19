@@ -21,6 +21,10 @@
           "https://github.com/mrrobot911/"
           "git@github.com:mrrobot911/"
         ];
+        "git@codemasters:dev-course/".insteadOf = [
+          "https://gitlab.itschool.pro/dev-course/"
+          "git@gitlab.itschool.pro:dev-course/"
+        ];
       };
       core.excludesFile = "/home/${username}/.config/git/.gitignore";
     };
