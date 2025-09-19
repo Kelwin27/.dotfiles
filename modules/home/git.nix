@@ -13,11 +13,11 @@
       pull.ff = "only";
       color.ui = true;
       url = {
-        "git@kelwin:".insteadOf = [
+        "git@kelwin:Kelwin27/".insteadOf = [
           "https://github.com/Kelwin27/"
           "git@github.com:Kelwin27/"
         ];
-        "git@mrrobot:".insteadOf = [
+        "git@mrrobot:mrrobot911/".insteadOf = [
           "https://github.com/mrrobot911/"
           "git@github.com:mrrobot911/"
         ];
