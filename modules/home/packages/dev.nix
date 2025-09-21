@@ -3,7 +3,6 @@
   home.packages = with pkgs; [
     ## Lsp
     nixd # nix
-    metals # scala
     ols # odin
     nodePackages."@tailwindcss/language-server" # tailwindcss
     sqls # sql
@@ -16,11 +15,6 @@
     ## Python
     python3
     python312Packages.ipython
-
-    ## Scala
-    scala
-    jdk17
-    sbt
 
     ## Odin
     odin
