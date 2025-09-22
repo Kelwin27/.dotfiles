@@ -51,13 +51,13 @@
       "ru_RU.UTF-8/UTF-8" # Дополнительный язык
     ];
   };
-   
+
   # Fonts
   fonts.packages = [
     pkgs.nerd-fonts.fira-code
     pkgs.nerd-fonts.fantasque-sans-mono
   ];
-   
+
   nixpkgs.config.allowUnfree = true;
-  system.stateVersion = "25.05";
+  system.stateVersion = "25.11";
 }
