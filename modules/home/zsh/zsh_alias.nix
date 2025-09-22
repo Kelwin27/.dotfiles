@@ -51,8 +51,8 @@
       dpi = "py ~/NoDPI/src/main.py --blacklist ~/NoDPI/blacklist.txt";
 
       # Scala flakes
-      scala2 = "cd ~/Documents/scalaLegacyEnv/ && nix develop --command zsh";
-      scala3 = "cd ~/Documents/scalaEnv/ && nix develop --command zsh";
+      scala2 = "cd ~/nixos-config/enviroment/scala_legacy_env/ && nix develop --command zsh";
+      scala3 = "cd ~/nixos-config/enviroment/scala_env/ && nix develop --command zsh";
     };
   };
 }
