@@ -155,7 +155,7 @@ in
         "ALT, Return, exec, [float; size 1111 700] ${terminal}"
         "$mainMod SHIFT, Return, exec, [fullscreen] ${terminal}"
         "$mainMod, B, exec, ${browser}"
-        "$mainMod SHIFT, B, exec chromium"
+        "$mainMod SHIFT, B, exec, chromium"
         "$mainMod, Q, killactive,"
         "$mainMod, F, fullscreen, 0"
         "$mainMod SHIFT, F, fullscreen, 1"
