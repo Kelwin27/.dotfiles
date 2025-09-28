@@ -21,7 +21,12 @@
 
     hyprpicker = {
       url = "github:hyprwm/hyprpicker";
-      inputs.nixpkgs.follows = "hyprland/nixpkgs";
+      inputs = {
+        nixpkgs.follows = "hyprland/nixpkgs";
+        hyprutils.follows = "hyprland/hyprutils";
+        hyprwayland-scanner.follows = "hyprland/hyprwayland-scanner";
+        systems.follows = "hyprland/systems";
+      };
     };
 
     hyprlock = {
