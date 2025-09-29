@@ -17,7 +17,6 @@
           nodePackages_latest."@angular/cli"
           nodePackages."@tailwindcss/language-server"
           nodePackages.prettier
-          html-languageserver
         ];
 
         shellHook = ''
