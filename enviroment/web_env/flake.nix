@@ -14,12 +14,10 @@
     {
       devShells.${system}.default = pkgs.mkShell {
         buildInputs = with pkgs; [
-          # Основные инструменты
           nodePackages_latest."@angular/cli"
-
-          # Базовые утилиты
-          git
-          curl
+          nodePackages."@tailwindcss/language-server"
+          nodePackages.prettier
+          html-languageserver
         ];
 
         shellHook = ''
