@@ -4,8 +4,6 @@
     ## Lsp
     nixd # nix
     ols # odin
-    nodePackages."@tailwindcss/language-server" # tailwindcss
-    sqls # sql
 
     ## formating
     shfmt
