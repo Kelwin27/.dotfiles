@@ -14,7 +14,7 @@
     {
       devShells.${system}.default = pkgs.mkShell {
         buildInputs = with pkgs; [
-          jdk21
+          jdk
           scala
           sbt
           metals
@@ -26,7 +26,7 @@
         ];
 
         shellHook = ''
-          export JAVA_HOME=${pkgs.jdk21}
+          export JAVA_HOME=${pkgs.jdk}
           export PATH=$JAVA_HOME/bin:$PATH
 
           echo "🚀 Modern Scala environment ready! (Using nixpkgs packages)"
@@ -35,12 +35,43 @@
 
           # Простая проверка версий
           echo "📋 Tools:"
-          command -v scala && echo "   Scala: $(scala -version 2>&1 | head -n1)"
-          command -v sbt && echo "   SBT:   $(sbt --version 2>&1 | head -n1)"
-          command -v metals && echo "   Metals: $(metals --version 2>&1 | head -n1)"
-          command -v scalafmt && echo "   Scalafmt: $(scalafmt --version 2>&1 | head -n1)"
-          command -v scalafix && echo "   Scalafix: $(scalafix --version 2>&1 | head -n1)"
-          echo "   Java:  ${pkgs.jdk21}/bin/java -version 2>&1 | head -n1)"
+          if command -v scala >/dev/null 2>&1; then
+            echo "   Scala: $(scala -version 2>&1 | head -n1)"
+          else
+            echo "   Scala: ❌ NOT FOUND"
+          fi
+
+          if command -v sbt >/dev/null 2>&1; then
+            echo "   SBT: $(sbt --version 2>&1 | head -n1)"
+          else
+            echo "   SBT: ❌ NOT FOUND"
+          fi
+
+          if command -v metals >/dev/null 2>&1; then
+            METALS_OUTPUT=$(metals --version 2>&1)
+            METALS_VERSION=$(echo "$METALS_OUTPUT" | grep -E '^metals [0-9]+\.[0-9]+\.[0-9]+' | cut -d' ' -f2)
+            if [ -n "$METALS_VERSION" ]; then
+              echo "   Metals: $METALS_VERSION"
+            else
+              echo "   Metals: Version not found in output"
+            fi
+          else
+            echo "   Metals: ❌ NOT FOUND"
+          fi
+
+          if command -v scalafmt >/dev/null 2>&1; then
+            echo "   Scalafmt: $(scalafmt --version 2>&1 | head -n1)"
+          else
+            echo "   Scalafmt: ❌ NOT FOUND"
+          fi
+
+          if command -v scalafix >/dev/null 2>&1; then
+            echo "   Scalafix: $(scalafix --version 2>&1 | head -n1)"
+          else
+            echo "   Scalafix: ❌ NOT FOUND"
+          fi
+
+          echo "   Java: $(java -version 2>&1 | head -n1)"
           echo ""
 
           echo "💡 Quick start:"
