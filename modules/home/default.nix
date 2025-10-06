@@ -6,7 +6,7 @@
     ./browser.nix # firefox based browser
     ./btop.nix # resouces monitor
     ./cava.nix # audio visualizer
-    ./discord.nix # discord
+    #./discord.nix # discord
     ./fastfetch.nix # fetch tool
     ./flow.nix # terminal text editor
     ./fzf.nix # fuzzy finder
