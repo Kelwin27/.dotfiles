@@ -4,7 +4,7 @@
     ## Multimedia
     audacity
     gimp
-    obs-studio
+    #obs-studio
     pavucontrol
     soundwireserver
     video-trimmer
