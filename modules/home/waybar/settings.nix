@@ -117,7 +117,7 @@ in
         default = [ "<span foreground='${blue}'> </span>" ];
       };
       scroll-step = 2;
-      on-click = "pamixer -t";
+      on-click = "wpctl set-mute @DEFAULT_SINK@ toggle";
       on-click-right = "pavucontrol";
     };
     battery = {

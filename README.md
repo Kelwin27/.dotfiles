@@ -338,9 +338,6 @@ Keybindings
 - ```$mainMod ALT, down, moveactive, 0 80```
 
 ##### media and volume controls
-- ```,XF86AudioRaiseVolume, exec, pamixer -i 2```
-- ```,XF86AudioLowerVolume, exec, pamixer -d 2```
-- ```,XF86AudioMute, exec, pamixer -t```
 - ```,XF86AudioPlay, exec, playerctl play-pause```
 - ```,XF86AudioNext, exec, playerctl next```
 - ```,XF86AudioPrev, exec, playerctl previous```

@@ -11,7 +11,7 @@
     vlc
 
     ## Office
-    libreoffice
+    #libreoffice
     gnome-calculator
 
     ## Utility
