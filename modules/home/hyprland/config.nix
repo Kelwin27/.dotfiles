@@ -261,7 +261,6 @@ in
         "$mainMod ALT, l, moveactive, 80 0"
 
         # media and volume controls
-        # ",XF86AudioMute,exec, pamixer -t"
         ",XF86AudioPlay,exec, playerctl play-pause"
         ",XF86AudioNext,exec, playerctl next"
         ",XF86AudioPrev,exec, playerctl previous"
@@ -281,12 +280,6 @@ in
       #   ",XF86MonBrightnessDown, exec, brightnessctl set 5%-"
       #   "$mainMod, XF86MonBrightnessUp, exec, brightnessctl set 100%+"
       #   "$mainMod, XF86MonBrightnessDown, exec, brightnessctl set 100%-"
-      # ];
-
-      # # binds that repeat when held
-      # binde = [
-      #   ",XF86AudioRaiseVolume,exec, pamixer -i 2"
-      #   ",XF86AudioLowerVolume,exec, pamixer -d 2"
       # ];
 
       # mouse binding
