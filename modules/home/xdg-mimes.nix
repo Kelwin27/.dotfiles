@@ -8,11 +8,10 @@ let
     audio = [ "mpv.desktop" ];
     video = [ "mpv.desktop" ];
     directory = [ "nemo.desktop" ];
-    office = [ "libreoffice.desktop" ];
+    #office = [ "libreoffice.desktop" ];
     pdf = [ "org.gnome.Evince.desktop" ];
     terminal = [ "ghostty.desktop" ];
     archive = [ "org.gnome.FileRoller.desktop" ];
-    discord = [ "webcord.desktop" ];
   };
 
   mimeMap = {
@@ -55,18 +54,18 @@ let
       "x-scheme-handler/https"
       "x-scheme-handler/unknown"
     ];
-    office = [
-      "application/vnd.oasis.opendocument.text"
-      "application/vnd.oasis.opendocument.spreadsheet"
-      "application/vnd.oasis.opendocument.presentation"
-      "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-      "application/vnd.openxmlformats-officedocument.presentationml.presentation"
-      "application/msword"
-      "application/vnd.ms-excel"
-      "application/vnd.ms-powerpoint"
-      "application/rtf"
-    ];
+    #office = [
+    # "application/vnd.oasis.opendocument.text"
+    # "application/vnd.oasis.opendocument.spreadsheet"
+    # "application/vnd.oasis.opendocument.presentation"
+    # "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    # "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    # "application/vnd.openxmlformats-officedocument.presentationml.presentation"
+    # "application/msword"
+    # "application/vnd.ms-excel"
+    # "application/vnd.ms-powerpoint"
+    # "application/rtf"
+    #];
     pdf = [ "application/pdf" ];
     terminal = [ "terminal" ];
     archive = [
@@ -75,17 +74,12 @@ let
       "application/7z"
       "application/*tar"
     ];
-    discord = [ "x-scheme-handler/discord" ];
   };
 
   associations =
     with lists;
     listToAttrs (
-      flatten (
-        mapAttrsToList (
-          key: map (type: attrsets.nameValuePair type defaultApps."${key}")
-        ) mimeMap
-      )
+      flatten (mapAttrsToList (key: map (type: attrsets.nameValuePair type defaultApps."${key}")) mimeMap)
     );
 in
 {
