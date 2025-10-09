@@ -14,6 +14,7 @@
     {
       devShells.${system}.default = pkgs.mkShell {
         buildInputs = with pkgs; [
+          nodejs
           nodePackages_latest."@angular/cli"
           nodePackages."@tailwindcss/language-server"
           nodePackages.prettier
@@ -21,17 +22,15 @@
 
         shellHook = ''
           export NODE_ENV=development
+          export PATH="${pkgs.nodejs}/bin:$PATH"
+
+          # Добавляем локальные бинарники проекта
           if [ -d "$PWD/node_modules/.bin" ]; then
             export PATH="$PWD/node_modules/.bin:$PATH"
+            echo "✅ Project node_modules/.bin added to PATH"
           else
-            echo "⚠️ node_modules/.bin not found in $PWD"
-            echo "   Please run 'npm install' in your project directory"
-          fi
-
-          if ! command -v node >/dev/null 2>&1; then
-            echo "❌ Node.js not found! Please install Node.js globally."
-            echo "   Or add nodejs_20 to buildInputs in flake.nix"
-            exit 1
+            echo "⚠️  node_modules/.bin not found in $PWD"
+            echo "   Run 'npm install' to install project dependencies"
           fi
 
           # Проверка Angular CLI
