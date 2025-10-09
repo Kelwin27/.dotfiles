@@ -10,7 +10,6 @@
     ./fastfetch.nix # fetch tool
     ./flow.nix # terminal text editor
     ./fzf.nix # fuzzy finder
-    #./gaming.nix                      # packages related to gaming
     ./ghostty.nix # terminal
     ./git.nix # version control
     ./gnome.nix # gnome apps
@@ -20,7 +19,7 @@
     ./micro.nix # nano replacement
     ./nemo.nix # file manager
     ./nix-search/nix-search.nix # TUI to search nixpkgs
-    # ./nvim.nix                        # neovim editor
+    ./ollama.nix # ollama ai
     ./obsidian.nix
     ./p10k/p10k.nix
     ./packages # other packages
@@ -31,7 +30,6 @@
     ./swaylock.nix # lock screen
     ./swayosd.nix # brightness / volume wiget
     ./swaync/swaync.nix # notification deamon
-    # ./viewnior.nix                    # image viewer
     ./vscodium # vscode fork
     ./waybar # status bar
     ./waypaper.nix # GUI wallpaper picker
