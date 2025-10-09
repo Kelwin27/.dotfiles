@@ -43,12 +43,6 @@
 
       "editor.mouseWheelZoom" = true;
 
-      # C/C++
-      "clangd.arguments" = [
-        "--clang-tidy"
-        "--inlay-hints=false"
-      ];
-
       # Zig
       # "zig.initialSetupDone" = true;
       "zig.checkForUpdate" = false;
