@@ -14,6 +14,9 @@
     #libreoffice
     gnome-calculator
 
+    ##Torrent
+    transmission_4-gtk
+
     ## Utility
     dconf-editor
     gnome-disk-utility
