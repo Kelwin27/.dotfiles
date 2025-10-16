@@ -14,6 +14,7 @@
       gcr
       gnome-settings-daemon
     ];
+    xserver.videoDrivers = [ "nvidia" ];
   };
   services.logind.settings.Login = {
     HandlePowerKey = "ignore";

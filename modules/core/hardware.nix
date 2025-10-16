@@ -5,40 +5,57 @@
   pkgs,
   ...
 }:
-let
-  hyprland-pkgs = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
-in
+
 {
-  boot.blacklistedKernelModules = [ "nouveau" ];
+  boot.blacklistedKernelModules = [
+    "nouveau"
+    "nvidiafb"
+  ];
+
+  boot.initrd.kernelModules = [
+    "nvidia"
+    "nvidia_modeset"
+    "nvidia_uvm"
+    "nvidia_drm"
+  ];
+
+  # boot.kernelPackages = lib.mkForce pkgs.linuxPackages_latest;
+
   environment.systemPackages = with pkgs; [
-    cudatoolkit # Для CUDA
+    cudaPackages.cudatoolkit # Для CUDA
     cudaPackages.cudnn # Для ускорения нейронных сетей
   ];
+
+  nixpkgs.config.cudaSupport = true;
+  nixpkgs.config.cudaCapabilities = [ "7.5" ];
+
   hardware = {
     graphics = {
       enable = true;
-      package = hyprland-pkgs.mesa;
       extraPackages = with pkgs; [
-        nvidia-vaapi-driver
+        nvidia-vaapi-driver # Для аппаратного декодирования видео
+        vaapiVdpau
+        libvdpau
       ];
     };
+
     nvidia = {
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
-      open = false;
-      modesetting.enable = true;
-      powerManagement.enable = true;
-      nvidiaSettings = true;
+      package = config.boot.kernelPackages.nvidiaPackages.stable; # Стабильные драйверы
+      open = false; # Проприетарные драйверы
+      modesetting.enable = true; # Для Wayland и Hyprland
+      powerManagement.enable = true; # Энергосбережение
+      powerManagement.finegrained = false; # Не поддерживается на GTX 1650
+      nvidiaSettings = true; # Для утилиты nvidia-settings
     };
+
+    enableRedistributableFirmware = true;
   };
 
-  hardware.enableRedistributableFirmware = true;
   environment.variables = {
-    OLLAMA_CUDA_ENABLED = "1";
     GBM_BACKEND = "nvidia-drm";
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     LIBVA_DRIVER_NAME = "nvidia";
-    WLR_NO_HARDWARE_CURSORS = "1";
-    CUDA_PATH = "${pkgs.cudatoolkit}";
-    LD_LIBRARY_PATH = "${pkgs.cudatoolkit}/lib64:${pkgs.cudaPackages.cudnn}/lib";
+    WLR_NO_HARDWARE_CURSORS = "1"; # Для Wayland
+    OLLAMA_CUDA_ENABLED = "1"; # Для Ollama
   };
 }
