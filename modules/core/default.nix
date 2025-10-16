@@ -2,7 +2,7 @@
 {
   imports = [
     ./bootloader.nix
-    #./hardware.nix
+    ./hardware.nix
     ./xserver.nix
     ./network.nix
     ./nh.nix
