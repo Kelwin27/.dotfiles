@@ -24,7 +24,7 @@ in
 
         "hyprlock"
 
-        "~/NoDPI/src/main.py --blacklist ~/NoDPI/blacklist.txt &"
+        "~/NoDPI/src/main.py --blacklist ~/NoDPI/blacklist.txt -q &"
 
         "[workspace 1 silent] ${browser}"
         "[workspace 2 silent] ${terminal}"
