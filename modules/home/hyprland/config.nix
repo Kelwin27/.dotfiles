@@ -22,8 +22,6 @@ in
         "hyprctl setcursor Bibata-Modern-Ice 24 &"
         "swww-daemon &"
 
-        "hyprlock"
-
         "~/NoDPI/src/main.py --blacklist ~/NoDPI/blacklist.txt -q &"
 
         "[workspace 1 silent] ${browser}"
@@ -156,29 +154,28 @@ in
         "$mainMod SHIFT, Return, exec, [fullscreen] ${terminal}"
         "$mainMod, B, exec, ${browser}"
         "$mainMod SHIFT, B, exec, chromium"
+        "$mainMod, V, exec, vscodium"
         "$mainMod, Q, killactive,"
         "$mainMod, F, fullscreen, 0"
         "$mainMod SHIFT, F, fullscreen, 1"
         "$mainMod, Space, exec, toggle-float"
         "$mainMod, D, exec, rofi -show drun || pkill rofi"
-        # "$mainMod SHIFT, D, exec, webcord --enable-features=UseOzonePlatform --ozone-platform=wayland"
         "$mainMod SHIFT, S, exec, hyprctl dispatch exec '[workspace 5 silent] SoundWireServer'"
         "$mainMod, Escape, exec, swaylock"
         "ALT, Escape, exec, hyprlock"
         "$mainMod SHIFT, Escape, exec, power-menu"
         "$mainMod, P, pseudo,"
         "$mainMod, X, togglesplit,"
-        "$mainMod, T, exec, toggle-oppacity"
+        "$mainMod, T, exec, toggle-opacity"
         "$mainMod, E, exec, nemo"
         "ALT, E, exec, hyprctl dispatch exec '[float; size 1111 700] nemo'"
         "$mainMod SHIFT, T, exec, toggle-waybar"
-        "$mainMod, C ,exec, hyprpicker -a"
-        "$mainMod, W,exec, wallpaper-picker"
+        "$mainMod, C, exec, hyprpicker -a"
+        "$mainMod, W, exec, wallpaper-picker"
         "$mainMod SHIFT, W,exec, hyprctl dispatch exec '[float; size 925 615] waypaper'"
         "$mainMod, N, exec, swaync-client -t -sw"
         "CTRL SHIFT, Escape, exec, hyprctl dispatch exec '[workspace 9] missioncenter'"
         "$mainMod, equal, exec, woomer"
-        # "$mainMod SHIFT, W, exec, vm-start"
 
         # screenshot
         ",Print, exec, screenshot --copy"
@@ -273,15 +270,6 @@ in
         "$mainMod, V, exec, cliphist list | rofi -dmenu -theme-str 'window {width: 50%;} listview {columns: 1;}' | cliphist decode | wl-copy"
       ];
 
-      # # binds active in lockscreen
-      # bindl = [
-      #   # laptop brigthness
-      #   ",XF86MonBrightnessUp, exec, brightnessctl set 5%+"
-      #   ",XF86MonBrightnessDown, exec, brightnessctl set 5%-"
-      #   "$mainMod, XF86MonBrightnessUp, exec, brightnessctl set 100%+"
-      #   "$mainMod, XF86MonBrightnessDown, exec, brightnessctl set 100%-"
-      # ];
-
       # mouse binding
       bindm = [
         "$mainMod, mouse:272, movewindow"
@@ -313,12 +301,10 @@ in
         "opacity 1.0 override 1.0 override, class:(zen)"
         "opacity 1.0 override 1.0 override, class:(evince)"
         "workspace 1, class:^(${browser})$"
-        "workspace 3, class:^(evince)$"
+        "workspace 3, class:^(codium)$"
+        "workspace 4, class:^(evince)$"
         "workspace 5, class:^(Gimp-2.10)$"
         "workspace 5, class:^(Audacious)$"
-        "workspace 8, class:^(com.obsproject.Studio)$"
-        "workspace 10, class:^(discord)$"
-        "workspace 10, class:^(WebCord)$"
         "idleinhibit focus, class:^(mpv)$"
         "idleinhibit fullscreen, class:^(firefox)$"
         "float,class:^(org.gnome.Calculator)$"
