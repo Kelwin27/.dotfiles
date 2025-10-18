@@ -20,7 +20,7 @@ in
       "$mainMod SHIFT, Return, exec, [fullscreen] ${terminal}"
       "$mainMod, B, exec, ${browser}"
       "$mainMod SHIFT, B, exec, chromium"
-      "$mainMod, V, exec, vscodium"
+      "$mainMod SHIFT, V, exec, codium"
       "$mainMod, Q, killactive,"
       "$mainMod, F, fullscreen, 0"
       "$mainMod SHIFT, F, fullscreen, 1"
