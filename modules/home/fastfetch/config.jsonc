@@ -51,12 +51,12 @@
     },
     {
       "type": "custom",
-      "format": "└──────────────────────────────────┘"
+      "format": "└─────────────────────────────────────┘"
     },
     "break",
     {
       "type": "custom",
-      "format": "┌───────────  Desktop ───────────┐",
+      "format": "┌────────────  Desktop ──────────────┐",
       "keyColor": "blue"
     },
     {
@@ -97,12 +97,12 @@
     },
     {
       "type": "custom",
-      "format": "└──────────────────────────────────┘"
+      "format": "└──────────────────────────────────────┘"
     },
     "break",
     {
       "type": "custom",
-      "format": "┌─────────── 󰌢 Hardware ───────────┐",
+      "format": "┌────────────── 󰌢 Hardware ──────────────┐",
       "keyColor": "green"
     },
     {
@@ -153,7 +153,7 @@
     },
     {
       "type": "custom",
-      "format": "└──────────────────────────────────┘"
+      "format": "└─────────────────────────────────────┘"
     },
     "break",
     {
@@ -161,15 +161,17 @@
       "symbol": "background",
       "paddingLeft": 9
     },
-    "break"
+    "break",
     {
-      "type": "custom",
-      "format": "NixOS Generation: {output}",
-      "command": "nixos-version",
-      "keyColor": "cyan"
+      "type": "shell",
+      "key": "NixOS Generation",
+      "keyColor": "cyan",
+      "format": "{1}",
+      "shell": "nixos-version"
     }
   ],
-  "general": {  // New: Global settings for performance.
+  "**general**": {  // New: Global settings for performance.
     "multithread": true
   }
 }
+
