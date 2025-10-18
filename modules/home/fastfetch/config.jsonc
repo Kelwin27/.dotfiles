@@ -4,7 +4,7 @@
     "separator": " 󰑃  "
   },
   "logo": {
-    "source": "Linux",
+    "source": "nixos",
     "type": "builtin",
     "padding": {
       "top": 6,
@@ -97,12 +97,12 @@
     },
     {
       "type": "custom",
-      "format": "└──────────────────────────────────────┘"
+      "format": "└─────────────────────────────────────┘"
     },
     "break",
     {
       "type": "custom",
-      "format": "┌────────────── 󰌢 Hardware ──────────────┐",
+      "format": "┌──────────── 󰌢 Hardware ─────────────┐",
       "keyColor": "green"
     },
     {
@@ -155,20 +155,12 @@
       "type": "custom",
       "format": "└─────────────────────────────────────┘"
     },
-    "break",
     {
       "type": "colors",
       "symbol": "background",
       "paddingLeft": 9
     },
-    "break",
-    {
-      "type": "shell",
-      "key": "NixOS Generation",
-      "keyColor": "cyan",
-      "format": "{1}",
-      "shell": "nixos-version"
-    }
+    "break"
   ],
   "**general**": {  // New: Global settings for performance.
     "multithread": true
