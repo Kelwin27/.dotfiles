@@ -31,10 +31,10 @@
       ns = "nom-shell --run zsh";
       nd = "nom develop --command zsh";
       nb = "nom build";
-      nc = "nh clean all --keep 5";
-      nft = "nh os test";
-      nfs = "nh os switch";
-      nfu = "nh os switch --update";
+      nhc = "nh clean all";
+      nht = "nh os test";
+      nhs = "nh os switch";
+      nhu = "nh os switch --update";
       # nix-search = "nh search";
 
       # python
