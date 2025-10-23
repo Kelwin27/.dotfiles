@@ -7,7 +7,6 @@
     fd # find replacement
     gping # ping with a graph
     gtrash # rm replacement, put deleted files in system trash
-    hevi # hex viewer
     hexyl # hex viewer
     man-pages # extra man pages
     ncdu # disk space
@@ -15,7 +14,6 @@
     tldr
 
     ## Tools / useful cli
-    aoc-cli # Advent of Code command-line tool
     asciinema
     asciinema-agg
     binsider
@@ -35,13 +33,13 @@
     epy # ebook reader
     gtt # google translate TUI
     programmer-calculator
-    smassh # typing test in the terminal
     toipe # typing test in the terminal
     ttyper # cli typing test
 
-    ## Monitoring / fetch
-    neofetch
+    ## Monitoring
     onefetch # fetch utility for git repo
+    tcpdump # network packet analyzer/sniffer
+    nmap # network discovery and security scanner
     # wavemon                           # monitoring for wireless network devices
 
     ## Fun / screensaver
@@ -59,7 +57,6 @@
     tty-clock
 
     ## Multimedia
-    ani-cli
     imv
     lowfi
     mpv
@@ -76,11 +73,7 @@
     playerctl # controller for media players
     poweralertd
     unzip
-    wget
     wl-clipboard # clipboard utils for wayland (wl-copy, wl-paste)
     xdg-utils
-
-    # winetricks
-    # wineWowPackages.waylandFull
   ];
 }
