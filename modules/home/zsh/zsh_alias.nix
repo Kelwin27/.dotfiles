@@ -18,7 +18,7 @@
       pdf = "tdf";
       open = "xdg-open";
       space = "ncdu";
-      man = "BAT_THEME='default' batman";
+      man = "batman";
       upgrade = "sudo nixos-rebuild switch --flake $HOME/nixos-config";
 
       l = "eza --icons  -a --group-directories-first -1"; # EZA_ICON_SPACING=2
