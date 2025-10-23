@@ -1,36 +1,37 @@
 { pkgs, username, ... }:
 {
-  programs.git = {
-    enable = true;
+  programs = {
+    git = {
+      enable = true;
 
-    userName = username;
-    userEmail = "kelwin90210@gmail.com";
+      settings = {
+        user = {
+          name = username;
+          email = "kelwin90210@gmail.com";
+        };
 
-    extraConfig = {
-      init.defaultBranch = "main";
-      merge.conflictstyle = "diff3";
-      diff.colorMoved = "default";
-      pull.ff = "only";
-      color.ui = true;
-      url = {
-        "git@kelwin:Kelwin27/".insteadOf = [
-          "https://github.com/Kelwin27/"
-          "git@github.com:Kelwin27/"
-        ];
-        "git@mrrobot:mrrobot911/".insteadOf = [
-          "https://github.com/mrrobot911/"
-          "git@github.com:mrrobot911/"
-        ];
-        #"git@codemasters:dev-course/".insteadOf = [
-        #  "https://gitlab.itschool.pro/dev-course/"
-        #  "git@gitlab.itschool.pro:dev-course/"
-        #];
+        init.defaultBranch = "main";
+        merge.conflictstyle = "diff3";
+        diff.colorMoved = "default";
+        pull.ff = "only";
+        color.ui = true;
+        url = {
+          "git@kelwin:Kelwin27/".insteadOf = [
+            "https://github.com/Kelwin27/"
+            "git@github.com:Kelwin27/"
+          ];
+          "git@mrrobot:mrrobot911/".insteadOf = [
+            "https://github.com/mrrobot911/"
+            "git@github.com:mrrobot911/"
+          ];
+        };
+        core.excludesFile = "/home/${username}/.config/git/.gitignore";
       };
-      core.excludesFile = "/home/${username}/.config/git/.gitignore";
     };
 
     delta = {
       enable = true;
+      enableGitIntegration = true;
       options = {
         line-numbers = true;
         side-by-side = false;
