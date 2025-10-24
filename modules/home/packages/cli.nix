@@ -17,6 +17,7 @@
     asciinema
     asciinema-agg
     binsider
+    gopass # cli for secure manage passwords
     bitwise # cli tool for bit / hex manipulation
     broot # tree files view
     caligula # User-friendly, lightweight TUI for disk imaging
