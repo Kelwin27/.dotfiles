@@ -21,8 +21,6 @@ in
     "hyprctl setcursor Bibata-Modern-Ice 24 &"
     "swww-daemon &"
 
-    "~/NoDPI/src/main.py --blacklist ~/NoDPI/blacklist.txt -q &"
-
     "[workspace 1 silent] ${browser}"
     "[workspace 2 silent] ${terminal}"
     "[workspace 4 silent] ${pdf}"
