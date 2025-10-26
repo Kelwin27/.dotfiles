@@ -47,9 +47,6 @@
       sucg-list = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
       cg-list = "nix-env --list-generations";
 
-      # DPI
-      dpi = "py ~/NoDPI/src/main.py --blacklist ~/NoDPI/blacklist.txt";
-
       # Scala flakes
       scala2 = "cd ~/nixos-config/enviroment/scala_legacy_env/ && nix develop --command zsh";
       scala3 = "cd ~/nixos-config/enviroment/scala_env/ && nix develop --command zsh";
