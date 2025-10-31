@@ -17,6 +17,11 @@
           dotnet-sdk_9 # SDK для .NET (включает компилятор C# и runtime)
           csharp-ls # LSP-сервер для C#
           csharpier # Форматировщик кода для C#
+          libgdiplus # delete
+        ];
+
+        LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [
+          pkgs.libgdiplus
         ];
 
         shellHook = ''
