@@ -72,42 +72,39 @@
     }@inputs:
     let
       username = "kelwin";
-      system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-      };
-      lib = nixpkgs.lib;
+      inherit (nixpkgs) lib;
+      mkSystem =
+        host: modules:
+        nixpkgs.lib.nixosSystem {
+          modules = modules ++ [
+            {
+              networking.hostName = lib.mkForce host;
+            }
+          ];
+          specialArgs = {
+            inherit
+              self
+              inputs
+              username
+              host
+              ;
+          };
+        };
     in
     {
       nixosConfigurations = {
-        desktop = nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [
-            ./hosts/desktop
-            nvf.nixosModules.default
-          ];
-          specialArgs = {
-            host = "desktop";
-            inherit self inputs username;
-          };
-        };
-        laptop = nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [ ./hosts/laptop ];
-          specialArgs = {
-            host = "laptop";
-            inherit self inputs username;
-          };
-        };
-        vm = nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [ ./hosts/vm ];
-          specialArgs = {
-            host = "vm";
-            inherit self inputs username;
-          };
-        };
+        desktop = mkSystem "desktop" [
+          ./hosts/desktop
+          nvf.nixosModules.default
+        ];
+
+        laptop = mkSystem "laptop" [
+          ./hosts/laptop
+        ];
+
+        vm = mkSystem "vm" [
+          ./hosts/vm
+        ];
       };
     };
 }

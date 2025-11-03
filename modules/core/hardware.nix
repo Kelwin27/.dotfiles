@@ -34,7 +34,7 @@
       enable = true;
       extraPackages = with pkgs; [
         nvidia-vaapi-driver # Для аппаратного декодирования видео
-        vaapiVdpau
+        libva-vdpau-driver
         libvdpau
       ];
     };

@@ -1,9 +1,13 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
+let
+  grimblastPkg = inputs.hypr-contrib.packages.${pkgs.system}.grimblast;
+  hyprpickerPkg = inputs.hyprpicker.packages.${pkgs.system}.hyprpicker;
+in
 {
   home.packages = with pkgs; [
     swww
-    grimblast
-    hyprpicker
+    grimblastPkg
+    hyprpickerPkg
     grim
     slurp
     wl-clip-persist
