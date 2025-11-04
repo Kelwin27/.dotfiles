@@ -10,14 +10,17 @@
     ];
     firewall = {
       enable = true;
+      rejectPackets = true; # INPUT policy DROP
       allowedTCPPorts = [
         22
         80
         443
+        51413 # Transmission
         59010
         59011
       ];
       allowedUDPPorts = [
+        51413 # Transmission
         59010
         59011
       ];
