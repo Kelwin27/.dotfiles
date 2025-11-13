@@ -1,15 +1,11 @@
 { pkgs, ... }:
 
 let
-  imageio-light = pkgs.python3Packages.imageio.overrideAttrs (old: {
-    propagatedBuildInputs = builtins.filter (
-      dep: dep.pname or "" != "pillow-heif"
-    ) old.propagatedBuildInputs;
-  });
-
   waypaper-light = pkgs.waypaper.overrideAttrs (old: {
     python3Packages = pkgs.python3.withPackages (ps: [
-      imageio-light
+      ps.imageio-core # preview (JPG/PNG)
+      ps.pycairo # graphic
+      ps.pygobject # GTK
     ]);
   });
 in
