@@ -1,7 +1,8 @@
 { pkgs, inputs, ... }:
 {
-  # imports = [ inputs.nix-gaming.nixosModules.default ];
   nix = {
+    package = pkgs.nix;
+
     settings = {
       auto-optimise-store = true;
       experimental-features = [
@@ -31,6 +32,14 @@
   environment.systemPackages = with pkgs; [
     wget
     git
+    nvd # Nix/NixOS package version diff tool
+    nix-du # Tool to determine which gc-roots take space in your nix store
+    nix-btm # Bottom-like system monitor for nix
+    nix-web # Web interface for the Nix store
+    nix-tree # Interactively browse a Nix store paths dependencies
+    nix-melt # Ranger-like flake.lock viewer
+    nix-output-monitor # Processes output of Nix commands to show helpful and pretty information
+    nixtract # A CLI tool to extract the graph of derivations from a Nix flake
   ];
 
   time.timeZone = "Europe/Moscow";
