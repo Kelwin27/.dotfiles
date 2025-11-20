@@ -55,7 +55,6 @@
     .bloop/
     .metals/
     *.log
-    *.exe
     tmp/
   '';
 

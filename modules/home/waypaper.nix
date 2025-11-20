@@ -1,16 +1,7 @@
 { pkgs, ... }:
 
-let
-  waypaper-light = pkgs.waypaper.overrideAttrs (old: {
-    python3Packages = pkgs.python3.withPackages (ps: [
-      ps.imageio-core # preview (JPG/PNG)
-      ps.pycairo # graphic
-      ps.pygobject # GTK
-    ]);
-  });
-in
 {
-  home.packages = with pkgs; [ waypaper-light ];
+  home.packages = with pkgs; [ waypaper ];
 
   xdg.configFile."waypaper/config.ini".text = ''
     [Settings]
