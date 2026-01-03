@@ -12,7 +12,6 @@
 
     ## Office
     libreoffice
-    gnome-calculator
 
     ##Torrent
     transmission_4-gtk
