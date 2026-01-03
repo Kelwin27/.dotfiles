@@ -22,7 +22,7 @@
     ./obsidian.nix
     ./p10k/p10k.nix
     ./packages # other packages
-    ./rofi.nix # launcher
+    ./rofi/rofi.nix # launcher
     ./scripts/scripts.nix # personal scripts
     ./ssh.nix # ssh config
     ./superfile/superfile.nix # terminal file manager

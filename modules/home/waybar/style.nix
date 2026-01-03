@@ -87,12 +87,12 @@ in
       color: ${text_color};
     }
 
-    #pulseaudio, #language {
+    #pulseaudio, #language, #custom-notification  {
       margin-left: 15px;
     }
 
-    #custom-notification {
-      margin-left: 15px;
+    #custom-power-menu {
+      margin-left: 10px;
       padding-right: 2px;
       margin-right: 5px;
     }
