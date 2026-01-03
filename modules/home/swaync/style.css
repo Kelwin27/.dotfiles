@@ -364,10 +364,11 @@ scrollbar slider {
 .widget-dnd switch {
   margin: 8px;
   margin-top: 16px;
+  border-radius: 9px;
 }
 
 .widget-dnd switch slider {
-  border-radius: 0px;
+  border-radius: 50%;
 }
 
 .widget-label {
