@@ -17,7 +17,6 @@
     ./lazygit.nix
     ./micro.nix # nano replacement
     ./nemo.nix # file manager
-    ./nix-search/nix-search.nix # TUI to search nixpkgs
     #./ollama.nix # ollama ai
     ./obsidian.nix
     ./p10k/p10k.nix
