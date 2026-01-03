@@ -63,14 +63,6 @@
       treesitter.enable = true;
     };
 
-    sql = {
-      enable = true;
-      extraDiagnostics.enable = true;
-      format.enable = true;
-      lsp.enable = true;
-      treesitter.enable = true;
-    };
-
     odin = {
       enable = true;
       lsp.enable = true;

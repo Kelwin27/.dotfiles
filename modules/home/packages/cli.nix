@@ -33,7 +33,7 @@
     ## TUI
     epy # ebook reader
     gtt # google translate TUI
-    programmer-calculator
+    # programmer-calculator
     toipe # typing test in the terminal
     ttyper # cli typing test
 
