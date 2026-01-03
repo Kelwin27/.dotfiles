@@ -34,16 +34,12 @@
   "text-empty": "No Notifications",
   "script-fail-notify": true,
   "widgets": [
+    "title",
     "dnd",
     "mpris",
     "notifications"
   ],
   "widget-config": {
-    "inhibitors": {
-      "text": "Inhibitors",
-      "button-text": "Clear All",
-      "clear-all-button": true
-    },
     "title": {
       "text": "Notifications",
       "clear-all-button": true,
