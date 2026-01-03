@@ -2,6 +2,7 @@
 {
   wayland.windowManager.hyprland = {
     settings = {
+      "$mainMod" = "SUPER";
       input = {
         kb_layout = "us,ru";
         kb_options = "grp:alt_shift_toggle";
@@ -17,7 +18,6 @@
       };
 
       general = {
-        "$mainMod" = "SUPER";
         layout = "dwindle";
         gaps_in = 6;
         gaps_out = 12;
