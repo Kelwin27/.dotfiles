@@ -2,7 +2,7 @@
   description = "Minimal C# development environment";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
   };
 
   outputs =
@@ -14,18 +14,13 @@
     {
       devShells.${system}.default = pkgs.mkShell {
         buildInputs = with pkgs; [
-          dotnet-sdk_9 # SDK для .NET (включает компилятор C# и runtime)
+          dotnet-sdk_10 # SDK для .NET (включает компилятор C# и runtime)
           csharp-ls # LSP-сервер для C#
           csharpier # Форматировщик кода для C#
-          libgdiplus # delete
-        ];
-
-        LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [
-          pkgs.libgdiplus
         ];
 
         shellHook = ''
-          export DOTNET_ROOT="${pkgs.dotnet-sdk_9}/bin"
+          export DOTNET_ROOT="${pkgs.dotnet-sdk_10}/bin"
           export PATH="$DOTNET_ROOT:$PATH"
 
           # Добавляем локальные бинарники проекта (если есть)
