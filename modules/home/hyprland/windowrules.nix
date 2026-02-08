@@ -33,6 +33,7 @@ in
       "workspace 4, match:class ^(evince)$"
       "workspace 5, match:class ^(Gimp-2.10)$"
       "workspace 5, match:class ^(Audacious)$"
+      "workspace 10, match:class ^(vesktop)$"
       "idle_inhibit focus, match:class ^(mpv)$"
       "idle_inhibit fullscreen, match:class ^(firefox)$"
       "float on, match:class ^(org.gnome.Calculator)$"
