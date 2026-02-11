@@ -25,6 +25,7 @@
 
     html = {
       enable = true;
+      lsp.servers = [ "emmet-ls" ];
       treesitter.enable = true;
       treesitter.autotagHtml = true;
     };
