@@ -2,7 +2,6 @@
 let
   browser = "zen-beta";
   terminal = "ghostty";
-  pdf = "evince";
 in
 {
   wayland.windowManager.hyprland.settings.exec-once = [
@@ -23,6 +22,5 @@ in
 
     "[workspace 1 silent] ${browser}"
     "[workspace 2 silent] ${terminal}"
-    "[workspace 4 silent] ${pdf}"
   ];
 }

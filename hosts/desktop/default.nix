@@ -7,8 +7,8 @@
 
   powerManagement.cpuFreqGovernor = "performance";
 
-  fileSystems."/mnt/ubuntu" = {
-    device = "/dev/disk/by-uuid/f346a8b9-5bb2-4ab2-9c8e-7b1ce0dd1dca";
+  fileSystems."/mnt/data" = {
+    device = "/dev/disk/by-uuid/26d5850e-e245-4932-a783-af2ddff64c58";
     fsType = "ext4";
     options = [
       "defaults"

@@ -3,15 +3,15 @@ with lib;
 let
   defaultApps = {
     browser = [ "zen-beta.desktop" ];
-    text = [ "org.gnome.TextEditor.desktop" ];
+    text = [ "nvim.desktop" ];
     image = [ "imv-dir.desktop" ];
     audio = [ "mpv.desktop" ];
     video = [ "mpv.desktop" ];
     directory = [ "nemo.desktop" ];
-    #office = [ "libreoffice.desktop" ];
-    pdf = [ "org.gnome.Evince.desktop" ];
+    office = [ "libreoffice.desktop" ];
+    pdf = [ "org.gnome.Papers.desktop" ];
     terminal = [ "ghostty.desktop" ];
-    archive = [ "org.gnome.FileRoller.desktop" ];
+    archive = [ "peazip.desktop" ];
   };
 
   mimeMap = {
@@ -54,18 +54,18 @@ let
       "x-scheme-handler/https"
       "x-scheme-handler/unknown"
     ];
-    #office = [
-    # "application/vnd.oasis.opendocument.text"
-    # "application/vnd.oasis.opendocument.spreadsheet"
-    # "application/vnd.oasis.opendocument.presentation"
-    # "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-    # "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-    # "application/vnd.openxmlformats-officedocument.presentationml.presentation"
-    # "application/msword"
-    # "application/vnd.ms-excel"
-    # "application/vnd.ms-powerpoint"
-    # "application/rtf"
-    #];
+    office = [
+      "application/vnd.oasis.opendocument.text"
+      "application/vnd.oasis.opendocument.spreadsheet"
+      "application/vnd.oasis.opendocument.presentation"
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+      "application/vnd.openxmlformats-officedocument.presentationml.presentation"
+      "application/msword"
+      "application/vnd.ms-excel"
+      "application/vnd.ms-powerpoint"
+      "application/rtf"
+    ];
     pdf = [ "application/pdf" ];
     terminal = [ "terminal" ];
     archive = [
@@ -83,10 +83,23 @@ let
     );
 in
 {
-  xdg.configFile."mimeapps.list".force = true;
-  xdg.mimeApps.enable = true;
-  xdg.mimeApps.associations.added = associations;
-  xdg.mimeApps.defaultApplications = associations;
+  xdg = {
+    desktopEntries.nvim = {
+      name = "Neovim";
+      genericName = "Text Editor";
+      exec = "ghostty -e nvim %F";
+      terminal = false;
+      icon = "nvim";
+      type = "Application";
+      startupNotify = false;
+    };
+    configFile."mimeapps.list".force = true;
+    mimeApps = {
+      enable = true;
+      associations.added = associations;
+      defaultApplications = associations;
+    };
+  };
 
   home.sessionVariables = {
     # prevent wine from creating file associations

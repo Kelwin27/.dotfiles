@@ -98,7 +98,12 @@
 
       # fzf-tab
       zstyle ':fzf-tab:*' use-fzf-default-opts yes
-      zstyle ':fzf-tab:complete:*:*' fzf-preview 'eza --icons  -a --group-directories-first -1 --color=always $realpath'
+      zstyle ':fzf-tab:complete:*:*' fzf-preview '
+        if [[ -d $realpath ]]; then
+          eza --icons -a --group-directories-first -1 --color=always $realpath
+        else
+          bat -n --color=always --line-range :100 $realpath
+        fi'
       zstyle ':fzf-tab:complete:kill:argument-rest' fzf-preview 'ps --pid=$word -o cmd --no-headers -w -w'
       zstyle ':fzf-tab:complete:kill:argument-rest' fzf-flags '--preview-window=down:3:wrap'
       zstyle ':fzf-tab:*' fzf-command fzf
