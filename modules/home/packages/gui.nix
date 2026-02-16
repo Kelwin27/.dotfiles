@@ -20,6 +20,7 @@
     dconf-editor
     gnome-disk-utility
     mission-center # GUI resources monitor
-    zenity
+    papers # pdf reader
+    file-roller # archivator
   ];
 }

@@ -12,6 +12,7 @@
     ncdu # disk space
     ripgrep # grep replacement
     tldr
+    zenity # for navigate with z
 
     ## Tools / useful cli
     asciinema
@@ -61,6 +62,7 @@
     imv
     lowfi
     mpv
+    viu # pictures in fzf
 
     ## Utilities
     entr # perform action when file change

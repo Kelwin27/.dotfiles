@@ -1,6 +1,7 @@
 { ... }:
 let
   browser = "zen-beta";
+  pdf = "org.gnome.Papers";
 in
 {
   wayland.windowManager.hyprland.settings = {
@@ -30,7 +31,7 @@ in
       "opacity 1.0 override 1.0 override, match:class evince"
       "workspace 1, match:class ^(${browser})$"
       "workspace 3, match:class ^(codium)$"
-      "workspace 4, match:class ^(evince)$"
+      "workspace 4, match:class ^(${pdf})$"
       "workspace 5, match:class ^(Gimp-2.10)$"
       "workspace 5, match:class ^(Audacious)$"
       "workspace 10, match:class ^(vesktop)$"

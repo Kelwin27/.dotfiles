@@ -8,7 +8,7 @@
     ## formating
     shfmt
     treefmt
-    nixfmt-rfc-style
+    nixfmt
 
     ## Python
     python3
