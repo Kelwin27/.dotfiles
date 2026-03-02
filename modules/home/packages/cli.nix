@@ -12,7 +12,6 @@
     ncdu # disk space
     ripgrep # grep replacement
     tldr
-    zenity # for navigate with z
 
     ## Tools / useful cli
     asciinema

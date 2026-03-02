@@ -35,17 +35,10 @@
       nht = "nh os test";
       nhs = "nh os switch";
       nhu = "nh os switch --update";
-      # nix-search = "nh search";
 
       # python
       piv = "python -m venv .venv";
       psv = "source .venv/bin/activate";
-
-      # Garbage
-      sucg = "sudo nix-collect-garbage -d";
-      cg = "nix-collect-garbage -d";
-      sucg-list = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
-      cg-list = "nix-env --list-generations";
 
       # Scala flakes
       scala2 = "cd ~/nixos-config/enviroment/scala_legacy_env/ && nix develop --command zsh";
