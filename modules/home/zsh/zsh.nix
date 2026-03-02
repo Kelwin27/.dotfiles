@@ -43,11 +43,6 @@
       # compinit
       _comp_options+=(globdots)
 
-      # Load edit-command-line for ZLE
-      autoload -Uz edit-command-line
-      zle -N edit-command-line
-      bindkey "^e" edit-command-line
-
       # General completion behavior
       zstyle ':completion:*' completer _extensions _complete _approximate
 
@@ -101,6 +96,10 @@
       zstyle ':fzf-tab:complete:*:*' fzf-preview '
         if [[ -d $realpath ]]; then
           eza --icons -a --group-directories-first -1 --color=always $realpath
+        elif [[ $(file --mime-type -b $realpath) == image/* ]]; then
+          echo "🖼️ Image: $(basename $realpath)"
+          echo "Size: $(du -h $realpath | cut -f1)"
+          file $realpath
         else
           bat -n --color=always --line-range :100 $realpath
         fi'
