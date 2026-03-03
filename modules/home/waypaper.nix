@@ -1,15 +1,18 @@
 { pkgs, ... }:
 
 {
-  home.packages = with pkgs; [ waypaper ];
+  home.packages = with pkgs; [
+    waypaper
+    swaybg
+  ];
 
   xdg.configFile."waypaper/config.ini".text = ''
     [Settings]
     language = en
     folder = ~/Pictures/wallpapers/others
     monitors = All
-    wallpaper = ~/Pictures/wallpapers/others/nixos.png
-    backend = swww
+    wallpaper = ~/Pictures/wallpapers/others/a-mirage-in-the-distance-99-5120x2880.jpg
+    backend = swaybg
     fill = fill
     sort = name
     color = #ffffff
@@ -18,11 +21,9 @@
     show_gifs_only = False
     post_command = pkill .waypaper-wrapp
     number_of_columns = 3
-    swww_transition_type = any
-    swww_transition_step = 90
-    swww_transition_angle = 0
-    swww_transition_duration = 2
-    swww_transition_fps = 60
+    transition_type = fade
+    transition_duration = 2
+    transition_fps = 60
     use_xdg_state = False
   '';
 }

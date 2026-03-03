@@ -1,5 +1,4 @@
 {
-  inputs,
   pkgs,
   host,
   ...
@@ -8,7 +7,7 @@
   programs.hyprlock = {
     enable = true;
 
-    package = inputs.hyprlock.packages.${pkgs.system}.hyprlock;
+    package = pkgs.hyprlock;
 
     settings = {
       general = {
@@ -22,7 +21,7 @@
       background = [
         {
           monitor = "";
-          path = "${../../../wallpapers/otherWallpaper/gruvbox/forest_road.jpg}";
+          path = "${../../../wallpapers/otherWallpaper/gruvbox/japanese_pedestrian_street.png}";
           blur_passes = 2;
           contrast = 0.8916;
           brightness = 0.8172;
