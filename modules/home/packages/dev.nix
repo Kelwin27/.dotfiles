@@ -3,7 +3,7 @@
   home.packages = with pkgs; [
     ## Lsp
     nixd # nix
-    ols # odin
+    #ols # odin
 
     ## formating
     shfmt
@@ -15,7 +15,7 @@
     python312Packages.ipython
 
     ## Odin
-    odin
+    #odin
 
     #Go
     go
