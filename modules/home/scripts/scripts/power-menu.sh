@@ -62,7 +62,7 @@ $reboot)
   ;;
 $lock)
   sleep 0.1
-  swaylock
+  hyprlock
   ;;
 $suspend)
   sleep 0.1

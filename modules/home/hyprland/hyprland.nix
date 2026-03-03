@@ -1,13 +1,9 @@
-{ pkgs, inputs, ... }:
-let
-  grimblastPkg = inputs.hypr-contrib.packages.${pkgs.system}.grimblast;
-  hyprpickerPkg = inputs.hyprpicker.packages.${pkgs.system}.hyprpicker;
-in
+{ pkgs, ... }:
+
 {
   home.packages = with pkgs; [
-    swww
-    grimblastPkg
-    hyprpickerPkg
+    grimblast
+    hyprpicker
     grim
     slurp
     wl-clip-persist
@@ -27,9 +23,7 @@ in
 
     xwayland = {
       enable = true;
-      # hidpi = true;
     };
-    # enableNvidiaPatches = false;
     systemd.enable = true;
   };
 }
