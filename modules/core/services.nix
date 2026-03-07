@@ -15,6 +15,7 @@
       gnome-settings-daemon
     ];
     xserver.videoDrivers = [ "nvidia" ];
+    speechd.enable = false;
   };
   services.logind.settings.Login = {
     HandlePowerKey = "ignore";

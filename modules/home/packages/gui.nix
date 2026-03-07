@@ -8,10 +8,9 @@
     pavucontrol
     soundwireserver
     video-trimmer
-    vlc
 
     ## Office
-    libreoffice
+    # libreoffice
 
     ##Torrent
     transmission_4-gtk
