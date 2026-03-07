@@ -28,7 +28,7 @@
     tokei # project line counter
     translate-shell # cli translator
     woomer
-    yt-dlp-light
+    # yt-dlp-light
 
     ## TUI
     epy # ebook reader
@@ -60,7 +60,7 @@
     ## Multimedia
     imv
     lowfi
-    mpv
+    mpv-unwrapped # base player
     viu # pictures in fzf
 
     ## Utilities
@@ -72,7 +72,7 @@
     libnotify
     mimeo
     openssl
-    playerctl # controller for media players
+    #playerctl # controller for media players
     poweralertd
     unzip
     wl-clipboard # clipboard utils for wayland (wl-copy, wl-paste)

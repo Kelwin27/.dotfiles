@@ -47,6 +47,7 @@
       enable = true;
       extraDiagnostics.enable = true;
       lsp.enable = true;
+      lsp.servers = [ "nil" ];
       treesitter.enable = true;
     };
 

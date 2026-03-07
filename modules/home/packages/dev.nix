@@ -2,7 +2,7 @@
 {
   home.packages = with pkgs; [
     ## Lsp
-    nixd # nix
+    nil # nix (лёгкий LSP вместо nixd, экономия ~500MB)
     #ols # odin
 
     ## formating
@@ -19,6 +19,6 @@
 
     #Go
     go
-    gcc
+    # gcc
   ];
 }
