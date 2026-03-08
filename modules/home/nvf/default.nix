@@ -4,7 +4,7 @@ let
   theme = import ./theme.nix;
   treesitter = import ./treesitter.nix { inherit pkgs; };
   lang = import ./languages.nix;
-  lsp = import ./lsp.nix;
+  lsp = import ./lsp.nix { inherit lib; };
   util = import ./utility.nix;
   dashboard = import ./dashboard.nix { inherit pkgs lib; };
 in
