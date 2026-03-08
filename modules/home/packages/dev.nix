@@ -2,7 +2,7 @@
 {
   home.packages = with pkgs; [
     ## Lsp
-    nil # nix (лёгкий LSP вместо nixd, экономия ~500MB)
+    nil # nix
     #ols # odin
 
     ## formating
@@ -12,7 +12,7 @@
 
     ## Python
     python3
-    python312Packages.ipython
+    #python312Packages.ipython
 
     ## Odin
     #odin
