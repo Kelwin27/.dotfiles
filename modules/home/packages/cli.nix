@@ -33,7 +33,6 @@
     ## TUI
     epy # ebook reader
     gtt # google translate TUI
-    # programmer-calculator
     toipe # typing test in the terminal
     ttyper # cli typing test
 
@@ -72,7 +71,7 @@
     libnotify
     mimeo
     openssl
-    #playerctl # controller for media players
+    playerctl # controller for media players
     poweralertd
     unzip
     wl-clipboard # clipboard utils for wayland (wl-copy, wl-paste)

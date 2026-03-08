@@ -59,11 +59,11 @@
       treesitter.enable = true;
     };
 
-    scala = {
-      enable = true;
-      lsp.enable = true;
-      treesitter.enable = true;
-    };
+    #scala = {
+    #  enable = true;
+    #  lsp.enable = true;
+    #  treesitter.enable = true;
+    #};
 
     #odin = {
     #  enable = true;
