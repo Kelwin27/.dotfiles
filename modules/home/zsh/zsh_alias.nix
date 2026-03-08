@@ -41,8 +41,8 @@
       psv = "source .venv/bin/activate";
 
       # Scala flakes
-      scala2 = "cd ~/nixos-config/enviroment/scala_legacy_env/ && nix develop --command zsh";
-      scala3 = "cd ~/nixos-config/enviroment/scala_env/ && nix develop --command zsh";
+      #scala2 = "cd ~/nixos-config/enviroment/scala_legacy_env/ && nix develop --command zsh";
+      #scala3 = "cd ~/nixos-config/enviroment/scala_env/ && nix develop --command zsh";
 
       # Angular + nodejs
       web = "cd ~/nixos-config/enviroment/web_env/ && nix develop --command zsh";
