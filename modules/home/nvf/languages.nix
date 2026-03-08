@@ -56,6 +56,7 @@
       dap.enable = true;
       format.enable = true;
       lsp.enable = true;
+      lsp.servers = [ "pyright" ];
       treesitter.enable = true;
     };
 

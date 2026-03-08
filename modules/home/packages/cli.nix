@@ -14,9 +14,9 @@
     tldr
 
     ## Tools / useful cli
-    asciinema
-    asciinema-agg
-    binsider
+    asciinema # terminal demo
+    asciinema-agg # terminal demo in gif
+    binsider # binary analizer
     gopass # cli for secure manage passwords
     bitwise # cli tool for bit / hex manipulation
     broot # tree files view
@@ -27,7 +27,7 @@
     tdf # cli pdf viewer
     tokei # project line counter
     translate-shell # cli translator
-    woomer
+    woomer # zoom monitor
     # yt-dlp-light
 
     ## TUI
