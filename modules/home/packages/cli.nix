@@ -11,7 +11,7 @@
     man-pages # extra man pages
     ncdu # disk space
     ripgrep # grep replacement
-    tldr
+    tldr # man for zummers
 
     ## Tools / useful cli
     asciinema # terminal demo

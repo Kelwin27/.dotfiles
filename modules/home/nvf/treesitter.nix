@@ -20,6 +20,10 @@
       pkgs.vimPlugins.nvim-treesitter.builtGrammars.css
       pkgs.vimPlugins.nvim-treesitter.builtGrammars.c_sharp
       pkgs.vimPlugins.nvim-treesitter.builtGrammars.typst
+      pkgs.vimPlugins.nvim-treesitter.builtGrammars.dockerfile
+      pkgs.vimPlugins.nvim-treesitter.builtGrammars.sql
+      pkgs.vimPlugins.nvim-treesitter.builtGrammars.rust
+      pkgs.vimPlugins.nvim-treesitter.builtGrammars.java
     ];
 
     context.enable = true;
