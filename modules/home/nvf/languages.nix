@@ -40,6 +40,7 @@
     markdown = {
       enable = true;
       lsp.enable = true;
+      lsp.servers = [ "markdown-oxide" ];
       treesitter.enable = true;
     };
 
