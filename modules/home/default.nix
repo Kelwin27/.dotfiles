@@ -6,7 +6,6 @@
     ./browser.nix # firefox based browser
     ./btop.nix # resouces monitor
     ./cava.nix # audio visualizer
-    ./discord.nix # discord
     ./fastfetch/fastfetch.nix # fetch tool
     ./fzf.nix # fuzzy finder
     ./ghostty.nix # terminal
@@ -15,6 +14,7 @@
     ./hyprland # window manager
     ./lazygit.nix
     ./micro.nix # nano replacement
+    ./messengers.nix # vebcord, tg
     ./nemo.nix # file manager
     #./ollama.nix # ollama ai
     ./obsidian.nix

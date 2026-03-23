@@ -1,11 +1,10 @@
 {
-  inputs,
   pkgs,
   host,
   ...
 }:
 let
-  ghostty = inputs.ghostty.packages.${pkgs.stdenv.hostPlatform.system}.default;
+  ghostty = pkgs.ghostty;
 in
 {
   home.packages = [ ghostty ];
