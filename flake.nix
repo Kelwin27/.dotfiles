@@ -29,11 +29,6 @@
       };
     };
 
-    nur = {
-      url = "github:nix-community/NUR";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nix-flatpak.url = "github:gmodena/nix-flatpak";
 
     zen-browser = {

@@ -20,7 +20,7 @@
     ./obsidian.nix
     ./p10k/p10k.nix
     ./packages # other packages
-    ./qwen-code.nix # terminal llm
+    #./qwen-code.nix # terminal llm
     ./rofi/rofi.nix # launcher
     ./scripts/scripts.nix # personal scripts
     ./ssh.nix # ssh config
