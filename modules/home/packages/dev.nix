@@ -6,7 +6,7 @@ let
 
     src = pkgs.fetchzip {
       url = "https://github.com/oven-sh/bun/releases/latest/download/bun-linux-x64-baseline.zip";
-      sha256 = "sha256-ZWTs4ApH0BsATxrE1DSuqCETIrNZZxdG8xtN0NinNBw=";
+      sha256 = "sha256-yIV0YePJsrhPgCI0j4ZOL+V+rvhdBnOMd0peGTLkv3s=";
       # sha256 = pkgs.lib.fakeSha256; # for hash
     };
 
