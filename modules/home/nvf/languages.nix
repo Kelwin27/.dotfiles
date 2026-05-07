@@ -78,7 +78,7 @@
       lsp.enable = true;
     };
 
-    ts = {
+    typescript = {
       enable = true;
       extensions.ts-error-translator.enable = true;
       extraDiagnostics.enable = false; # refers to vim/nvim-lint/linters

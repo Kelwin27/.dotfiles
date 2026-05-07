@@ -1,4 +1,16 @@
 { pkgs, ... }:
+let
+  themeName = "Colloid-Green-Dark-Gruxbox";
+  themePackage = pkgs.colloid-gtk-theme.override {
+    colorVariants = [ "dark" ];
+    themeVariants = [ "green" ];
+    tweaks = [
+      "gruvbox"
+      "rimless"
+      "float"
+    ];
+  };
+in
 {
   fonts.fontconfig.enable = true;
   home.packages = with pkgs; [
@@ -19,16 +31,8 @@
       size = 12;
     };
     theme = {
-      name = "Colloid-Green-Dark-Gruvbox";
-      package = pkgs.colloid-gtk-theme.override {
-        colorVariants = [ "dark" ];
-        themeVariants = [ "green" ];
-        tweaks = [
-          "gruvbox"
-          "rimless"
-          "float"
-        ];
-      };
+      name = themeName;
+      package = themePackage;
     };
     iconTheme = {
       name = "Papirus-Dark";
@@ -38,6 +42,12 @@
       name = "Bibata-Modern-Ice";
       package = pkgs.bibata-cursors;
       size = 24;
+    };
+    gtk4 = {
+      theme = {
+        name = themeName;
+        package = themePackage;
+      };
     };
   };
 
