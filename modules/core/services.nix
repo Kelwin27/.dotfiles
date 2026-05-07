@@ -21,15 +21,17 @@
     HandlePowerKey = "ignore";
   };
 
-  systemd.user.services.nodpi = {
+  systemd.services.nodpi = {
     description = "NoDPI Service";
     after = [ "network.target" ];
+    wants = [ "network.target" ];
+    wantedBy = [ "multi-user.target" ];
     serviceConfig = {
       ExecStart = "${pkgs.python3}/bin/python /home/kelwin/NoDPI/src/main.py --blacklist /home/kelwin/NoDPI/blacklist.txt -q";
       Restart = "on-failure";
+      User = "kelwin";
       RestartSec = 5;
       StandardOutput = "null";
     };
-    wantedBy = [ "graphical-session.target" ];
   };
 }

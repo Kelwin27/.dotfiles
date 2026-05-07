@@ -19,7 +19,7 @@
       open = "xdg-open";
       space = "ncdu";
       man = "batman";
-      upgrade = "sudo nixos-rebuild switch --flake $HOME/nixos-config";
+      clean-vesktop = "rm -rf ~/.config/vesktop/sessionData/{Cache,Code\ Cache,GPUCache}";
 
       l = "eza --icons  -a --group-directories-first -1"; # EZA_ICON_SPACING=2
       ll = "eza --icons  -a --group-directories-first -1 --no-user --long --total-size";
