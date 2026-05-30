@@ -4,18 +4,6 @@
   lib,
   ...
 }:
-let
-  nvidiaVersion = "595.71.05";
-  driverPath = "/home/kelwin/.cache/nvidia/NVIDIA-Linux-x86_64-${nvidiaVersion}.run";
-
-  customNvidia = config.boot.kernelPackages.nvidiaPackages.mkDriver {
-    version = nvidiaVersion;
-    sha256_64bit = "0z1s4424hp3mvlknglyirdd9j4xix9kz79r0vap8hgdn8mjpxkwb";
-    openSha256 = lib.fakeSha256;
-    settingsSha256 = lib.fakeSha256;
-    persistencedSha256 = lib.fakeSha256;
-  };
-in
 {
   boot.blacklistedKernelModules = [
     "nouveau"
@@ -48,7 +36,7 @@ in
     };
 
     nvidia = {
-      package = lib.mkForce customNvidia;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
       open = false; # proprietar drivers
       modesetting.enable = true; # For Wayland and Hyprland
       powerManagement.enable = true;
