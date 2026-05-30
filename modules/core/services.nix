@@ -21,17 +21,24 @@
     HandlePowerKey = "ignore";
   };
 
-  systemd.services.nodpi = {
+  systemd.user.services.nodpi = {
     description = "NoDPI Service";
     after = [ "network.target" ];
-    wants = [ "network.target" ];
-    wantedBy = [ "multi-user.target" ];
     serviceConfig = {
-      ExecStart = "${pkgs.python3}/bin/python /home/kelwin/NoDPI/src/main.py --blacklist /home/kelwin/NoDPI/blacklist.txt -q";
+      ExecStart = "/home/kelwin/GoDPI/nodpi \
+      -socks5 127.0.0.1:1080 \
+      -no-blacklist \
+      -fragment-method random \
+      -chunks 4 \
+      -delay 10 \
+      -verbose";
+
       Restart = "on-failure";
-      User = "kelwin";
       RestartSec = 5;
-      StandardOutput = "null";
+
+      StandardOutput = "journal";
+      StandardError = "journal";
     };
+    wantedBy = [ "graphical-session.target" ];
   };
 }

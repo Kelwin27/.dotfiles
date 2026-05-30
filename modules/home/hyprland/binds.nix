@@ -31,7 +31,7 @@ in
       "$mainMod SHIFT, D, exec, vesktop --enable-features=UseOzonePlatform --ozone-platform=wayland"
       "$mainMod SHIFT, Escape, exec, power-menu"
       "$mainMod, P, pseudo,"
-      "$mainMod, X, togglesplit,"
+      "$mainMod, X, layoutmsg, togglesplit,"
       "$mainMod, T, exec, toggle-opacity"
       "$mainMod, E, exec, nemo"
       "ALT, E, exec, hyprctl dispatch exec '[float; size 1111 700] nemo'"
