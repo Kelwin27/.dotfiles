@@ -25,19 +25,10 @@
     description = "NoDPI Service";
     after = [ "network.target" ];
     serviceConfig = {
-      ExecStart = "/home/kelwin/GoDPI/nodpi \
-      -socks5 127.0.0.1:1080 \
-      -no-blacklist \
-      -fragment-method random \
-      -chunks 4 \
-      -delay 10 \
-      -verbose";
-
+      ExecStart = "${pkgs.python3}/bin/python /home/kelwin/NoDPI/src/main.py --blacklist /home/kelwin/NoDPI/blacklist.txt -q";
       Restart = "on-failure";
       RestartSec = 5;
-
-      StandardOutput = "journal";
-      StandardError = "journal";
+      StandardOutput = "null";
     };
     wantedBy = [ "graphical-session.target" ];
   };
