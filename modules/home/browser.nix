@@ -1,11 +1,7 @@
 { inputs, pkgs, ... }:
 {
-  home.packages = (
-    with pkgs;
-    [
-      inputs.zen-browser.packages."${system}".beta
-      chromium
-    ]
-
-  );
+  home.packages = with pkgs; [
+    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.beta
+    chromium
+  ];
 }
