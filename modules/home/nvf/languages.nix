@@ -33,7 +33,7 @@
     lua = {
       enable = true;
       lsp.enable = true;
-      lsp.lazydev.enable = true;
+      extensions.lazydev.enable = true;
       treesitter.enable = true;
     };
 
