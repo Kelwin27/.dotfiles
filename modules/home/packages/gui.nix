@@ -10,7 +10,7 @@
     video-trimmer
 
     ## Office
-    # libreoffice
+    #libreoffice
 
     ##Torrent
     transmission_4-gtk

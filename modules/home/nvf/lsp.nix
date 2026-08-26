@@ -8,6 +8,7 @@
     lspconfig.enable = true;
     nvim-docs-view.enable = true;
     trouble.enable = true;
+    presets.tailwindcss-language-server.enable = true;
     servers = {
       omnisharp = {
         enable = true;

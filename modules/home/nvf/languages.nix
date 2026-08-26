@@ -73,11 +73,6 @@
     #   treesitter.enable = true;
     # };
 
-    tailwind = {
-      enable = true;
-      lsp.enable = true;
-    };
-
     typescript = {
       enable = true;
       extensions.ts-error-translator.enable = true;
