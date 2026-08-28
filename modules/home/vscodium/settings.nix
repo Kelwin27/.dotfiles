@@ -43,23 +43,8 @@
 
       "editor.mouseWheelZoom" = true;
 
-      # Zig
-      # "zig.initialSetupDone" = true;
-      "zig.checkForUpdate" = false;
-      "zig.zls.path" = "zls";
-      "zig.path" = "zig";
-      "zig.revealOutputChannelOnFormattingError" = false;
-      "zig.zls.enableInlayHints" = false;
-
       "nix.serverPath" = "nixd";
       "nix.enableLanguageServer" = true;
-      # "nix.serverSettings" = {
-      #   "nixd" = {
-      #     "formatting" = {
-      #       "command" = [ "nixfmt" ];
-      #     };
-      #   };
-      # };
     };
   };
 }

@@ -2,7 +2,7 @@
 {
   imports = [
     ./vscodium.nix
-    ./settings.nix
+    #./settings.nix
     ./extensions.nix
     ./keybinds.nix
   ];
