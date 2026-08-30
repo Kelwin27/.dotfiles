@@ -51,5 +51,8 @@ in
 
     #Go
     go
+
+    # Vibe Coding
+    opencode
   ];
 }

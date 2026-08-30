@@ -9,26 +9,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    hypr-contrib = {
-      url = "github:hyprwm/contrib";
-      inputs.nixpkgs.follows = "hyprland/nixpkgs";
-    };
-
-    hyprpicker = {
-      url = "github:hyprwm/hyprpicker";
-      inputs = {
-        nixpkgs.follows = "hyprland/nixpkgs";
-        hyprutils.follows = "hyprland/hyprutils";
-        hyprwayland-scanner.follows = "hyprland/hyprwayland-scanner";
-        systems.follows = "hyprland/systems";
-      };
-    };
-
     nix-flatpak.url = "github:gmodena/nix-flatpak";
 
     zen-browser = {
