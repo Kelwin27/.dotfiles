@@ -19,7 +19,9 @@
   };
   statusline.lualine = {
     enable = true;
-    globalStatus = true;
-    icons.enable = true;
+    setupOpts.options = {
+      globalstatus = true;
+      icons_enabled = true;
+    };
   };
 }
