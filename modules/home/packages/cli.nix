@@ -59,7 +59,7 @@
     ## Multimedia
     imv
     lowfi
-    mpv-unwrapped # base player
+    mpv # wrapped player (binary cache hit)
     viu # pictures in fzf
 
     ## Utilities
