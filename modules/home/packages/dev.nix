@@ -42,6 +42,9 @@ in
 
     ## Python
     python3
+    uv
+    ruff
+    pyright
 
     ## Odin
     #odin
