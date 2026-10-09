@@ -5,6 +5,7 @@
     ./hardware.nix
     ./xserver.nix
     ./network.nix
+    ./zapret2.nix
     ./nh.nix
     ./pipewire.nix
     ./program.nix
