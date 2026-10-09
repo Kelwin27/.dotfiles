@@ -13,7 +13,7 @@ in
     # Font 
     font-family = Fantasque Sans Mono
     font-family = Maple Mono
-    font-size = ${if (host == "laptop") then "16" else "15"}
+    font-size = ${if (host == "laptop") then "18" else "17"}
     font-feature = calt
     font-feature = ss03
 
