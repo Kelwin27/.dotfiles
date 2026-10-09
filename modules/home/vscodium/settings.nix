@@ -7,8 +7,8 @@
       "window.titleBarStyle" = "custom"; # needed otherwise vscode crashes, see https://github.com/NixOS/nixpkgs/issues/246509
 
       "window.menuBarVisibility" = "toggle";
-      "editor.fontFamily" = "'Maple Mono', 'SymbolsNerdFont', 'monospace', monospace";
-      "terminal.integrated.fontFamily" = "'Maple Mono', 'SymbolsNerdFont'";
+      "editor.fontFamily" = "'Maple Mono', 'Symbols Nerd Font', 'monospace', monospace";
+      "terminal.integrated.fontFamily" = "'Maple Mono', 'Symbols Nerd Font'";
       "editor.fontSize" = 18;
       "workbench.colorTheme" = "Gruvbox Dark Hard";
       "workbench.iconTheme" = "gruvbox-material-icon-theme";

@@ -11,7 +11,8 @@ in
 
   xdg.configFile."ghostty/config".text = ''
     # Font 
-    font-family = "Fantasque Sans Mono, FiraCode Nerd Font Mono, Maple Mono"
+    font-family = Fantasque Sans Mono
+    font-family = Maple Mono
     font-size = ${if (host == "laptop") then "16" else "15"}
     font-feature = calt
     font-feature = ss03
