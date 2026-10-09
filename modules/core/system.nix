@@ -5,8 +5,6 @@
       auto-optimise-store = true;
       connect-timeout = 10;
       stalled-download-timeout = 20;
-      download-attempts = 10;
-      max-substitution-jobs = 8;
       experimental-features = [
         "nix-command"
         "flakes"
