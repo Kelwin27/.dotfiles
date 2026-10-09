@@ -3,6 +3,10 @@
   nix = {
     settings = {
       auto-optimise-store = true;
+      connect-timeout = 10;
+      stalled-download-timeout = 20;
+      download-attempts = 10;
+      max-substitution-jobs = 8;
       experimental-features = [
         "nix-command"
         "flakes"
@@ -11,13 +15,13 @@
         "https://cache.nixos.org/"
         "https://nix-community.cachix.org"
         #"https://ollama.cachix.org"
-        "https://cache.nixos-cuda.org"
+        #"https://cache.nixos-cuda.org"
       ];
       trusted-public-keys = [
         "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
         #"ollama.cachix.org-1:+8gHyhs2wZvI/0A7kujPWiPM4LlgFjEKhcOvl5n9jss="
-        "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
+        #"cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
       ];
     };
   };
