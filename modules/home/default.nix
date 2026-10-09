@@ -27,6 +27,7 @@
     ./swayosd.nix # brightness / volume wiget
     ./swaync/swaync.nix # notification deamon
     ./vscodium # vscode fork
+    ./vpn.nix # local proxy via cloudflare warp
     ./waybar # status bar
     ./waypaper.nix # GUI wallpaper picker
     ./xdg-mimes.nix # xdg config
