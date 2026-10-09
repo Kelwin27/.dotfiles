@@ -2,6 +2,7 @@
 let
   custom = {
     font = "FiraCode Nerd Font Mono";
+    icon_font = "Symbols Nerd Font";
     font_size = "18px";
     font_weight = "bold";
     opacity = "1";
@@ -52,10 +53,10 @@ in
           today = "<span color='${green}'><b>{}</b></span>";
         };
       };
-      format = "  {:%H:%M}";
+      format = "  {:%H:%M}";
       tooltip = "true";
       tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
-      format-alt = "  {:%d/%m}";
+      format-alt = "  {:%d/%m}";
     };
     "hyprland/workspaces" = {
       active-only = false;
@@ -80,27 +81,29 @@ in
         "2" = [ ];
         "3" = [ ];
         "4" = [ ];
+        "5" = [ ];
       };
     };
     cpu = {
-      format = "<span foreground='${green}'> </span> {usage}%";
-      format-alt = "<span foreground='${green}'> </span> {avg_frequency} GHz";
+      format = "<span foreground='${green}'> </span> {usage}%";
+      format-alt = "<span foreground='${green}'> </span> {avg_frequency} GHz";
       interval = 2;
       on-click-right = btop;
     };
     memory = {
       format = "<span foreground='${cyan}'>󰟜 </span>{}%";
-      format-alt = "<span foreground='${cyan}'>󰟜 </span>{used} GiB";
+      format-alt = "<span foreground='${cyan}'>󰟜 </span>{used} GiB"; # 
       interval = 2;
       on-click-right = btop;
     };
     disk = {
+      # path = "/";
       format = "<span foreground='${orange}'>󰋊 </span>{percentage_used}%";
       interval = 60;
       on-click-right = btop;
     };
     network = {
-      format-wifi = "<span foreground='${magenta}'> </span> {signalStrength}%";
+      format-wifi = "<span foreground='${magenta}'> </span> {signalStrength}%";
       format-ethernet = "<span foreground='${magenta}'>󰀂 </span>";
       tooltip-format = "Connected to {essid} {ifname} via {gwaddr}";
       format-linked = "{ifname} (No IP)";
@@ -112,9 +115,9 @@ in
     };
     pulseaudio = {
       format = "{icon} {volume}%";
-      format-muted = "<span foreground='${blue}'> </span> {volume}%";
+      format-muted = "<span foreground='${blue}'> </span> {volume}%";
       format-icons = {
-        default = [ "<span foreground='${blue}'> </span>" ];
+        default = [ "<span foreground='${blue}'> </span>" ];
       };
       scroll-step = 2;
       on-click = "wpctl set-mute @DEFAULT_SINK@ toggle";
@@ -123,15 +126,15 @@ in
     battery = {
       format = "<span foreground='${yellow}'>{icon}</span> {capacity}%";
       format-icons = [
-        " "
-        " "
-        " "
-        " "
-        " "
+        " "
+        " "
+        " "
+        " "
+        " "
       ];
-      format-charging = "<span foreground='${yellow}'></span>{capacity}%";
-      format-full = "<span foreground='${yellow}'></span>{capacity}%";
-      format-warning = "<span foreground='${yellow}'></span>{capacity}%";
+      format-charging = "<span foreground='${yellow}'> </span>{capacity}%";
+      format-full = "<span foreground='${yellow}'> </span>{capacity}%";
+      format-warning = "<span foreground='${yellow}'> </span>{capacity}%";
       interval = 5;
       states = {
         warning = 20;
@@ -141,12 +144,12 @@ in
       tooltip-format = "{time}";
     };
     "hyprland/language" = {
-      format = "<span foreground='${yellow}'> </span> {}";
+      format = "<span foreground='${yellow}'> </span> {}";
       format-fr = "FR";
       format-en = "US";
     };
     "custom/launcher" = {
-      format = "";
+      format = "";
       on-click = "random-wallpaper";
       on-click-right = "rofi -show drun";
       tooltip = "true";
@@ -156,14 +159,14 @@ in
       tooltip = false;
       format = "{icon} ";
       format-icons = {
-        notification = "<span foreground='red'><sup></sup></span>";
-        none = "";
-        dnd-notification = "<span foreground='red'><sup></sup></span>";
-        dnd-none = " ";
-        inhibited-notification = "<span foreground='red'><sup></sup></span>";
-        inhibited-none = "";
-        dnd-inhibited-notification = "<span foreground='red'><sup></sup></span>";
-        dnd-inhibited-none = "";
+        notification = "<span foreground='red'><sup></sup></span>";
+        none = "";
+        dnd-notification = "<span foreground='red'><sup></sup></span>";
+        dnd-none = " ";
+        inhibited-notification = "<span foreground='red'><sup></sup></span>";
+        inhibited-none = "";
+        dnd-inhibited-notification = "<span foreground='red'><sup></sup></span>";
+        dnd-inhibited-none = " ";
       };
       return-type = "json";
       exec-if = "which swaync-client";
@@ -175,7 +178,7 @@ in
     "custom/power-menu" = {
       tooltip = true;
       tooltip-format = "Power menu";
-      format = "<span foreground='${red}'> </span>";
+      format = "<span foreground='${red}'> </span>";
       on-click = "power-menu";
     };
   };
@@ -186,7 +189,7 @@ in
       border-radius: 0px;
       padding: 0;
       margin: 0;
-      font-family: ${font};
+      font-family: ${icon_font}, ${font};
       font-weight: ${font_weight};
       opacity: ${opacity};
       font-size: ${font_size};
