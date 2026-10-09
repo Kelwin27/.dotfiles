@@ -96,7 +96,7 @@ in
       After = [ "network-online.target" ];
     };
     Service = {
-      ExecStartPre = "${renderConfig}";
+      ExecStartPre = "${lib.getExe renderConfig}";
       ExecStart = "${lib.getExe pkgs.sing-box} run -c %t/sing-box/config.json";
       Restart = "on-failure";
       RestartSec = "3";
