@@ -4,10 +4,14 @@
     hostName = "${host}";
     networkmanager.enable = true;
     nameservers = [
-      "8.8.8.8"
       "8.8.4.4"
       "1.1.1.1"
     ];
+    hosts = {
+      "151.101.129.91" = [ "cache.nixos.org" ];
+      "151.101.1.91" = [ "cache.nixos.org" ];
+      "199.232.41.91" = [ "cache.nixos.org" ];
+    };
     firewall = {
       enable = true;
       rejectPackets = true; # INPUT policy DROP
