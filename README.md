@@ -37,6 +37,9 @@
    Screenshots last updated <b>2025-10-07</b>
 </p>
 
+> [!NOTE]
+> These still show the previous Waybar/rofi/swaync setup, captured before the move to Noctalia.
+
 Here is my previous Catppuccin rice. You can find it [here](https://github.com/Frost-Phoenix/nixos-config/tree/catppuccin)
 <details>
 <summary>
@@ -71,34 +74,33 @@ Catppuccin (EXPAND)
 -   [modules](modules) 🍱 modularized NixOS configurations
     -   [core](modules/core/) ⚙️ Core NixOS configuration
     -   [home](modules/home/) 🏠 my [Home-Manager](https://github.com/nix-community/home-manager) config
--   [pkgs](pkgs) 📦 Packages built from source
 -   [wallpapers](wallpapers/) 🌄 wallpapers collection
 
 ## 📓 Components
+
+Bar, launcher, notifications, lock screen, wallpaper picker, OSD and clipboard all come from a single Noctalia shell.
+
 |                             | NixOS + Hyprland                                                                              |
 | --------------------------- | :---------------------------------------------------------------------------------------------:
 | **Window Manager**          | [Hyprland][Hyprland] |
-| **Bar**                     | [Waybar][Waybar] |
-| **Application Launcher**    | [rofi][rofi] |
-| **Notification Daemon**     | [swaync][swaync] |
+| **Desktop Shell**           | [Noctalia][Noctalia] (bar, launcher, notifications, lock, wallpaper, OSD, clipboard) |
 | **Terminal Emulator**       | [Ghostty][Ghostty] |
 | **Shell**                   | [zsh][zsh] + [powerlevel10k][powerlevel10k] |
 | **Text Editor**             | [VSCodium][VSCodium] + [Neovim][Neovim] |
-| **network management tool** | [NetworkManager][NetworkManager] + [network-manager-applet][network-manager-applet] |
-| **System resource monitor** | [Btop][Btop] |
-| **File Manager**            | [nemo][nemo] + [yazi][yazi] |
+| **Browser**                 | [Zen Browser][Zen Browser] + Chromium |
+| **Network Management**      | [NetworkManager][NetworkManager] |
+| **System Resource Monitor** | [Btop][Btop] + nvtop |
+| **File Manager**            | [yazi][yazi] |
 | **Fonts**                   | [Maple Mono][Maple Mono] |
 | **Color Scheme**            | [Gruvbox Dark Hard][Gruvbox] |
-| **GTK theme**               | [Colloid gtk theme][Colloid gtk theme] |
+| **GTK Theme**               | [Colloid gtk theme][Colloid gtk theme] |
 | **Cursor**                  | [Bibata-Modern-Ice][Bibata-Modern-Ice] |
 | **Icons**                   | [Papirus-Dark][Papirus-Dark] |
-| **Lockscreen**              | [Hyprlock][Hyprlock] |
 | **Image Viewer**            | [imv][imv] |
 | **Media Player**            | [mpv][mpv] |
 | **Music Player**            | [audacious][audacious] |
-| **Screenshot Software**     | [grimblast][grimblast] |
+| **Audio Visualizer**        | [cava][cava] |
 | **Screen Recording**        | [wf-recorder][wf-recorder] |
-| **Clipboard**               | [wl-clip-persist][wl-clip-persist] |
 | **Color Picker**            | [hyprpicker][hyprpicker] |
 
 
@@ -110,26 +112,25 @@ Utils (EXPAND)
 </summary>
 
 - ```c```     $\rightarrow$ ```clear```
+- ```v```     $\rightarrow$ ```nvim```
 - ```cd```    $\rightarrow$ ```z```
 - ```tt```    $\rightarrow$ ```gtrash put```
-- ```vim```   $\rightarrow$ ```nvim```
 - ```cat```   $\rightarrow$ ```bat```
-- ```nano```  $\rightarrow$ ```micro```
 - ```code```  $\rightarrow$ ```codium```
 - ```diff```  $\rightarrow$ ```delta --diff-so-fancy --side-by-side```
 - ```less```  $\rightarrow$ ```bat```
-- ```y```     $\rightarrow$ ```yazi```
+- ```f```     $\rightarrow$ ```yazi```
 - ```py```    $\rightarrow$ ```python```
-- ```ipy```   $\rightarrow$ ```ipython```
-- ```icat```  $\rightarrow$ ```kitten icat```
 - ```dsize``` $\rightarrow$ ```du -hs```
 - ```pdf```   $\rightarrow$ ```tdf```
 - ```open```  $\rightarrow$ ```xdg-open```
 - ```space``` $\rightarrow$ ```ncdu```
-- ```man```   $\rightarrow$ ```BAT_THEME='default' batman```
+- ```man```   $\rightarrow$ ```batman```
 - ```l```     $\rightarrow$ ```eza --icons  -a --group-directories-first -1```
-- ```ll```    $\rightarrow$ ```eza --icons  -a --group-directories-first -1 --no-user --long```
+- ```ll```    $\rightarrow$ ```eza --icons  -a --group-directories-first -1 --no-user --long --total-size```
+- ```la```    $\rightarrow$ ```ls -la```
 - ```tree```  $\rightarrow$ ```eza --icons --tree --group-directories-first```
+- ```clean-vesktop``` $\rightarrow$ ```rm -rf ~/.config/vesktop/sessionData/{Cache,Code Cache,GPUCache}```
 </details>
 
 <details>
@@ -137,50 +138,28 @@ Utils (EXPAND)
 Nixos (EXPAND)
 </summary>
 
-- ```cdnix```      $\rightarrow$ ```cd ~/nixos-config && codium ~/nixos-config```
-- ```ns```         $\rightarrow$ ```nom-shell --run zsh```
-- ```nix-test```   $\rightarrow$ ```nh os test```
-- ```nix-switch``` $\rightarrow$ ```nh os switch```
-- ```nix-update``` $\rightarrow$ ```nh os switch --update```
-- ```nix-clean```  $\rightarrow$ ```nh clean all --keep 5```
-- ```nix-search``` $\rightarrow$ ```nh search```
+- ```cdnix``` $\rightarrow$ ```cd ~/nixos-config && codium ~/nixos-config```
+- ```ns```    $\rightarrow$ ```nom-shell --run zsh```
+- ```nd```    $\rightarrow$ ```nom develop --command zsh```
+- ```nb```    $\rightarrow$ ```nom build```
+- ```nhc```   $\rightarrow$ ```nh clean all```
+- ```nht```   $\rightarrow$ ```nh os test```
+- ```nhs```   $\rightarrow$ ```nh os switch```
+- ```nhu```   $\rightarrow$ ```nh os switch --update```
 </details>
 
 <details>
 <summary>
-Git (EXPAND)
+Python (EXPAND)
 </summary>
 
-- ```g```     $\rightarrow$ ```lazygit```
-- ```gf```    $\rightarrow$ ```onefetch --number-of-file-churns 0 --no-color-palette```
-- ```ga```    $\rightarrow$ ```git add```
-- ```gaa```   $\rightarrow$ ```git add --all```
-- ```gs```    $\rightarrow$ ```git status```
-- ```gb```    $\rightarrow$ ```git branch```
-- ```gm```    $\rightarrow$ ```git merge```
-- ```gd```    $\rightarrow$ ```git diff```
-- ```gpl```   $\rightarrow$ ```git pull```
-- ```gplo```  $\rightarrow$ ```git pull origin```
-- ```gps```   $\rightarrow$ ```git push```
-- ```gpso```  $\rightarrow$ ```git push origin```
-- ```gpst```  $\rightarrow$ ```git push --follow-tags```
-- ```gcl```   $\rightarrow$ ```git clone```
-- ```gc```    $\rightarrow$ ```git commit```
-- ```gcm```   $\rightarrow$ ```git commit -m```
-- ```gcma```  $\rightarrow$ ```git add --all && git commit -m```
-- ```gtag```  $\rightarrow$ ```git tag -ma```
-- ```gch```   $\rightarrow$ ```git checkout```
-- ```gchb```  $\rightarrow$ ```git checkout -b```
-- ```glog```  $\rightarrow$ ```git log --oneline --decorate --graph```
-- ```glol```  $\rightarrow$ ```git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset'```
-- ```glola``` $\rightarrow$ ```git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --all```
-- ```glols``` $\rightarrow$ ```git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --stat```
-  
+- ```piv``` $\rightarrow$ ```python -m venv .venv```
+- ```psv``` $\rightarrow$ ```source .venv/bin/activate```
 </details>
 
 ## 🛠️ Scripts
 
-All the scripts are in ```modules/home/scripts/scripts/``` and are exported as packages in ```modules/home/scripts/default.nix```
+All the scripts are in ```modules/home/scripts/scripts/``` and are auto-exported as packages by ```modules/home/scripts/scripts.nix``` — each ```*.sh``` becomes a command named after the file with the extension stripped.
 
 <details>
 <summary>
@@ -204,22 +183,72 @@ compress.sh
 
 <details>
 <summary>
-toggle_blur.sh 
+toggle-blur.sh 
 </summary>
 
 **Description:** This script toggles the Hyprland blur effect. If the blur is currently enabled, it will be disabled, and if it's disabled, it will be turned on. 
 
-**Usage:** ```toggle_blur```
+**Usage:** ```toggle-blur```
 </details>
 
 <details>
 <summary>
-toggle_opacity.sh 
+toggle-opacity.sh 
 </summary>
 
 **Description:** This script toggles the Hyprland opacity effect. If the opacity is currently set to 0.90, it will be set to 1, and if it's set to 1, it will be set to 0.90. 
 
-**Usage:** ```toggle_opacity```
+**Usage:** ```toggle-opacity```
+</details>
+
+<details>
+<summary>
+toggle-float.sh 
+</summary>
+
+**Description:** This script floats the focused window, resizes it to 1111x700 and centers it.
+
+**Usage:** ```toggle-float```
+</details>
+
+<details>
+<summary>
+show-keybinds.sh 
+</summary>
+
+**Description:** This script opens the keybind list. Noctalia has no generic overlay, so the list is rendered as a small floating zenity window.
+
+**Usage:** ```show-keybinds```
+</details>
+
+<details>
+<summary>
+record.sh 
+</summary>
+
+**Description:** This script records the screen and converts the result to an optimised ```.gif```.
+
+**Usage:** ```record```
+</details>
+
+<details>
+<summary>
+lofi.sh 
+</summary>
+
+**Description:** This script toggles a lofi video stream. If mpv is already running, it is killed, otherwise the stream is started.
+
+**Usage:** ```lofi```
+</details>
+
+<details>
+<summary>
+ascii.sh 
+</summary>
+
+**Description:** This script prints a colourised ASCII table of control characters with their decimal, hex and character forms.
+
+**Usage:** ```ascii```
 </details>
 
 <details>
@@ -237,7 +266,7 @@ maxfetch.sh
 music.sh 
 </summary>
 
-**Description:** This script is for managing Audacious (music player). If Audacious is currently running, it will be killed (stopping the music); otherwise, it will start Audacious in the 8th workspace and resume the music. 
+**Description:** This script is for managing Audacious (music player). If Audacious is currently running, it will be killed (stopping the music); otherwise, it will start Audacious in the 5th workspace and resume the music. 
 
 **Usage:** ```music```
 </details>
@@ -264,95 +293,98 @@ Keybindings
 ##### show keybinds list
 - ```$mainMod, F1, exec, show-keybinds```
 
-##### keybindings
+##### launcher and shell
+- ```$mainMod, D, exec, noctalia msg panel-toggle launcher```
 - ```$mainMod, Return, exec, ghostty```
-- ```ALT, Return, exec, [float; center] ghostty```
+- ```ALT, Return, exec, [float; size 1111 700] ghostty```
 - ```$mainMod SHIFT, Return, exec, [fullscreen] ghostty```
-- ```$mainMod, B, exec, hyprctl dispatch exec '[workspace 1 silent] floorp'```
+
+##### file manager
+- ```$mainMod, E, exec, ghostty --title=files -e yazi```
+- ```ALT, E, exec, [float; size 1111 700] ghostty --title=files -e yazi```
+
+##### browser and editor
+- ```$mainMod, B, exec, zen-beta```
+- ```$mainMod SHIFT, B, exec, chromium```
+- ```$mainMod SHIFT, V, exec, codium```
+
+##### window management
 - ```$mainMod, Q, killactive```
 - ```$mainMod, F, fullscreen, 0```
 - ```$mainMod SHIFT, F, fullscreen, 1```
-- ```$mainMod, Space, togglefloating```
-- ```$mainMod, D, exec, rofi -show drun```
-- ```$mainMod SHIFT, D, exec, hyprctl dispatch exec '[workspace 4 silent] discord --enable-features=UseOzonePlatform --ozone-platform=wayland'```
-- ```$mainMod SHIFT, S, exec, hyprctl dispatch exec '[workspace 5 silent] SoundWireServer'```
-- ```$mainMod, Escape, exec, hyprlock```
-- ```$mainMod SHIFT, Escape, exec, power-menu```
+- ```$mainMod, Space, exec, toggle-float```
 - ```$mainMod, P, pseudo```
-- ```$mainMod, J, togglesplit```
-- ```$mainMod, T, exec, toggle_opacity```
-- ```$mainMod, E, exec, nemo```
-- ```$mainMod SHIFT, B, exec, toggle_waybar```
+- ```$mainMod, X, layoutmsg, togglesplit```
+- ```$mainMod, T, exec, toggle-opacity```
+- ```$mainMod SHIFT, T, exec, noctalia msg bar-toggle```
+- ```$mainMod, equal, exec, woomer```
+
+##### noctalia panels
+- ```$mainMod, Escape, exec, noctalia msg session lock```
+- ```$mainMod SHIFT, Escape, exec, noctalia msg panel-toggle session```
+- ```$mainMod, N, exec, noctalia msg panel-toggle notifications```
+- ```$mainMod, V, exec, noctalia msg panel-toggle clipboard```
+- ```$mainMod, W, exec, noctalia msg panel-toggle wallpaper```
+- ```$mainMod SHIFT, W, exec, noctalia msg wallpaper-random```
+
+##### other
 - ```$mainMod, C, exec, hyprpicker -a```
-- ```$mainMod, W, exec, wallpaper-picker```
-- ```$mainMod, N, exec, swaync-client -t -sw```
-- ```$mainMod SHIFT, W, exec, vm-start```
+- ```$mainMod SHIFT, S, exec, SoundWireServer```
+- ```$mainMod SHIFT, D, exec, vesktop```
+- ```CTRL SHIFT, Escape, exec, missioncenter```
 
 ##### screenshot
-- ```$mainMod, Print, exec, grimblast --notify --cursor --freeze save area ~/Pictures/$(date +'%Y-%m-%d-At-%Ih%Mm%Ss').png```
-- ```,Print, exec, grimblast --notify --cursor --freeze copy area```
+- ```,Print, exec, noctalia msg screenshot-region```
 
 ##### switch focus
-- ```$mainMod, left, movefocus, l```
-- ```$mainMod, right, movefocus, r```
-- ```$mainMod, up, movefocus, u```
-- ```$mainMod, down, movefocus, d```
+- ```$mainMod, left/right/up/down```
+- ```$mainMod, h/j/k/l```
+
+##### raise focused window
+- ```$mainMod, left/right/up/down```
+- ```$mainMod, h/j/k/l```
+
+##### float / tile the focused window
+- ```CTRL ALT, up, exec, focuswindow floating```
+- ```CTRL ALT, down, exec, focuswindow tiled```
 
 ##### switch workspace
-- ```$mainMod, 1, workspace, 1```
-- ```$mainMod, 2, workspace, 2```
-- ```$mainMod, 3, workspace, 3```
-- ```$mainMod, 4, workspace, 4```
-- ```$mainMod, 5, workspace, 5```
-- ```$mainMod, 6, workspace, 6```
-- ```$mainMod, 7, workspace, 7```
-- ```$mainMod, 8, workspace, 8```
-- ```$mainMod, 9, workspace, 9```
-- ```$mainMod, 0, workspace, 10```
+- ```$mainMod, 1 … 0```
 
 ##### same as above, but switch to the workspace
-- ```$mainMod SHIFT, 1, movetoworkspacesilent, 1```
-- ```$mainMod SHIFT, 2, movetoworkspacesilent, 2```
-- ```$mainMod SHIFT, 3, movetoworkspacesilent, 3```
-- ```$mainMod SHIFT, 4, movetoworkspacesilent, 4```
-- ```$mainMod SHIFT, 5, movetoworkspacesilent, 5```
-- ```$mainMod SHIFT, 6, movetoworkspacesilent, 6```
-- ```$mainMod SHIFT, 7, movetoworkspacesilent, 7```
-- ```$mainMod SHIFT, 8, movetoworkspacesilent, 8```
-- ```$mainMod SHIFT, 9, movetoworkspacesilent, 9```
-- ```$mainMod SHIFT, 0, movetoworkspacesilent, 10```
+- ```$mainMod SHIFT, 1 … 0```
 - ```$mainMod CTRL, c, movetoworkspace, empty```
 
-##### window control
-- ```$mainMod SHIFT, left, movewindow, l```
-- ```$mainMod SHIFT, right, movewindow, r```
-- ```$mainMod SHIFT, up, movewindow, u```
-- ```$mainMod SHIFT, down, movewindow, d```
-- ```$mainMod CTRL, left, resizeactive, -80 0```
-- ```$mainMod CTRL, right, resizeactive, 80 0```
-- ```$mainMod CTRL, up, resizeactive, 0 -80```
-- ```$mainMod CTRL, down, resizeactive, 0 80```
-- ```$mainMod ALT, left, moveactive, -80 0```
-- ```$mainMod ALT, right, moveactive, 80 0```
-- ```$mainMod ALT, up, moveactive, 0 -80```
-- ```$mainMod ALT, down, moveactive, 0 80```
+##### move window
+- ```$mainMod SHIFT, left/right/up/down```
+- ```$mainMod SHIFT, h/j/k/l```
+
+##### resize active window
+- ```$mainMod CTRL, left/right/up/down```
+- ```$mainMod CTRL, h/j/k/l```
+
+##### move active window freely
+- ```$mainMod ALT, left/right/up/down```
+- ```$mainMod ALT, h/j/k/l```
+
+##### mouse
+- ```$mainMod, mouse:272, movewindow```
+- ```$mainMod, mouse:273, resizewindow```
+- ```$mainMod, mouse_down, workspace, e-1```
+- ```$mainMod, mouse_up, workspace, e+1```
 
 ##### media and volume controls
 - ```,XF86AudioPlay, exec, playerctl play-pause```
 - ```,XF86AudioNext, exec, playerctl next```
 - ```,XF86AudioPrev, exec, playerctl previous```
 - ```,XF86AudioStop, exec, playerctl stop```
-- ```$mainMod, mouse_down, workspace, e-1```
-- ```$mainMod, mouse_up, workspace, e+1```
+- ```,XF86AudioMute, exec, noctalia msg volume-mute```
+- ```,XF86AudioRaiseVolume, exec, noctalia msg volume-up```
+- ```,XF86AudioLowerVolume, exec, noctalia msg volume-down```
 
-##### laptop brightness
-- ```,XF86MonBrightnessUp, exec, brightnessctl set 5%+```
-- ```,XF86MonBrightnessDown, exec, brightnessctl set 5%-```
-- ```$mainMod, XF86MonBrightnessUp, exec, brightnessctl set 100%+```
-- ```$mainMod, XF86MonBrightnessDown, exec, brightnessctl set 100%-```
-
-##### clipboard manager
-- ```$mainMod, V, exec, cliphist list | rofi -dmenu -theme-str 'window {width: 50%;}' | cliphist decode | wl-copy```
+##### brightness
+- ```,XF86MonBrightnessUp, exec, noctalia msg brightness-up```
+- ```,XF86MonBrightnessDown, exec, noctalia msg brightness-down```
 </details>
 
 # 🚀 Installation 
@@ -380,26 +412,20 @@ cd .dotfiles
 
 <!-- Links -->
 [Hyprland]: https://github.com/hyprwm/Hyprland
+[Noctalia]: https://github.com/noctalia-dev/noctalia
 [Ghostty]: https://ghostty.org/
 [powerlevel10k]: https://github.com/romkatv/powerlevel10k
-[Waybar]: https://github.com/Alexays/Waybar
-[rofi]: https://github.com/lbonn/rofi
 [Btop]: https://github.com/aristocratos/btop
-[nemo]: https://github.com/linuxmint/nemo/
 [yazi]: https://github.com/sxyazi/yazi
 [zsh]: https://ohmyz.sh/
-[Hyprlock]: https://github.com/hyprwm/hyprlock
 [audacious]: https://audacious-media-player.org/
 [mpv]: https://github.com/mpv-player/mpv
 [VSCodium]: https://vscodium.com/
 [Neovim]: https://github.com/neovim/neovim
-[grimblast]: https://github.com/hyprwm/contrib
 [imv]: https://sr.ht/~exec64/imv/
-[swaync]: https://github.com/ErikReider/SwayNotificationCenter
+[cava]: https://github.com/karliss/cava
 [Maple Mono]: https://github.com/subframe7536/maple-font
 [NetworkManager]: https://wiki.gnome.org/Projects/NetworkManager
-[network-manager-applet]: https://gitlab.gnome.org/GNOME/network-manager-applet/
-[wl-clip-persist]: https://github.com/Linus789/wl-clip-persist
 [wf-recorder]: https://github.com/ammen99/wf-recorder
 [hyprpicker]: https://github.com/hyprwm/hyprpicker
 [Gruvbox]: https://github.com/morhetz/gruvbox
@@ -407,3 +433,4 @@ cd .dotfiles
 [Bibata-Modern-Ice]: https://www.gnome-look.org/p/1197198
 [maxfetch]: https://github.com/jobcmax/maxfetch
 [Colloid gtk theme]: https://github.com/vinceliuice/Colloid-gtk-theme
+[Zen Browser]: https://zen-browser.app/
