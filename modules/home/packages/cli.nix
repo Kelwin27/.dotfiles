@@ -35,6 +35,7 @@
     gtt # google translate TUI
     toipe # typing test in the terminal
     ttyper # cli typing test
+    yazi # terminal file manager, replaces nemo and superfile
 
     ## Monitoring
     onefetch # fetch utility for git repo

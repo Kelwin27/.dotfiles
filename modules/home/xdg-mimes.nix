@@ -7,7 +7,7 @@ let
     image = [ "imv-dir.desktop" ];
     audio = [ "mpv.desktop" ];
     video = [ "mpv.desktop" ];
-    directory = [ "nemo.desktop" ];
+    directory = [ "yazi.desktop" ];
     # office = [ "libreoffice.desktop" ];
     pdf = [ "org.gnome.Papers.desktop" ];
     terminal = [ "ghostty.desktop" ];

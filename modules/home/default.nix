@@ -15,7 +15,6 @@
     ./lazygit.nix
     ./micro.nix # nano replacement
     ./messengers.nix # vebcord, tg
-    ./nemo.nix # file manager
     #./ollama.nix # ollama ai
     ./noctalia # desktop shell (bar, notifications, launcher, lock, wallpaper)
     ./obsidian.nix
@@ -23,7 +22,6 @@
     ./packages # other packages
     ./scripts/scripts.nix # personal scripts
     ./ssh.nix # ssh config
-    ./superfile/superfile.nix # terminal file manager
     ./vscodium # vscode fork
     ./xdg-mimes.nix # xdg config
     ./zsh # shell

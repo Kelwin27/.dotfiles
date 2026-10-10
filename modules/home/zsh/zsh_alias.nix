@@ -12,7 +12,7 @@
       code = "codium";
       diff = "delta --diff-so-fancy --side-by-side";
       less = "bat";
-      f = "superfile";
+      f = "yazi";
       py = "python";
       dsize = "du -hs";
       pdf = "tdf";
