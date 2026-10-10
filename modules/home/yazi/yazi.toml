@@ -1,7 +1,5 @@
 [mgr]
-# kept at the preset value; carried over from superfile's sidebar_width = 18
 ratio = [ 1, 4, 3 ]
-# "natural" rather than plain alphabetical, so 2.md sorts before 10.md
 sort_by = "natural"
 sort_sensitive = false
 sort_reverse = false
@@ -22,7 +20,6 @@ image_quality = 75
 edit = [
   { run = 'nvim %s', desc = "nvim", for = "unix", block = true },
 ]
-# replaces superfile's dir_editor = "nemo", which no longer exists
 open = [
   { run = 'ghostty --title=%t -e yazi %s1', desc = "Open in a new ghostty", for = "unix" },
 ]

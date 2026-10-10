@@ -11,7 +11,5 @@
     };
   };
 
-  # nvtopPackages.intel builds with the intel flag alone and no NVIDIA_SUPPORT,
-  # which is why it reported "No GPU to monitor" on the desktop's GTX 1650.
   home.packages = with pkgs; [ nvtopPackages.nvidia ];
 }

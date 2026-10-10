@@ -1,34 +1,19 @@
-# Noctalia configuration — phase 8 (notifications, OSD, screenshots, wallpaper,
-# launcher, lock screen, clipboard, bar).
-#
-# Colours use palette role names rather than fixed hex, which is what the docs
-# recommend: roles follow the active palette, so the bar stays consistent with
-# the Gruvbox theme instead of hardcoding a second palette next to it.
-
 [theme]
 mode = "dark"
 source = "builtin"
 builtin = "Gruvbox"
 
-# replaces cliphist, wl-clip-persist and the rofi dmenu picker
 [shell]
 clipboard_enabled = true
 clipboard_history_max_entries = 100
-# noctalia claims the selection back when the copying app exits, which is what
-# wl-clip-persist --clipboard both used to do
 clipboard_keep_from_closed_apps = true
 clipboard_auto_paste = "auto"
 
-# panels, launcher, clipboard, control center. Separate from bar.scale, which
-# only affects bar widget content. Lives under [accessibility], not [shell].
-# single-colour app icons in the tray and the launcher. No app_icon_color on
-# purpose: the default resolves to on_surface_variant in dark mode.
 app_icon_colorize = true
 
 [accessibility]
 ui_scale = 1.2
 
-# replaces waypaper and swaybg
 [wallpaper]
 enabled = true
 directory = "@dataHome@/wallpapers"
@@ -39,24 +24,18 @@ transition_duration = 1500
 [wallpaper.default]
 path = "@dataHome@/wallpapers/forest_moss.png"
 
-# replaces hyprlock
 [lockscreen]
 enabled = true
-# blurred_desktop reuses the desktop snapshot and needs wlr-screencopy; the
-# regular blur below looks the same without the extra capture
 blurred_desktop = false
 blur_intensity = 0.5
 tint_intensity = 0.3
 transition = [ "fade" ]
 transition_duration = 1500
-# wallpaper = ""       # empty follows the desktop wallpaper
 # monitors  = [ "eDP-1" ]  # empty shows on every output
 
-# decided to stay off
 [dock]
 enabled = false
 
-# replaces rofi -show drun
 [shell.launcher]
 categories = true
 show_icons = true
@@ -78,34 +57,24 @@ offset_y = 8
 follow_focused_output = false
 
 [system.monitor]
-# the gpu widget probes nvml, which wakes a sleeping discrete card; 30 s keeps a
-# laptop idle while staying fast enough for a load percentage.
 gpu_poll_seconds = 30
 
 [bar.main]
 position = "top"
-# raised from 40: scale multiplies the widget content, and thickness is not
-# covered by it, so the bar would otherwise clip. padding, widget_spacing and
-# capsule_padding are logical pixels applied before scale, so they follow it.
 thickness = 46
 background_opacity = 0.85
 compositor_blur = true
 shadow = true
-# floating pill: a small inset from each end and a small gap from the screen
-# edge, rather than the full-width flush bar waybar used
 margin_ends = 12
 margin_edge = 8
 padding = 10
 widget_spacing = 6
 scale = 1.25
 font_scale = 1.0
-# 600 rather than the 500 default, closer to the bold waybar used
 font_weight = 600
 auto_hide = false
 reserve_space = true
 
-# the per-corner keys carry their own defaults and would override `radius`, so
-# all five have to agree for the bar to read as a pill
 radius = 20
 radius_top_left = 20
 radius_top_right = 20
@@ -113,13 +82,9 @@ radius_bottom_left = 20
 radius_bottom_right = 20
 
 start = [ "group:nav" ]
-# only the clock is centred: it is the one element whose width never changes, so
-# it stays put while values reflow inside their pill. the metrics ride the right
-# edge, so a resizing value moves its own capsule and nothing else.
 center = [ "clock" ]
 end = [ "group:metrics", "group:sys", "group:notif", "session" ]
 
-# field names inside a group table are fill/opacity, not capsule_fill/capsule_opacity
 [[bar.main.capsule_group]]
 id = "nav"
 members = [ "launcher", "workspaces" ]
@@ -156,13 +121,6 @@ fill = "surface_variant"
 opacity = 0.9
 radius = 12.0
 
-# accents only where there is meaning: the three resource metrics take the
-# accent triad, and the session panel gets error because it holds Power Off.
-# icon_color rather than color so labels and percentages stay readable, which is
-# what waybar did too. Everything else follows the palette on its own.
-#
-# type and stat are spelled out because cpu, memory and disk are not built-in
-# widget names: the name alone is taken as the type, and only `sysmon` exists.
 [widget.cpu]
 type = "sysmon"
 stat = "cpu_usage"
@@ -179,23 +137,17 @@ stat = "disk_used_pct"
 path = "/"
 icon_color = "tertiary"
 
-# nvtop can go one day, but the bar keeps a permanent reading of the card. NVML
-# is only loaded while a gpu stat is displayed, so this widget is also what makes
-# the driver visible to noctalia at all.
 [widget.gpu]
 type = "sysmon"
 stat = "gpu_usage"
 icon_color = "primary"
 
-# the interface name or ssid is what used to eat the width here; the tooltip
-# still carries the name, signal, band and interface.
 [widget.network]
 show_label = false
 
 [widget.session]
 icon_color = "error"
 
-# replaces swayosd
 [osd]
 position = "top_right"
 orientation = "horizontal"
@@ -214,7 +166,6 @@ volume_output = true
 brightness = true
 lock_keys = true
 wifi = true
-# kinds tied to services this configuration does not run
 bluetooth = false
 power_profile = false
 keyboard_layout = false
@@ -223,12 +174,9 @@ caffeine = false
 nightlight = false
 dnd = false
 
-# replaces grimblast
 [shell.screenshot]
 directory = "~/Pictures/Screenshots"
 filename_pattern = "Screenshot_%Y_%m_%d_at_%Hh%Mm%Ss"
-# every capture goes through the editor, which offers both Copy and Save,
-# so no separate annotate keybind is needed
 annotate = true
 save_to_file = true
 copy_to_clipboard = true
