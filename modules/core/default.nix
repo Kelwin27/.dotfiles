@@ -7,6 +7,7 @@
     ./network.nix
     ./zapret2.nix
     ./nh.nix
+    ./noctalia.nix
     ./pipewire.nix
     ./program.nix
     ./security.nix

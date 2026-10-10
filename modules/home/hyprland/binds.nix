@@ -39,7 +39,7 @@ in
       "$mainMod, C, exec, hyprpicker -a"
       "$mainMod, W, exec, wallpaper-picker"
       "$mainMod SHIFT, W,exec, hyprctl dispatch exec '[float; size 925 615] waypaper'"
-      "$mainMod, N, exec, swaync-client -t -sw"
+      "$mainMod, N, exec, noctalia msg panel-toggle notifications"
       "CTRL SHIFT, Escape, exec, hyprctl dispatch exec '[workspace 9] missioncenter'"
       "$mainMod, equal, exec, woomer"
 

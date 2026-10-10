@@ -15,7 +15,7 @@ in
     "wl-clip-persist --clipboard both &"
     "wl-paste --watch cliphist store &"
     "waybar &"
-    "swaync &"
+    "noctalia &"
     "hyprctl setcursor Bibata-Modern-Ice 24 &"
 
     "[workspace 1 silent] ${browser}"

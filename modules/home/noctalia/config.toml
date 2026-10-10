@@ -1,0 +1,66 @@
+# Noctalia configuration — phase 1 (notifications only).
+#
+# Wallpaper, lockscreen and clipboard are switched off on purpose so that waypaper,
+# hyprlock and cliphist keep working until their own migration phase. The bar is
+# enabled so the shell can be evaluated visually, and coexists with waybar for now.
+
+[theme]
+mode = "dark"
+source = "builtin"
+builtin = "Gruvbox"
+
+# cliphist still owns the clipboard until phase 5
+[shell]
+clipboard_enabled = false
+
+# waypaper/swaybg still own the wallpaper until phase 3
+[wallpaper]
+enabled = false
+
+# hyprlock still owns the lock screen until phase 4
+[lockscreen]
+enabled = false
+
+# decided to stay off
+[dock]
+enabled = false
+
+[notification]
+enable_daemon = true
+show_app_name = true
+show_actions = true
+layer = "top"
+background_opacity = 0.97
+border = true
+border_color = "outline"
+border_width = 1
+offset_x = 20
+offset_y = 8
+follow_focused_output = false
+
+[bar.main]
+position = "top"
+thickness = 34
+background_opacity = 1.0
+compositor_blur = true
+radius = 12
+margin_ends = 180
+margin_edge = 10
+padding = 14
+widget_spacing = 6
+scale = 1.0
+font_scale = 1.0
+shadow = true
+auto_hide = false
+reserve_space = true
+
+start = [ "launcher", "workspaces" ]
+center = [ "clock", "cpu", "memory" ]
+end = [
+  "tray",
+  "network",
+  "volume",
+  "battery",
+  "notifications",
+  "session",
+]

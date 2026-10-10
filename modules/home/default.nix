@@ -17,6 +17,7 @@
     ./messengers.nix # vebcord, tg
     ./nemo.nix # file manager
     #./ollama.nix # ollama ai
+    ./noctalia # desktop shell (bar, notifications, launcher, lock, wallpaper)
     ./obsidian.nix
     ./p10k/p10k.nix
     ./packages # other packages
@@ -25,7 +26,6 @@
     ./ssh.nix # ssh config
     ./superfile/superfile.nix # terminal file manager
     ./swayosd.nix # brightness / volume wiget
-    ./swaync/swaync.nix # notification deamon
     ./vscodium # vscode fork
     ./waybar # status bar
     ./waypaper.nix # GUI wallpaper picker
