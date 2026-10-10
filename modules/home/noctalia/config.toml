@@ -65,19 +65,28 @@ follow_focused_output = false
 
 [bar.main]
 position = "top"
-thickness = 34
-background_opacity = 1.0
+thickness = 40
+background_opacity = 0.85
 compositor_blur = true
-radius = 12
-margin_ends = 180
-margin_edge = 10
-padding = 14
+shadow = true
+# floating pill: a small inset from each end and a small gap from the screen
+# edge, rather than the full-width flush bar waybar used
+margin_ends = 12
+margin_edge = 8
+padding = 10
 widget_spacing = 6
 scale = 1.0
 font_scale = 1.0
-shadow = true
 auto_hide = false
 reserve_space = true
+
+# the per-corner keys carry their own defaults and would override `radius`, so
+# all five have to agree for the bar to read as a pill
+radius = 20
+radius_top_left = 20
+radius_top_right = 20
+radius_bottom_left = 20
+radius_bottom_right = 20
 
 start = [ "launcher", "workspaces" ]
 center = [
