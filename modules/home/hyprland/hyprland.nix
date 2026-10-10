@@ -2,7 +2,6 @@
 
 {
   home.packages = with pkgs; [
-    grimblast
     hyprpicker
     grim
     slurp

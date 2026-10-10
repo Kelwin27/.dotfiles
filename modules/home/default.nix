@@ -25,7 +25,6 @@
     ./scripts/scripts.nix # personal scripts
     ./ssh.nix # ssh config
     ./superfile/superfile.nix # terminal file manager
-    ./swayosd.nix # brightness / volume wiget
     ./vscodium # vscode fork
     ./waybar # status bar
     ./waypaper.nix # GUI wallpaper picker

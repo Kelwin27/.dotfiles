@@ -2,6 +2,21 @@
 let
   browser = "zen-beta";
   terminal = "ghostty";
+
+  # Swayosd used to own these. Each noctalia call performs the change and raises
+  # the OSD in one step. Registered for both the running session and the lock
+  # screen, because hyprlock still handles locking until its own migration phase.
+  mediaBinds = [
+    ",XF86AudioMute, exec, noctalia msg volume-mute"
+    ",XF86AudioRaiseVolume, exec, noctalia msg volume-up"
+    ",XF86AudioLowerVolume, exec, noctalia msg volume-down"
+    ",XF86MonBrightnessUp, exec, noctalia msg brightness-up"
+    ",XF86MonBrightnessDown, exec, noctalia msg brightness-down"
+    "$mainMod, XF86MonBrightnessUp, exec, noctalia msg brightness-set 100"
+    "$mainMod, XF86MonBrightnessDown, exec, noctalia msg brightness-set 0"
+    "$mainMod, f11, exec, noctalia msg volume-up"
+    "$mainMod, f12, exec, noctalia msg volume-down"
+  ];
 in
 {
   wayland.windowManager.hyprland.settings = {
@@ -9,6 +24,8 @@ in
     binds = {
       movefocus_cycles_fullscreen = true;
     };
+
+    bindl = mediaBinds;
 
     bind = [
       # show keybinds list
@@ -44,9 +61,9 @@ in
       "$mainMod, equal, exec, woomer"
 
       # screenshot
-      ",Print, exec, screenshot --copy"
-      "$mainMod, Print, exec, screenshot --save"
-      "$mainMod SHIFT, Print, exec, screenshot --swappy"
+      ",Print, exec, noctalia msg screenshot-region"
+      "$mainMod, Print, exec, noctalia msg screenshot-fullscreen"
+      "$mainMod SHIFT, Print, exec, noctalia msg screenshot-annotate"
 
       # switch focus
       "$mainMod, left,  movefocus, l"
@@ -134,7 +151,8 @@ in
 
       # clipboard manager
       "$mainMod, V, exec, cliphist list | rofi -dmenu -theme-str 'window {width: 50%;} listview {columns: 1;}' | cliphist decode | wl-copy"
-    ];
+    ]
+    ++ mediaBinds;
 
     # mouse binding
     bindm = [

@@ -1,4 +1,4 @@
-# Noctalia configuration — phase 1 (notifications only).
+# Noctalia configuration — phase 2 (notifications, OSD, screenshots).
 #
 # Wallpaper, lockscreen and clipboard are switched off on purpose so that waypaper,
 # hyprlock and cliphist keep working until their own migration phase. The bar is
@@ -64,3 +64,37 @@ end = [
   "notifications",
   "session",
 ]
+
+# replaces swayosd
+[osd]
+position = "top_right"
+orientation = "horizontal"
+hide_delay_ms = 1400
+background_opacity = 0.97
+border = true
+border_color = "outline"
+border_width = 1
+follow_focused_output = false
+offset_x = 20
+offset_y = 8
+
+[osd.kinds]
+volume = true
+volume_output = true
+brightness = true
+lock_keys = true
+wifi = true
+# kinds tied to services this configuration does not run
+bluetooth = false
+power_profile = false
+keyboard_layout = false
+privacy = false
+caffeine = false
+nightlight = false
+dnd = false
+
+# replaces grimblast
+[shell.screenshot]
+skip_annotate_on_copy_save = false
+close_on_copy = true
+close_on_save = true
