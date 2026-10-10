@@ -36,10 +36,6 @@
       nhs = "nh os switch";
       nhu = "nh os switch --update";
 
-      # VPN (cloudflare warp)
-      aip-off = "systemctl --user stop sing-box";
-      aip-log = "journalctl --user -u sing-box -f";
-
       # python
       piv = "python -m venv .venv";
       psv = "source .venv/bin/activate";
