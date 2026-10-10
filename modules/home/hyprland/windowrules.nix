@@ -76,7 +76,7 @@ in
     ];
     # No gaps when only
     workspace = [
-      "w[t1], gapsout:0, gapsin:0"
+      "w[t1], gapsout:6, gapsin:0"
       "w[tg1], gapsout:0, gapsin:0"
       "f[1], gapsout:0, gapsin:0"
     ];

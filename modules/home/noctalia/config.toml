@@ -5,11 +5,9 @@ builtin = "Gruvbox"
 
 [shell]
 clipboard_enabled = true
-clipboard_history_max_entries = 100
+clipboard_history_max_entries = 50
 clipboard_keep_from_closed_apps = true
 clipboard_auto_paste = "auto"
-
-app_icon_colorize = true
 
 [accessibility]
 ui_scale = 1.2
@@ -45,10 +43,11 @@ compact = false
 
 [notification]
 enable_daemon = true
+timeout = 3000 
 show_app_name = true
 show_actions = true
 layer = "top"
-background_opacity = 0.97
+background_opacity = 0.9
 border = true
 border_color = "outline"
 border_width = 1
@@ -57,19 +56,19 @@ offset_y = 8
 follow_focused_output = false
 
 [system.monitor]
-gpu_poll_seconds = 30
+gpu_poll_seconds = 10
 
 [bar.main]
 position = "top"
 thickness = 46
-background_opacity = 0.85
-compositor_blur = true
+background_opacity = 0.7
+compositor_blur = false
 shadow = true
-margin_ends = 12
-margin_edge = 8
-padding = 10
+margin_ends = 24
+margin_edge = 6
+padding = 14
 widget_spacing = 6
-scale = 1.25
+scale = 1.2
 font_scale = 1.0
 font_weight = 600
 auto_hide = false
@@ -121,6 +120,9 @@ fill = "surface_variant"
 opacity = 0.9
 radius = 12.0
 
+[widget.clock]
+tooltip_format = "%A, %d %B %Y" 
+
 [widget.cpu]
 type = "sysmon"
 stat = "cpu_usage"
@@ -147,6 +149,9 @@ show_label = false
 
 [widget.session]
 icon_color = "error"
+
+[widget.keyboard_layout]
+color = "#ffad33"
 
 [osd]
 position = "top_right"
