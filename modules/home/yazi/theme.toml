@@ -1,0 +1,82 @@
+# Gruvbox Dark, matching the rest of the system.
+#
+# This file overrides yazi's preset rather than replacing it, so only the keys
+# that need a different colour are listed here.
+#
+# There is no syntect_theme on purpose: neither bat nor yazi ships a gruvbox
+# .tmTheme, so naming one would silently fall back to a default. Code preview
+# therefore keeps yazi's built-in highlighting.
+
+[flavor]
+dark = "dark"
+
+[mgr]
+cwd = { fg = "#689D6A" }
+
+find_keyword = { fg = "#FABD2F", bold = true, italic = true, underline = true }
+find_position = { fg = "#FE8019", bg = "reset", bold = true, italic = true }
+
+symlink_target = { italic = true }
+
+marker_copied = { fg = "#98971A", bg = "#98971A" }
+marker_cut = { fg = "#CC241D", bg = "#CC241D" }
+marker_marked = { fg = "#689D6A", bg = "#689D6A" }
+marker_selected = { fg = "#FABD2F", bg = "#FABD2F" }
+
+count_copied = { fg = "#FBF1C7", bg = "#98971A" }
+count_cut = { fg = "#FBF1C7", bg = "#CC241D" }
+count_selected = { fg = "#1D2021", bg = "#FABD2F" }
+
+border_symbol = "│"
+border_style = { fg = "#665C54" }
+
+[tabs]
+active = { bg = "#458588", bold = true }
+inactive = { fg = "#458588", bg = "#504945" }
+
+[mode]
+normal_main = { bg = "#98971A", bold = true }
+normal_alt = { fg = "#98971A", bg = "#504945" }
+select_main = { bg = "#FABD2F", bold = true }
+select_alt = { fg = "#FABD2F", bg = "#504945" }
+
+[status]
+perm_sep = { fg = "#665C54" }
+perm_type = { fg = "#98971A" }
+perm_read = { fg = "#FABD2F" }
+perm_write = { fg = "#CC241D" }
+perm_exec = { fg = "#689D6A" }
+
+progress_normal = { fg = "#98971A", bg = "#1D2021" }
+progress_error = { fg = "#FABD2F", bg = "#CC241D" }
+
+[which]
+border = { fg = "#458588" }
+cand = { fg = "#689D6A" }
+desc = { fg = "#B16286" }
+
+[confirm]
+border = { fg = "#458588" }
+title = { fg = "#458588" }
+
+[input]
+border = { fg = "#458588" }
+
+[cmp]
+border = { fg = "#458588" }
+
+[tasks]
+border = { fg = "#458588" }
+
+[notify]
+title_info = { fg = "#98971A" }
+title_warn = { fg = "#FABD2F" }
+title_error = { fg = "#CC241D" }
+
+[spot]
+border = { fg = "#458588" }
+title = { fg = "#458588" }
+
+[help]
+border = { fg = "#458588" }
+chord = { fg = "#689D6A" }

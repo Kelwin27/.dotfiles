@@ -13,7 +13,6 @@
     ./gtk.nix # gtk theme
     ./hyprland # window manager
     ./lazygit.nix
-    ./micro.nix # nano replacement
     ./messengers.nix # vebcord, tg
     #./ollama.nix # ollama ai
     ./noctalia # desktop shell (bar, notifications, launcher, lock, wallpaper)
@@ -23,6 +22,7 @@
     ./scripts/scripts.nix # personal scripts
     ./ssh.nix # ssh config
     ./vscodium # vscode fork
+    ./yazi # terminal file manager
     ./xdg-mimes.nix # xdg config
     ./zsh # shell
   ];
