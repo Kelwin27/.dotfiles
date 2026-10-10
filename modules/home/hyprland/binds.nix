@@ -6,16 +6,14 @@ let
   # Swayosd used to own these. Each noctalia call performs the change and raises
   # the OSD in one step. Registered for both the running session and the lock
   # screen, because hyprlock still handles locking until its own migration phase.
+  # Only the hardware keys are bound; the $mainMod duplicates that existed for
+  # swayosd are gone, since the bar sliders and the control center cover those.
   mediaBinds = [
     ",XF86AudioMute, exec, noctalia msg volume-mute"
     ",XF86AudioRaiseVolume, exec, noctalia msg volume-up"
     ",XF86AudioLowerVolume, exec, noctalia msg volume-down"
     ",XF86MonBrightnessUp, exec, noctalia msg brightness-up"
     ",XF86MonBrightnessDown, exec, noctalia msg brightness-down"
-    "$mainMod, XF86MonBrightnessUp, exec, noctalia msg brightness-set 100"
-    "$mainMod, XF86MonBrightnessDown, exec, noctalia msg brightness-set 0"
-    "$mainMod, f11, exec, noctalia msg volume-up"
-    "$mainMod, f12, exec, noctalia msg volume-down"
   ];
 in
 {
@@ -60,10 +58,8 @@ in
       "CTRL SHIFT, Escape, exec, hyprctl dispatch exec '[workspace 9] missioncenter'"
       "$mainMod, equal, exec, woomer"
 
-      # screenshot
+      # screenshot — the editor offers both Copy and Save, so one key is enough
       ",Print, exec, noctalia msg screenshot-region"
-      "$mainMod, Print, exec, noctalia msg screenshot-fullscreen"
-      "$mainMod SHIFT, Print, exec, noctalia msg screenshot-annotate"
 
       # switch focus
       "$mainMod, left,  movefocus, l"

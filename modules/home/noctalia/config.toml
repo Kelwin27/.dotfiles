@@ -95,6 +95,15 @@ dnd = false
 
 # replaces grimblast
 [shell.screenshot]
-skip_annotate_on_copy_save = false
+directory = "~/Pictures/Screenshots"
+filename_pattern = "Screenshot_%Y_%m_%d_at_%Hh%Mm%Ss"
+# every capture goes through the editor, which offers both Copy and Save,
+# so no separate annotate keybind is needed
+annotate = true
+save_to_file = true
+copy_to_clipboard = true
+show_cursor = false
 close_on_copy = true
 close_on_save = true
+# copy_to_clipboard needs clipboard_enabled, which stays off until phase 5;
+# the editor's Copy button is inert until then, Save works
