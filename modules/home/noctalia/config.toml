@@ -1,8 +1,9 @@
-# Noctalia configuration — phase 5 (notifications, OSD, screenshots, wallpaper,
-# launcher, lock screen, bar, clipboard).
+# Noctalia configuration — phase 8 (notifications, OSD, screenshots, wallpaper,
+# launcher, lock screen, clipboard, bar).
 #
-# Widget colours are left on the Gruvbox palette; per-widget accents are a later
-# step.
+# Colours use palette role names rather than fixed hex, which is what the docs
+# recommend: roles follow the active palette, so the bar stays consistent with
+# the Gruvbox theme instead of hardcoding a second palette next to it.
 
 [theme]
 mode = "dark"
@@ -17,6 +18,15 @@ clipboard_history_max_entries = 100
 # wl-clip-persist --clipboard both used to do
 clipboard_keep_from_closed_apps = true
 clipboard_auto_paste = "auto"
+
+# panels, launcher, clipboard, control center. Separate from bar.scale, which
+# only affects bar widget content. Lives under [accessibility], not [shell].
+# single-colour app icons in the tray and the launcher. No app_icon_color on
+# purpose: the default resolves to on_surface_variant in dark mode.
+app_icon_colorize = true
+
+[accessibility]
+ui_scale = 1.2
 
 # replaces waypaper and swaybg
 [wallpaper]
@@ -69,7 +79,10 @@ follow_focused_output = false
 
 [bar.main]
 position = "top"
-thickness = 40
+# raised from 40: scale multiplies the widget content, and thickness is not
+# covered by it, so the bar would otherwise clip. padding, widget_spacing and
+# capsule_padding are logical pixels applied before scale, so they follow it.
+thickness = 46
 background_opacity = 0.85
 compositor_blur = true
 shadow = true
@@ -79,8 +92,10 @@ margin_ends = 12
 margin_edge = 8
 padding = 10
 widget_spacing = 6
-scale = 1.0
+scale = 1.25
 font_scale = 1.0
+# 600 rather than the 500 default, closer to the bold waybar used
+font_weight = 600
 auto_hide = false
 reserve_space = true
 
@@ -92,23 +107,63 @@ radius_top_right = 20
 radius_bottom_left = 20
 radius_bottom_right = 20
 
-start = [ "launcher", "workspaces" ]
+start = [ "group:nav" ]
+# left ungrouped: disk is host conditional, and a group fixes its membership
 center = [
   "clock",
   "cpu",
   "memory",
   @diskWidget@
 ]
-end = [
-  "tray",
-  "network",
-  "volume",
-  "battery",
-  "keyboard_layout",
-  "clipboard",
-  "notifications",
-  "session",
-]
+end = [ "group:sys", "group:notif", "session" ]
+
+# field names inside a group table are fill/opacity, not capsule_fill/capsule_opacity
+[[bar.main.capsule_group]]
+id = "nav"
+members = [ "launcher", "workspaces" ]
+fill = "surface_variant"
+opacity = 0.9
+radius = 12.0
+
+[[bar.main.capsule_group]]
+id = "sys"
+members = [ "tray", "network", "volume", "battery" ]
+fill = "surface_variant"
+opacity = 0.9
+radius = 12.0
+
+[[bar.main.capsule_group]]
+id = "notif"
+members = [ "keyboard_layout", "clipboard", "notifications" ]
+fill = "surface_variant"
+opacity = 0.9
+radius = 12.0
+
+# accents only where there is meaning: the three resource metrics take the
+# accent triad, and the session panel gets error because it holds Power Off.
+# icon_color rather than color so labels and percentages stay readable, which is
+# what waybar did too. Everything else follows the palette on its own.
+#
+# type and stat are spelled out because cpu, memory and disk are not built-in
+# widget names: the name alone is taken as the type, and only `sysmon` exists.
+[widget.cpu]
+type = "sysmon"
+stat = "cpu_usage"
+icon_color = "primary"
+
+[widget.memory]
+type = "sysmon"
+stat = "ram_used"
+icon_color = "secondary"
+
+[widget.disk]
+type = "sysmon"
+stat = "disk_used_pct"
+path = "/"
+icon_color = "tertiary"
+
+[widget.session]
+icon_color = "error"
 
 # replaces swayosd
 [osd]
