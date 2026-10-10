@@ -1,8 +1,9 @@
-# Noctalia configuration — phase 2 (notifications, OSD, screenshots).
+# Noctalia configuration — phase 3 (notifications, OSD, screenshots, wallpaper,
+# launcher).
 #
-# Wallpaper, lockscreen and clipboard are switched off on purpose so that waypaper,
-# hyprlock and cliphist keep working until their own migration phase. The bar is
-# enabled so the shell can be evaluated visually, and coexists with waybar for now.
+# Lockscreen and clipboard are switched off on purpose so that hyprlock and
+# cliphist keep working until their own migration phase. The bar coexists with
+# waybar until phase 4.
 
 [theme]
 mode = "dark"
@@ -13,9 +14,16 @@ builtin = "Gruvbox"
 [shell]
 clipboard_enabled = false
 
-# waypaper/swaybg still own the wallpaper until phase 3
+# replaces waypaper and swaybg
 [wallpaper]
-enabled = false
+enabled = true
+directory = "@dataHome@/wallpapers"
+fill_mode = "crop"
+transition = [ "fade" ]
+transition_duration = 1500
+
+[wallpaper.default]
+path = "@dataHome@/wallpapers/forest_moss.png"
 
 # hyprlock still owns the lock screen until phase 4
 [lockscreen]
@@ -24,6 +32,14 @@ enabled = false
 # decided to stay off
 [dock]
 enabled = false
+
+# replaces rofi -show drun
+[shell.launcher]
+categories = true
+show_icons = true
+sort_by_usage = true
+app_grid = false
+compact = false
 
 [notification]
 enable_daemon = true

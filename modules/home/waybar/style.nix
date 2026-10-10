@@ -149,11 +149,11 @@ in
       format-en = "US";
     };
     "custom/launcher" = {
-      format = "";
-      on-click = "random-wallpaper";
-      on-click-right = "rofi -show drun";
+      format = "";
+      on-click = "noctalia msg panel-toggle launcher";
+      on-click-right = "noctalia msg wallpaper-random";
       tooltip = "true";
-      tooltip-format = "Random Wallpaper";
+      tooltip-format = "Launcher";
     };
     "custom/notification" = {
       tooltip = false;
@@ -169,17 +169,17 @@ in
         dnd-inhibited-none = " ";
       };
       return-type = "json";
-      exec-if = "which swaync-client";
-      exec = "swaync-client -swb";
-      on-click = "swaync-client -t -sw";
-      on-click-right = "swaync-client -d -sw";
+      exec-if = "which noctalia";
+      exec = "noctalia msg notification-dnd-status";
+      on-click = "noctalia msg panel-toggle notifications";
+      on-click-right = "noctalia msg notification-clear-active";
       escape = true;
     };
     "custom/power-menu" = {
       tooltip = true;
       tooltip-format = "Power menu";
       format = "<span foreground='${red}'> </span>";
-      on-click = "power-menu";
+      on-click = "noctalia msg panel-toggle session";
     };
   };
 

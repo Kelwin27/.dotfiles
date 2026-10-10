@@ -21,13 +21,12 @@
     ./obsidian.nix
     ./p10k/p10k.nix
     ./packages # other packages
-    ./rofi/rofi.nix # launcher
+    ./rofi/rofi.nix # binary only, for the clipboard bind until phase 5
     ./scripts/scripts.nix # personal scripts
     ./ssh.nix # ssh config
     ./superfile/superfile.nix # terminal file manager
     ./vscodium # vscode fork
     ./waybar # status bar
-    ./waypaper.nix # GUI wallpaper picker
     ./xdg-mimes.nix # xdg config
     ./zsh # shell
   ];
