@@ -1,21 +1,14 @@
 #!/usr/bin/env bash
 
 init() {
-    # Vars
-    CURRENT_USERNAME='frostphoenix'
-
     # Colors
     NORMAL=$(tput sgr0)
-    WHITE=$(tput setaf 7)
-    BLACK=$(tput setaf 0)
     RED=$(tput setaf 1)
     GREEN=$(tput setaf 2)
     YELLOW=$(tput setaf 3)
     BLUE=$(tput setaf 4)
     MAGENTA=$(tput setaf 5)
     CYAN=$(tput setaf 6)
-    BRIGHT=$(tput bold)
-    UNDERLINE=$(tput smul)
 }
 
 confirm() {
@@ -29,36 +22,23 @@ confirm() {
 
 print_header() {
     echo -E "$CYAN
-      _____              _   ____  _                      _        
-     |  ___| __ ___  ___| |_|  _ \| |__   ___   ___ _ __ (_)_  __  
-     | |_ | '__/ _ \/ __| __| |_) | '_ \ / _ \ / _ \ '_ \| \ \/ /  
-     |  _|| | | (_) \__ \ |_|  __/| | | | (_) |  __/ | | | |>  <   
-     |_|  |_|  \___/|___/\__|_|   |_| |_|\___/ \___|_| |_|_/_/\_\  
-     _   _ _       ___        ___           _        _ _           
-    | \ | (_)_  __/ _ \ ___  |_ _|_ __  ___| |_ __ _| | | ___ _ __ 
+      _____              _   ____  _                      _
+     |  ___| __ ___  ___| |_|  _ \| |__   ___   ___ _ __ (_)_  __
+     | |_ | '__/ _ \/ __| __| |_) | '_ \ / _ \ / _ \ '_ \| \ \/ /
+     |  _|| | | (_) \__ \ |_|  __/| | | | (_) |  __/ | | | |>  <
+     |_|  |_|  \___/|___/\__|_|   |_| |_|\___/ \___|_| |_|_/_/\_\
+     _   _ _       ___        ___           _        _ _
+    | \ | (_)_  __/ _ \ ___  |_ _|_ __  ___| |_ __ _| | | ___ _ __
     |  \| | \ \/ / | | / __|  | || '_ \/ __| __/ _' | | |/ _ \ '__|
-    | |\  | |>  <| |_| \__ \  | || | | \__ \ || (_| | | |  __/ |   
-    |_| \_|_/_/\_\\\\___/|___/ |___|_| |_|___/\__\__,_|_|_|\___|_| 
+    | |\  | |>  <| |_| \__ \  | || | | \__ \ || (_| | | |  __/ |
+    |_| \_|_/_/\_\\\\___/|___/ |___|_| |_|___/\__\__,_|_|_|\___|_|
 
 
-                  $BLUE https://github.com/Frost-Phoenix $RED 
+                  $BLUE https://github.com/Kelwin27/.dotfiles $RED
       ! To make sure everything runs correctly DONT run as root ! $GREEN
                         -> '"./install.sh"' $NORMAL
 
     "
-}
-
-get_username() {
-    echo -en "Enter your$GREEN username$NORMAL : $YELLOW"
-    read username
-    echo -en "$NORMAL"
-    echo -en "Use$YELLOW "$username"$NORMAL as ${GREEN}username${NORMAL} ? "
-    confirm
-}
-
-set_username() {
-    sed -i -e "s/${CURRENT_USERNAME}/${username}/g" ./flake.nix
-    sed -i -e "s/${CURRENT_USERNAME}/${username}/g" ./modules/home/audacious.nix
 }
 
 get_host() {
@@ -82,46 +62,32 @@ get_host() {
     confirm
 }
 
-aseprite() {
-    # whether to install aseprite or not
-    echo -en "Disable ${GREEN}Aseprite${NORMAL} (faster install) ? [${GREEN}y${NORMAL}/${RED}n${NORMAL}]: "
-    read -n 1 -r
-    echo
-    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-        return
-    fi
-    sed -i '3s/  /  # /' modules/home/aseprite/aseprite.nix
-}
-
 install() {
     echo -e "\n${RED}START INSTALL PHASE${NORMAL}\n"
 
-    # Create basic directories
+    # The wallpaper set is linked into ~/.local/share/wallpapers by home-manager,
+    # so there is nothing to copy here. Only the directories that something writes
+    # to at runtime are created.
     echo -e "Creating folders:"
     echo -e "    - ${MAGENTA}~/Music${NORMAL}"
     echo -e "    - ${MAGENTA}~/Documents${NORMAL}"
-    echo -e "    - ${MAGENTA}~/Pictures/wallpapers/others${NORMAL}"
+    echo -e "    - ${MAGENTA}~/Pictures/Screenshots${NORMAL}"
     mkdir -p ~/Music
     mkdir -p ~/Documents
-    mkdir -p ~/Pictures/wallpapers/others
-
-    # Copy the wallpapers
-    echo -e "Copying all ${MAGENTA}wallpapers${NORMAL}"
-    cp -r wallpapers/wallpaper.png ~/Pictures/wallpapers
-    cp -r wallpapers/otherWallpaper/gruvbox/* ~/Pictures/wallpapers/others/
-    cp -r wallpapers/otherWallpaper/nixos/* ~/Pictures/wallpapers/others/
+    mkdir -p ~/Pictures/Screenshots
 
     # Get the hardware configuration
-    echo -e "Copying ${MAGENTA}/etc/nixos/hardware-configuration.nix${NORMAL} to ${MAGENTA}./hosts/${HOST}/${NORMAL}\n"
+    echo -e "Copying ${MAGENTA}/etc/nixos/hardware-configuration.nix${NORMAL} to ${MAGENTA}./hosts/${HOST}/\n"
     cp /etc/nixos/hardware-configuration.nix hosts/${HOST}/hardware-configuration.nix
 
     # Last Confirmation
     echo -en "You are about to start the system build, do you want to process ? "
     confirm
 
-    # Build the system (flakes + home manager)
+    # Build the system. nh rather than nixos-rebuild, so the flake path and the
+    # garbage collection window from modules/core/nh.nix apply.
     echo -e "\nBuilding the system...\n"
-    sudo nixos-rebuild switch --flake .#${HOST}
+    nh os switch --flake .#${HOST}
 }
 
 main() {
@@ -129,11 +95,7 @@ main() {
 
     print_header
 
-    get_username
-    set_username
     get_host
-
-    aseprite
     install
 }
 
