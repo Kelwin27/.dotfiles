@@ -146,7 +146,7 @@ in
       "$mainMod, mouse_up, workspace, e+1"
 
       # clipboard manager
-      "$mainMod, V, exec, cliphist list | rofi -dmenu -theme-str 'window {width: 50%;} listview {columns: 1;}' | cliphist decode | wl-copy"
+      "$mainMod, V, exec, noctalia msg panel-toggle clipboard"
     ]
     ++ mediaBinds;
 

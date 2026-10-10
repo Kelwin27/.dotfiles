@@ -9,8 +9,6 @@ in
     "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
 
     "poweralertd &"
-    "wl-clip-persist --clipboard both &"
-    "wl-paste --watch cliphist store &"
     "noctalia &"
     "hyprctl setcursor Bibata-Modern-Ice 24 &"
 

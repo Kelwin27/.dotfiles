@@ -21,7 +21,6 @@
     ./obsidian.nix
     ./p10k/p10k.nix
     ./packages # other packages
-    ./rofi/rofi.nix # binary only, for the clipboard bind until phase 5
     ./scripts/scripts.nix # personal scripts
     ./ssh.nix # ssh config
     ./superfile/superfile.nix # terminal file manager

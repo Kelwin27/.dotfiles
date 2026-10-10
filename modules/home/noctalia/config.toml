@@ -1,18 +1,22 @@
-# Noctalia configuration — phase 4 (notifications, OSD, screenshots, wallpaper,
-# launcher, lock screen, bar).
+# Noctalia configuration — phase 5 (notifications, OSD, screenshots, wallpaper,
+# launcher, lock screen, bar, clipboard).
 #
-# The clipboard is switched off on purpose so that cliphist keeps working until
-# phase 5. Widget colours are left on the Gruvbox palette; per-widget accents
-# are a later step.
+# Widget colours are left on the Gruvbox palette; per-widget accents are a later
+# step.
 
 [theme]
 mode = "dark"
 source = "builtin"
 builtin = "Gruvbox"
 
-# cliphist still owns the clipboard until phase 5
+# replaces cliphist, wl-clip-persist and the rofi dmenu picker
 [shell]
-clipboard_enabled = false
+clipboard_enabled = true
+clipboard_history_max_entries = 100
+# noctalia claims the selection back when the copying app exits, which is what
+# wl-clip-persist --clipboard both used to do
+clipboard_keep_from_closed_apps = true
+clipboard_auto_paste = "auto"
 
 # replaces waypaper and swaybg
 [wallpaper]
@@ -101,6 +105,7 @@ end = [
   "volume",
   "battery",
   "keyboard_layout",
+  "clipboard",
   "notifications",
   "session",
 ]
@@ -145,5 +150,3 @@ copy_to_clipboard = true
 show_cursor = false
 close_on_copy = true
 close_on_save = true
-# copy_to_clipboard needs clipboard_enabled, which stays off until phase 5;
-# the editor's Copy button is inert until then, Save works
