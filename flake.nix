@@ -57,10 +57,12 @@
 
         laptop = mkSystem "laptop" [
           ./hosts/laptop
+          nvf.nixosModules.default
         ];
 
         vm = mkSystem "vm" [
           ./hosts/vm
+          nvf.nixosModules.default
         ];
       };
     };
