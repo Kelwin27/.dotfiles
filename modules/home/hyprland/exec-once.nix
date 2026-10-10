@@ -11,7 +11,6 @@ in
     "poweralertd &"
     "wl-clip-persist --clipboard both &"
     "wl-paste --watch cliphist store &"
-    "waybar &"
     "noctalia &"
     "hyprctl setcursor Bibata-Modern-Ice 24 &"
 

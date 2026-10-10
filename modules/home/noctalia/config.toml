@@ -1,9 +1,9 @@
-# Noctalia configuration — phase 3 (notifications, OSD, screenshots, wallpaper,
-# launcher).
+# Noctalia configuration — phase 4 (notifications, OSD, screenshots, wallpaper,
+# launcher, lock screen, bar).
 #
-# Lockscreen and clipboard are switched off on purpose so that hyprlock and
-# cliphist keep working until their own migration phase. The bar coexists with
-# waybar until phase 4.
+# The clipboard is switched off on purpose so that cliphist keeps working until
+# phase 5. Widget colours are left on the Gruvbox palette; per-widget accents
+# are a later step.
 
 [theme]
 mode = "dark"
@@ -25,9 +25,18 @@ transition_duration = 1500
 [wallpaper.default]
 path = "@dataHome@/wallpapers/forest_moss.png"
 
-# hyprlock still owns the lock screen until phase 4
+# replaces hyprlock
 [lockscreen]
-enabled = false
+enabled = true
+# blurred_desktop reuses the desktop snapshot and needs wlr-screencopy; the
+# regular blur below looks the same without the extra capture
+blurred_desktop = false
+blur_intensity = 0.5
+tint_intensity = 0.3
+transition = [ "fade" ]
+transition_duration = 1500
+# wallpaper = ""       # empty follows the desktop wallpaper
+# monitors  = [ "eDP-1" ]  # empty shows on every output
 
 # decided to stay off
 [dock]
@@ -71,12 +80,18 @@ auto_hide = false
 reserve_space = true
 
 start = [ "launcher", "workspaces" ]
-center = [ "clock", "cpu", "memory" ]
+center = [
+  "clock",
+  "cpu",
+  "memory",
+  @diskWidget@
+]
 end = [
   "tray",
   "network",
   "volume",
   "battery",
+  "keyboard_layout",
   "notifications",
   "session",
 ]

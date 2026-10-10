@@ -1,6 +1,6 @@
-{ ... }:
 {
   security.rtkit.enable = true;
   security.sudo.enable = true;
-  security.pam.services.hyprlock.enableGnomeKeyring = true;
+  # Noctalia locks through PAM's `login` service, which already carries the
+  # gnome-keyring rules, so the hyprlock stanza is no longer needed.
 }

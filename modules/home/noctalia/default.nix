@@ -17,9 +17,16 @@ lib.mkIf (host != "vm") {
     recursive = true;
   };
 
+  # The laptop has no disk to report. The marker spans a whole list entry so the
+  # result stays valid TOML when it collapses to nothing.
   xdg.configFile."noctalia/config.toml" = {
-    text = lib.replaceStrings [ "@dataHome@" ] [ config.xdg.dataHome ] (
-      builtins.readFile ./config.toml
-    );
+    text =
+      lib.replaceStrings
+        [ "@dataHome@" "@diskWidget@" ]
+        [
+          config.xdg.dataHome
+          (if host == "desktop" then "\"disk\"," else "")
+        ]
+        (builtins.readFile ./config.toml);
   };
 }

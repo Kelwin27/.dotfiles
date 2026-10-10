@@ -26,7 +26,6 @@
     ./ssh.nix # ssh config
     ./superfile/superfile.nix # terminal file manager
     ./vscodium # vscode fork
-    ./waybar # status bar
     ./xdg-mimes.nix # xdg config
     ./zsh # shell
   ];

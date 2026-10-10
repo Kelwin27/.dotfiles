@@ -4,10 +4,10 @@ let
   terminal = "ghostty";
 
   # Swayosd used to own these. Each noctalia call performs the change and raises
-  # the OSD in one step. Registered for both the running session and the lock
-  # screen, because hyprlock still handles locking until its own migration phase.
-  # Only the hardware keys are bound; the $mainMod duplicates that existed for
-  # swayosd are gone, since the bar sliders and the control center cover those.
+  # the OSD in one step. Also registered under bindl so the keys keep working on
+  # the noctalia lock screen. Only the hardware keys are bound; the $mainMod
+  # duplicates that existed for swayosd are gone, since the bar sliders and the
+  # control center cover those.
   mediaBinds = [
     ",XF86AudioMute, exec, noctalia msg volume-mute"
     ",XF86AudioRaiseVolume, exec, noctalia msg volume-up"
@@ -42,7 +42,7 @@ in
       "$mainMod, Space, exec, toggle-float"
       "$mainMod, D, exec, noctalia msg panel-toggle launcher"
       "$mainMod SHIFT, S, exec, hyprctl dispatch exec '[workspace 5 silent] SoundWireServer'"
-      "$mainMod, Escape, exec, swaylock"
+      "$mainMod, Escape, exec, noctalia msg session lock"
       "$mainMod SHIFT, D, exec, vesktop --enable-features=UseOzonePlatform --ozone-platform=wayland"
       "$mainMod SHIFT, Escape, exec, noctalia msg panel-toggle session"
       "$mainMod, P, pseudo,"
@@ -50,7 +50,7 @@ in
       "$mainMod, T, exec, toggle-opacity"
       "$mainMod, E, exec, nemo"
       "ALT, E, exec, hyprctl dispatch exec '[float; size 1111 700] nemo'"
-      "$mainMod SHIFT, T, exec, toggle-waybar"
+      "$mainMod SHIFT, T, exec, noctalia msg bar-toggle"
       "$mainMod, C, exec, hyprpicker -a"
       "$mainMod, W, exec, noctalia msg panel-toggle wallpaper"
       "$mainMod SHIFT, W, exec, noctalia msg wallpaper-random"
