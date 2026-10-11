@@ -11,7 +11,6 @@
         follow_mouse = 0;
         float_switch_override_focus = 0;
         mouse_refocus = 0;
-        sensitivity = 0;
         touchpad = {
           natural_scroll = true;
         };
@@ -31,7 +30,6 @@
         disable_hyprland_logo = true;
         always_follow_on_dnd = true;
         layers_hog_keyboard_focus = true;
-        animate_manual_resizes = false;
         enable_swallow = true;
         focus_on_activate = true;
         on_focus_under_fullscreen = 2;
