@@ -17,7 +17,6 @@
     asciinema # terminal demo
     asciinema-agg # terminal demo in gif
     binsider # binary analizer
-    gopass # cli for secure manage passwords
     bitwise # cli tool for bit / hex manipulation
     broot # tree files view
     caligula # User-friendly, lightweight TUI for disk imaging
