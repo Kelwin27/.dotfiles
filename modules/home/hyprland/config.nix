@@ -93,8 +93,8 @@
           # name, enable, speed, curve, style
 
           # Windows
-          "windowsIn,   0, 4, easeOutCubic,  popin 20%" # window open
-          "windowsOut,  0, 4, fluent_decel,  popin 80%" # window close.
+          "windowsIn,   1, 4, easeOutCubic,  popin 20%" # window open
+          "windowsOut,  1, 4, fluent_decel,  popin 80%" # window close.
           "windowsMove, 1, 2, fluent_decel, slide" # everything in between, moving, dragging, resizing.
 
           # Fade
