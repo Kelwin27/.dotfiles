@@ -147,8 +147,7 @@ in
 
       # clipboard manager
       "$mainMod, V, exec, noctalia msg panel-toggle clipboard"
-    ]
-    ++ mediaBinds;
+    ];
 
     # mouse binding
     bindm = [
