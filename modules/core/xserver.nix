@@ -11,7 +11,7 @@
     if [ -z "$DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
       export XDG_SESSION_TYPE=wayland
       export XDG_CURRENT_DESKTOP=Hyprland
-      exec dbus-run-session -- Hyprland
+      exec dbus-run-session -- start-hyprland
     fi
   '';
   # To prevent getting stuck at shutdown
