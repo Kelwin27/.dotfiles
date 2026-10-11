@@ -62,11 +62,8 @@ in
       "no_blur on, match:class ^(xwaylandvideobridge)$"
       # No gaps when only
       "border_size 0, match:float off, match:workspace w[t1]"
-      "rounding 0, match:float off, match:workspace w[t1]"
       "border_size 0, match:float off, match:workspace w[tg1]"
-      "rounding 0, match:float off, match:workspace w[tg1]"
       "border_size 0, match:float off, match:workspace f[1]"
-      "rounding 0, match:float off, match:workspace f[1]"
       # "max_size 1111 700, match:float on"
       # "center on, match:float on"
       # Remove context menu transparency in chromium based apps
