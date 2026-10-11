@@ -19,6 +19,7 @@
     ./obsidian.nix
     ./p10k/p10k.nix
     ./packages # other packages
+    ./poweralertd.nix # battery notifications, laptop only
     ./scripts/scripts.nix # personal scripts
     ./ssh.nix # ssh config
     ./vscodium # vscode fork

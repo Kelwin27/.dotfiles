@@ -73,7 +73,6 @@
     mimeo
     openssl
     playerctl # controller for media players
-    poweralertd
     unzip
     wl-clipboard # clipboard utils for wayland (wl-copy, wl-paste)
     xdg-utils

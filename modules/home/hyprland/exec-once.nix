@@ -8,7 +8,6 @@ in
     "dbus-update-activation-environment --all --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
     "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
 
-    "poweralertd &"
     "noctalia &"
     "hyprctl setcursor Bibata-Modern-Ice 24 &"
 
