@@ -85,24 +85,30 @@
           "easeOutCirc, 0, 0.55, 0.45, 1"
           "easeOutCubic, 0.33, 1, 0.68, 1"
           "fade_curve, 0, 0.55, 0.45, 1"
+          "easeOutQuint, 0.23, 1, 0.32, 1"
+          "almostLinear, 0.5, 0.5, 0.75, 1.0"
+          "quick, 0.15, 0, 0.1, 1"
         ];
 
         animation = [
           # name, enable, speed, curve, style
 
           # Windows
-          "windowsIn,   0, 4, easeOutCubic,  popin 20%" # window open
-          "windowsOut,  0, 4, fluent_decel,  popin 80%" # window close.
-          "windowsMove, 0, 2, fluent_decel, slide" # everything in between, moving, dragging, resizing.
+          "windows,     1, 3.79, easeOutQuint"
+          "windowsIn,   1, 4.1,  easeOutQuint, popin 87%"
+          "windowsOut,  1, 1.49, linear,       popin 87%"
+          "windowsMove, 1, 3.79, easeOutQuint"
 
           # Fade
-          "fadeIn,      1, 1.7, fade_curve" # fade in (open) -> layers and windows
-          "fadeOut,     1, 1.7, fade_curve" # fade out (close) -> layers and windows
+          "fadeIn,      1, 1.73, almostLinear" # fade in (open) -> layers and windows
+          "fadeOut,     1, 1.46, almostLinear" # fade out (close) -> layers and windows
+          "fade,        1, 3.03, quick"
           "fadeSwitch,  0, 1,   easeOutCirc" # fade on changing activewindow and its opacity
           "fadeShadow,  1, 5,   easeOutCirc" # fade on changing activewindow for shadows
           "fadeDim,     1, 4,   fluent_decel" # the easing of the dimming of inactive windows
           # "border,      1, 2.7, easeOutCirc"  # for animating the border's color switch speed
           # "borderangle, 1, 30,  fluent_decel, once" # for animating the border's gradient angle - styles: once (default), loop
+          "layers,      1, 3.81, easeOutQuint"
           "workspaces,  1, 2,   easeOutCubic, fade" # styles: slide, slidevert, fade, slidefade, slidefadevert
         ];
       };
