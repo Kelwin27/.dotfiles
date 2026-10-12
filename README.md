@@ -28,34 +28,11 @@
 ### 🖼️ Gallery
 
 <p align="center">
-   <img src="./.github/assets/screenshots/1.png" style="margin-bottom: 15px;"/> <br>
-   <img src="./.github/assets/screenshots/2.png" style="margin-bottom: 15px;"/> <br>
-   <img src="./.github/assets/screenshots/3.png" style="margin-bottom: 15px;"/> <br>
-   <img src="./.github/assets/screenshots/4.png" style="margin-bottom: 15px;"/> <br>
-   <img src="./.github/assets/screenshots/5.png" style="margin-bottom: 15px;"/> <br>
-   Screenshots last updated <b>2025-10-07</b>
+   <img width="1920" height="1080" alt="Screenshot_2026_10_12_at_22h16m34s-region" src="https://github.com/user-attachments/assets/9490d4a1-adc8-4671-8966-488e5693d5cc"  style="margin-bottom: 15px;"/><br>
+   <img width="1920" height="1080" alt="Screenshot_2026_10_12_at_22h13m58s-region" src="https://github.com/user-attachments/assets/7dc8c1e3-89fd-4747-9363-b8229c24b731" style="margin-bottom: 15px;" /><br>
+   <img width="1920" height="1080" alt="Screenshot_2026_10_12_at_22h17m41s-region" src="https://github.com/user-attachments/assets/77c36663-da2d-4546-98df-fe38cc071399" style="margin-bottom: 15px;"/><br>
+   <img width="1920" height="1080" alt="Screenshot_2026_10_12_at_22h22m57s-region" src="https://github.com/user-attachments/assets/a2a196e1-549b-4619-a9aa-f2e60a93bf05" style="margin-bottom: 15px;"/><br>
 </p>
-
-Here is my previous Catppuccin rice. You can find it [here](https://github.com/Frost-Phoenix/nixos-config/tree/catppuccin)
-<details>
-<summary>
-Catppuccin (EXPAND)
-</summary>
-<p align="center">
-   <img src="./.github/assets/screenshots/catppuccin/1.png" style="margin-bottom: 10px;" /> <br>
-   <img src="./.github/assets/screenshots/catppuccin/2.png" style="margin-bottom: 10px;" /> <br>
-   <img src="./.github/assets/screenshots/catppuccin/3.png" style="margin-bottom: 10px;" /> <br>
-</p>  
-   <details>
-   <summary>
-   Old Catppuccin (EXPAND)
-   </summary>
-   <p align="center">
-      <img src="./.github/assets/screenshots/catppuccin/old/1.old.png" style="margin-bottom: 10px;" /> <br>
-      <img src="./.github/assets/screenshots/catppuccin/old/2.old.png" style="margin-bottom: 10px;" /> <br>
-      <img src="./.github/assets/screenshots/catppuccin/old/3.old.png" style="margin-bottom: 10px;" /> <br>
-   </p>
-   </details>
 </details>
 
 # 🗃️ Overview
