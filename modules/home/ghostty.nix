@@ -51,6 +51,9 @@ in
     term = ghostty
     clipboard-paste-protection = false
 
+    shell-integration = zsh
+    shell-integration-features = cursor,sudo,title
+
     keybind = shift+end=unbind
     keybind = shift+home=unbind
     keybind = ctrl+shift+left=unbind

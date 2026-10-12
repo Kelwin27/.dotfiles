@@ -185,19 +185,19 @@
 
     if [[ -n $VCS_STATUS_LOCAL_BRANCH ]]; then
       local branch=${(V)VCS_STATUS_LOCAL_BRANCH}
-      (( $#branch > 32 )) && branch[13,-13]="…"  # <-- this line
+      (( $#branch > 32 )) && branch[13,-13]="…"
       res+="${clean}${(g::)POWERLEVEL9K_VCS_BRANCH_ICON}${branch//\%/%%}"
     fi
 
     if [[ -n $VCS_STATUS_TAG
-          && -z $VCS_STATUS_LOCAL_BRANCH  # <-- this line
+          && -z $VCS_STATUS_LOCAL_BRANCH
         ]]; then
       local tag=${(V)VCS_STATUS_TAG}
-      (( $#tag > 32 )) && tag[13,-13]="…"  # <-- this line
+      (( $#tag > 32 )) && tag[13,-13]="…"
       res+="${meta}#${clean}${tag//\%/%%}"
     fi
 
-    [[ -z $VCS_STATUS_LOCAL_BRANCH && -z $VCS_STATUS_TAG ]] &&  # <-- this line
+    [[ -z $VCS_STATUS_LOCAL_BRANCH && -z $VCS_STATUS_TAG ]] &&
       res+="${meta}@${clean}${VCS_STATUS_COMMIT[1,8]}"
 
     if [[ -n ${VCS_STATUS_REMOTE_BRANCH:#$VCS_STATUS_LOCAL_BRANCH} ]]; then
@@ -414,6 +414,8 @@
   typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
   typeset -g POWERLEVEL9K_DISABLE_HOT_RELOAD=true
+
+  typeset -g POWERLEVEL9K_TERM_SHELL_INTEGRATION=true
 
   (( ! $+functions[p10k] )) || p10k reload
 }
