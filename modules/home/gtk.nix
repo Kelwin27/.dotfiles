@@ -1,15 +1,19 @@
 { pkgs, ... }:
 let
-  themeName = "Colloid-Green-Dark-Gruvbox";
-  themePackage = pkgs.colloid-gtk-theme.override {
-    colorVariants = [ "dark" ];
-    themeVariants = [ "green" ];
+  variant = "macchiato";
+  accent = "mauve";
+  themePackage = pkgs.catppuccin-gtk.override {
+    variant = variant;
+    accents = [ accent ];
+    size = "standard";
+    # mirrors the shape the Colloid build used to ask for, minus its palette tweak
     tweaks = [
-      "gruvbox"
       "rimless"
       "float"
     ];
   };
+  # the upstream build derives the directory name from every knob above
+  themeName = "catppuccin-${variant}-${accent}-standard+rimless,float";
 in
 {
   fonts.fontconfig.enable = true;

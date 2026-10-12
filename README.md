@@ -88,8 +88,8 @@ Bar, launcher, notifications, lock screen, wallpaper picker, OSD and clipboard a
 | **System Resource Monitor** | [Btop][Btop] + nvtop |
 | **File Manager**            | [yazi][yazi] |
 | **Fonts**                   | [Maple Mono][Maple Mono] |
-| **Color Scheme**            | [Gruvbox Dark Hard][Gruvbox] |
-| **GTK Theme**               | [Colloid gtk theme][Colloid gtk theme] |
+| **Color Scheme**            | [Catppuccin Macchiato][Catppuccin] |
+| **GTK Theme**               | [Catppuccin gtk theme][Catppuccin gtk theme] |
 | **Cursor**                  | [Bibata-Modern-Ice][Bibata-Modern-Ice] |
 | **Icons**                   | [Papirus-Dark][Papirus-Dark] |
 | **Image Viewer**            | [imv][imv] |
@@ -423,9 +423,9 @@ cd .dotfiles
 [NetworkManager]: https://wiki.gnome.org/Projects/NetworkManager
 [wf-recorder]: https://github.com/ammen99/wf-recorder
 [hyprpicker]: https://github.com/hyprwm/hyprpicker
-[Gruvbox]: https://github.com/morhetz/gruvbox
+[Catppuccin]: https://github.com/catppuccin/catppuccin
+[Catppuccin gtk theme]: https://github.com/catppuccin/gtk
 [Papirus-Dark]: https://github.com/PapirusDevelopmentTeam/papirus-icon-theme
 [Bibata-Modern-Ice]: https://www.gnome-look.org/p/1197198
 [maxfetch]: https://github.com/jobcmax/maxfetch
-[Colloid gtk theme]: https://github.com/vinceliuice/Colloid-gtk-theme
 [Zen Browser]: https://zen-browser.app/

@@ -1,14 +1,4 @@
 { pkgs, ... }:
-let
-  jonathanharty.gruvbox-material-icon-theme = pkgs.vscode-utils.buildVscodeMarketplaceExtension {
-    mktplcRef = {
-      name = "gruvbox-material-icon-theme";
-      publisher = "JonathanHarty";
-      version = "1.1.5";
-      hash = "sha256-86UWUuWKT6adx4hw4OJw3cSZxWZKLH4uLTO+Ssg75gY=";
-    };
-  };
-in
 {
   programs.vscodium.profiles.default = {
     extensions = with pkgs.vscode-extensions; [
@@ -20,8 +10,8 @@ in
       golang.go
 
       ## Color scheme
-      jdinhlife.gruvbox
-      jonathanharty.gruvbox-material-icon-theme
+      catppuccin.catppuccin-vsc
+      catppuccin.catppuccin-vsc-icons
     ];
   };
 }
