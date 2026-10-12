@@ -1,4 +1,8 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  nodpiPath ? "/home/kelwin/NoDPI",
+  ...
+}:
 {
   services = {
     # Still needed after nemo went away: gvfs backs recent:// and the MTP mount
@@ -28,7 +32,8 @@
     description = "NoDPI Service";
     after = [ "network.target" ];
     serviceConfig = {
-      ExecStart = "${pkgs.python3}/bin/python /home/kelwin/NoDPI/src/main.py --blacklist /home/kelwin/NoDPI/blacklist.txt -q";
+      ConditionPathExists = "${nodpiPath}";
+      ExecStart = "${pkgs.python3}/bin/python ${nodpiPath}/src/main.py --blacklist ${nodpiPath}/blacklist.txt -q";
       Restart = "on-failure";
       RestartSec = 5;
       StandardOutput = "null";

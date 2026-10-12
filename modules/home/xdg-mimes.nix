@@ -11,7 +11,7 @@ let
     # office = [ "libreoffice.desktop" ];
     pdf = [ "org.gnome.Papers.desktop" ];
     terminal = [ "ghostty.desktop" ];
-    archive = [ "peazip.desktop" ];
+    archive = [ "org.gnome.FileRoller.desktop" ];
   };
 
   mimeMap = {

@@ -8,7 +8,6 @@ in
     # windowrule
     windowrule = [
       "border_size 0, match:float 1"
-      "float on, match:class ^(Viewnior)$"
       "float on, match:class ^(imv)$"
       "float on, match:class ^(mpv)$"
       "float on, match:class ^(Audacious)$"
@@ -26,7 +25,6 @@ in
       "opacity 1.0 override 1.0 override, match:title ^(.*imv.*)$"
       "opacity 1.0 override 1.0 override, match:title ^(.*mpv.*)$"
       "opacity 1.0 override 1.0 override, match:class zen"
-      "opacity 1.0 override 1.0 override, match:class evince"
       "workspace 1, match:class ^(${browser})$"
       "workspace 3, match:class ^(codium)$"
       "workspace 4, match:class ^(${pdf})$"

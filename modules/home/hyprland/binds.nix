@@ -55,7 +55,6 @@ in
       "$mainMod, W, exec, noctalia msg panel-toggle wallpaper"
       "$mainMod SHIFT, W, exec, noctalia msg wallpaper-random"
       "$mainMod, N, exec, noctalia msg panel-toggle notifications"
-      "CTRL SHIFT, Escape, exec, hyprctl dispatch exec '[workspace 9] missioncenter'"
       "$mainMod, equal, exec, woomer"
 
       # screenshot — the editor offers both Copy and Save, so one key is enough

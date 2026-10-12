@@ -33,12 +33,8 @@
    <img src="./.github/assets/screenshots/3.png" style="margin-bottom: 15px;"/> <br>
    <img src="./.github/assets/screenshots/4.png" style="margin-bottom: 15px;"/> <br>
    <img src="./.github/assets/screenshots/5.png" style="margin-bottom: 15px;"/> <br>
-   <img src="./.github/assets/screenshots/hyprlock.png" style="margin-bottom: 15px;" /> <br>
    Screenshots last updated <b>2025-10-07</b>
 </p>
-
-> [!NOTE]
-> These still show the previous Waybar/rofi/swaync setup, captured before the move to Noctalia.
 
 Here is my previous Catppuccin rice. You can find it [here](https://github.com/Frost-Phoenix/nixos-config/tree/catppuccin)
 <details>
@@ -283,7 +279,7 @@ runbg.sh
 
 ## ⌨️ Keybinds
 
-View all keybinds by pressing ```$mainMod F1``` and wallpaper picker by pressing ```$mainMod w```. By default ```$mainMod``` is the ```SUPER``` key. 
+View all keybinds by pressing ```$mainMod F1``` and wallpaper picker by pressing ```$mainMod, W```. By default ```$mainMod``` is the ```SUPER``` key. 
 
 <details>
 <summary>
@@ -329,9 +325,8 @@ Keybindings
 
 ##### other
 - ```$mainMod, C, exec, hyprpicker -a```
-- ```$mainMod SHIFT, S, exec, SoundWireServer```
-- ```$mainMod SHIFT, D, exec, vesktop```
-- ```CTRL SHIFT, Escape, exec, missioncenter```
+- ```$mainMod SHIFT, S, exec, hyprctl dispatch exec '[workspace 5 silent] SoundWireServer'```
+- ```$mainMod SHIFT, D, exec, vesktop --enable-features=UseOzonePlatform --ozone-platform=wayland```
 
 ##### screenshot
 - ```,Print, exec, noctalia msg screenshot-region```

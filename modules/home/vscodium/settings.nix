@@ -42,9 +42,6 @@
       "workbench.layoutControl.enabled" = false;
 
       "editor.mouseWheelZoom" = true;
-
-      "nix.serverPath" = "nixd";
-      "nix.enableLanguageServer" = true;
     };
   };
 }

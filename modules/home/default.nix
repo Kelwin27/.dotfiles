@@ -3,7 +3,7 @@
   imports = [
     ./audacious.nix # music player
     ./bat.nix # better cat command
-    ./browser.nix # firefox based browser
+    ./browser.nix # zen browser + chromium
     ./btop.nix # resouces monitor
     ./cava.nix # audio visualizer
     ./fastfetch/fastfetch.nix # fetch tool

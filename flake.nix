@@ -29,6 +29,7 @@
     }@inputs:
     let
       username = "kelwin";
+      nodpiPath = "/home/kelwin/NoDPI";
       inherit (nixpkgs) lib;
       mkSystem =
         host: modules:
@@ -44,6 +45,7 @@
               inputs
               username
               host
+              nodpiPath
               ;
           };
         };
