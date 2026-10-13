@@ -1,0 +1,7 @@
+# `--orphan` is required: wl-copy forks into the background but keeps the
+# inherited stderr open, so a regular shell task would hang in the task manager.
+# `%%s` is the escaped percent for printf; unescaped, Yazi would splice %s in.
+[[mgr.prepend_keymap]]
+on = "y"
+run  = [ "yank", '''shell --orphan "printf 'file://%%s\n' %S | sed -e 's/%/%25/g' -e 's/ /%20/g' -e 's/#/%23/g' -e 's/?/%3F/g' | wl-copy -t text/uri-list"''' ]
+desc = "Copy selected files to the system clipboard"
