@@ -50,6 +50,7 @@ in
       "$mainMod, T, exec, toggle-opacity"
       "$mainMod, E, exec, ${terminal} --title=files -e yazi"
       "ALT, E, exec, hyprctl dispatch exec '[float; size 1111 700] ${terminal} --title=files -e yazi'"
+      "$mainMod SHIFT, M, exec, toggle-resources"
       "$mainMod SHIFT, T, exec, noctalia msg bar-toggle"
       "$mainMod, C, exec, hyprpicker -a"
       "$mainMod, W, exec, noctalia msg panel-toggle wallpaper"

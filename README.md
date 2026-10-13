@@ -305,6 +305,9 @@ Keybindings
 - ```$mainMod SHIFT, S, exec, hyprctl dispatch exec '[workspace 5 silent] SoundWireServer'```
 - ```$mainMod SHIFT, D, exec, vesktop --enable-features=UseOzonePlatform --ozone-platform=wayland```
 
+##### system monitor
+- ```$mainMod SHIFT, M, exec, toggle-resources```
+
 ##### screenshot
 - ```,Print, exec, noctalia msg screenshot-region```
 
