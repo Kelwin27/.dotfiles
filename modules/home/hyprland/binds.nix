@@ -1,158 +1,175 @@
-{ ... }:
+{ lib, ... }:
 let
+  lua = lib.generators.mkLuaInline;
   browser = "zen-beta";
   terminal = "ghostty";
+  j = builtins.toJSON;
 
-  # Swayosd used to own these. Each noctalia call performs the change and raises
-  # the OSD in one step. Also registered under bindl so the keys keep working on
-  # the noctalia lock screen. Only the hardware keys are bound; the $mainMod
-  # duplicates that existed for swayosd are gone, since the bar sliders and the
-  # control center cover those.
-  mediaBinds = [
-    ",XF86AudioMute, exec, noctalia msg volume-mute"
-    ",XF86AudioRaiseVolume, exec, noctalia msg volume-up"
-    ",XF86AudioLowerVolume, exec, noctalia msg volume-down"
-    ",XF86MonBrightnessUp, exec, noctalia msg brightness-up"
-    ",XF86MonBrightnessDown, exec, noctalia msg brightness-down"
-  ];
-in
-{
-  wayland.windowManager.hyprland.settings = {
+  key = mods: name: lua ''"${lib.concatStringsSep " + " (mods ++ [ name ])}"'';
 
-    binds = {
-      movefocus_cycles_fullscreen = true;
-    };
-
-    bindl = mediaBinds;
-
-    bind = [
-      # show keybinds list
-      "$mainMod, F1, exec, show-keybinds"
-
-      # keybindings
-      "$mainMod, Return, exec, ${terminal}"
-      "ALT, Return, exec, [float; size 1111 700] ${terminal}"
-      "$mainMod SHIFT, Return, exec, [fullscreen] ${terminal}"
-      "$mainMod, B, exec, ${browser}"
-      "$mainMod SHIFT, B, exec, chromium"
-      "$mainMod SHIFT, V, exec, codium"
-      "$mainMod, Q, killactive"
-      "$mainMod, F, fullscreen, 0"
-      "$mainMod SHIFT, F, fullscreen, 1"
-      "$mainMod, Space, exec, toggle-float"
-      "$mainMod, D, exec, noctalia msg panel-toggle launcher"
-      "$mainMod SHIFT, S, exec, hyprctl dispatch exec '[workspace 5 silent] SoundWireServer'"
-      "$mainMod, Escape, exec, noctalia msg session lock"
-      "$mainMod SHIFT, D, exec, vesktop --enable-features=UseOzonePlatform --ozone-platform=wayland"
-      "$mainMod SHIFT, Escape, exec, noctalia msg panel-toggle session"
-      "$mainMod, P, pseudo"
-      "$mainMod, X, layoutmsg, togglesplit"
-      "$mainMod, T, exec, toggle-opacity"
-      "$mainMod, E, exec, ${terminal} --title=files -e yazi"
-      "ALT, E, exec, hyprctl dispatch exec '[float; size 1111 700] ${terminal} --title=files -e yazi'"
-      "$mainMod SHIFT, M, exec, toggle-resources"
-      "$mainMod SHIFT, T, exec, noctalia msg bar-toggle"
-      "$mainMod, C, exec, hyprpicker -a"
-      "$mainMod, W, exec, noctalia msg panel-toggle wallpaper"
-      "$mainMod SHIFT, W, exec, noctalia msg wallpaper-random"
-      "$mainMod, N, exec, noctalia msg panel-toggle notifications"
-      "$mainMod, equal, exec, woomer"
-
-      # screenshot — the editor offers both Copy and Save, so one key is enough
-      ",Print, exec, noctalia msg screenshot-region"
-
-      # switch focus
-      "$mainMod, left,  movefocus, l"
-      "$mainMod, right, movefocus, r"
-      "$mainMod, up,    movefocus, u"
-      "$mainMod, down,  movefocus, d"
-      "$mainMod, h, movefocus, l"
-      "$mainMod, j, movefocus, d"
-      "$mainMod, k, movefocus, u"
-      "$mainMod, l, movefocus, r"
-
-      "$mainMod, left,  alterzorder, top"
-      "$mainMod, right, alterzorder, top"
-      "$mainMod, up,    alterzorder, top"
-      "$mainMod, down,  alterzorder, top"
-      "$mainMod, h, alterzorder, top"
-      "$mainMod, j, alterzorder, top"
-      "$mainMod, k, alterzorder, top"
-      "$mainMod, l, alterzorder, top"
-
-      "CTRL ALT, up, exec, hyprctl dispatch focuswindow floating"
-      "CTRL ALT, down, exec, hyprctl dispatch focuswindow tiled"
-
-      # switch workspace
-      "$mainMod, 1, workspace, 1"
-      "$mainMod, 2, workspace, 2"
-      "$mainMod, 3, workspace, 3"
-      "$mainMod, 4, workspace, 4"
-      "$mainMod, 5, workspace, 5"
-      "$mainMod, 6, workspace, 6"
-      "$mainMod, 7, workspace, 7"
-      "$mainMod, 8, workspace, 8"
-      "$mainMod, 9, workspace, 9"
-      "$mainMod, 0, workspace, 10"
-
-      # same as above, but switch to the workspace
-      "$mainMod SHIFT, 1, movetoworkspacesilent, 1" # movetoworkspacesilent
-      "$mainMod SHIFT, 2, movetoworkspacesilent, 2"
-      "$mainMod SHIFT, 3, movetoworkspacesilent, 3"
-      "$mainMod SHIFT, 4, movetoworkspacesilent, 4"
-      "$mainMod SHIFT, 5, movetoworkspacesilent, 5"
-      "$mainMod SHIFT, 6, movetoworkspacesilent, 6"
-      "$mainMod SHIFT, 7, movetoworkspacesilent, 7"
-      "$mainMod SHIFT, 8, movetoworkspacesilent, 8"
-      "$mainMod SHIFT, 9, movetoworkspacesilent, 9"
-      "$mainMod SHIFT, 0, movetoworkspacesilent, 10"
-      "$mainMod CTRL, c, movetoworkspace, empty"
-
-      # window control
-      "$mainMod SHIFT, left, movewindow, l"
-      "$mainMod SHIFT, right, movewindow, r"
-      "$mainMod SHIFT, up, movewindow, u"
-      "$mainMod SHIFT, down, movewindow, d"
-      "$mainMod SHIFT, h, movewindow, l"
-      "$mainMod SHIFT, j, movewindow, d"
-      "$mainMod SHIFT, k, movewindow, u"
-      "$mainMod SHIFT, l, movewindow, r"
-
-      "$mainMod CTRL, left, resizeactive, -80 0"
-      "$mainMod CTRL, right, resizeactive, 80 0"
-      "$mainMod CTRL, up, resizeactive, 0 -80"
-      "$mainMod CTRL, down, resizeactive, 0 80"
-      "$mainMod CTRL, h, resizeactive, -80 0"
-      "$mainMod CTRL, j, resizeactive, 0 80"
-      "$mainMod CTRL, k, resizeactive, 0 -80"
-      "$mainMod CTRL, l, resizeactive, 80 0"
-
-      "$mainMod ALT, left, moveactive,  -80 0"
-      "$mainMod ALT, right, moveactive, 80 0"
-      "$mainMod ALT, up, moveactive, 0 -80"
-      "$mainMod ALT, down, moveactive, 0 80"
-      "$mainMod ALT, h, moveactive,  -80 0"
-      "$mainMod ALT, j, moveactive, 0 80"
-      "$mainMod ALT, k, moveactive, 0 -80"
-      "$mainMod ALT, l, moveactive, 80 0"
-
-      # media and volume controls
-      ",XF86AudioPlay,exec, playerctl play-pause"
-      ",XF86AudioNext,exec, playerctl next"
-      ",XF86AudioPrev,exec, playerctl previous"
-      ",XF86AudioStop,exec, playerctl stop"
-
-      "$mainMod, mouse_down, workspace, e-1"
-      "$mainMod, mouse_up, workspace, e+1"
-
-      # clipboard manager
-      "$mainMod, V, exec, noctalia msg panel-toggle clipboard"
-    ];
-
-    # mouse binding
-    bindm = [
-      "$mainMod, mouse:272, movewindow"
-      "$mainMod, mouse:273, resizewindow"
+  bind = mods: name: dsp: {
+    _args = [
+      (key mods name)
+      dsp
     ];
   };
+
+  bindWith = opts: mods: name: dsp: {
+    _args = [
+      (key mods name)
+      dsp
+      opts
+    ];
+  };
+
+  exec = cmd: lua "hl.dsp.exec_cmd(${j cmd})";
+  execWith = cmd: rules: lua "hl.dsp.exec_cmd(${j cmd}, { ${rules} })";
+
+  focusDir = d: lua "hl.dsp.focus({ direction = ${j d} })";
+  focusWs = w: lua "hl.dsp.focus({ workspace = ${j w} })";
+  focusWin = w: lua "hl.dsp.focus({ window = ${j w} })";
+
+  moveDir = d: lua "hl.dsp.window.move({ direction = ${j d} })";
+  moveWs =
+    w: follow:
+    lua "hl.dsp.window.move({ workspace = ${j w}${if follow then "" else ", follow = false"} })";
+  moveBy = x: y: lua "hl.dsp.window.move({ x = ${x}, y = ${y}, relative = true })";
+  resizeBy = x: y: lua "hl.dsp.window.resize({ x = ${x}, y = ${y}, relative = true })";
+
+  alterTop = lua ''hl.dsp.window.alter_zorder({ mode = "top" })'';
+  fullscreen = lua ''hl.dsp.window.fullscreen({ mode = "fullscreen" })'';
+  maximized = lua ''hl.dsp.window.fullscreen({ mode = "maximized" })'';
+  killActive = lua "hl.dsp.window.kill()";
+  pseudo = lua "hl.dsp.window.pseudo()";
+  toggleSplit = lua ''hl.dsp.layout("togglesplit")'';
+  drag = lua "hl.dsp.window.drag()";
+  mouseResize = lua "hl.dsp.window.resize()";
+
+  floatSize = ''float = true, size = "1111 700"'';
+
+  mediaBind = name: cmd: bindWith { locked = true; } [ ] name (exec cmd);
+
+  arrows = [
+    {
+      name = "left";
+      dir = "left";
+    }
+    {
+      name = "right";
+      dir = "right";
+    }
+    {
+      name = "up";
+      dir = "up";
+    }
+    {
+      name = "down";
+      dir = "down";
+    }
+    {
+      name = "h";
+      dir = "left";
+    }
+    {
+      name = "j";
+      dir = "down";
+    }
+    {
+      name = "k";
+      dir = "up";
+    }
+    {
+      name = "l";
+      dir = "right";
+    }
+  ];
+
+  dx =
+    dir:
+    if dir == "left" then
+      "-80"
+    else if dir == "right" then
+      "80"
+    else
+      "0";
+  dy =
+    dir:
+    if dir == "up" then
+      "-80"
+    else if dir == "down" then
+      "80"
+    else
+      "0";
+
+  workspaces = lib.range 1 10;
+  wsKey = n: if n == 10 then "0" else toString n;
+in
+{
+  wayland.windowManager.hyprland.settings.bind = [
+    (bind [ "SUPER" ] "F1" (exec "show-keybinds"))
+
+    (bind [ "SUPER" ] "RETURN" (exec terminal))
+    (bind [ "ALT" ] "RETURN" (execWith terminal floatSize))
+    (bind [ "SUPER" "SHIFT" ] "RETURN" (execWith terminal "fullscreen = true"))
+    (bind [ "SUPER" ] "B" (exec browser))
+    (bind [ "SUPER" "SHIFT" ] "B" (exec "chromium"))
+    (bind [ "SUPER" "SHIFT" ] "V" (exec "codium"))
+    (bind [ "SUPER" ] "Q" killActive)
+    (bind [ "SUPER" ] "F" fullscreen)
+    (bind [ "SUPER" "SHIFT" ] "F" maximized)
+    (bind [ "SUPER" ] "SPACE" (exec "toggle-float"))
+    (bind [ "SUPER" ] "D" (exec "noctalia msg panel-toggle launcher"))
+    (bind [ "SUPER" "SHIFT" ] "S" (execWith "SoundWireServer" ''workspace = "5 silent"''))
+    (bind [ "SUPER" ] "Escape" (exec "noctalia msg session lock"))
+    (bind [ "SUPER" "SHIFT" ] "D" (
+      exec "vesktop --enable-features=UseOzonePlatform --ozone-platform=wayland"
+    ))
+    (bind [ "SUPER" "SHIFT" ] "Escape" (exec "noctalia msg panel-toggle session"))
+    (bind [ "SUPER" ] "P" pseudo)
+    (bind [ "SUPER" ] "X" toggleSplit)
+    (bind [ "SUPER" ] "T" (exec "toggle-opacity"))
+    (bind [ "SUPER" ] "E" (exec "${terminal} --title=files -e yazi"))
+    (bind [ "ALT" ] "E" (execWith "${terminal} --title=files -e yazi" floatSize))
+    (bind [ "SUPER" "SHIFT" ] "M" (exec "toggle-resources"))
+    (bind [ "SUPER" "SHIFT" ] "T" (exec "noctalia msg bar-toggle"))
+    (bind [ "SUPER" ] "C" (exec "hyprpicker -a"))
+    (bind [ "SUPER" ] "W" (exec "noctalia msg panel-toggle wallpaper"))
+    (bind [ "SUPER" "SHIFT" ] "W" (exec "noctalia msg wallpaper-random"))
+    (bind [ "SUPER" ] "N" (exec "noctalia msg panel-toggle notifications"))
+    (bind [ "SUPER" ] "EQUAL" (exec "woomer"))
+
+    (bind [ ] "PRINT" (exec "noctalia msg screenshot-region"))
+  ]
+  ++ map (a: bind [ "SUPER" ] a.name (focusDir a.dir)) arrows
+  ++ map (a: bind [ "SUPER" ] a.name alterTop) arrows
+  ++ [
+    (bind [ "CTRL" "ALT" ] "up" (focusWin "floating"))
+    (bind [ "CTRL" "ALT" ] "down" (focusWin "tiled"))
+  ]
+  ++ map (n: bind [ "SUPER" ] (wsKey n) (focusWs n)) workspaces
+  ++ map (n: bind [ "SUPER" "SHIFT" ] (wsKey n) (moveWs n false)) workspaces
+  ++ [ (bind [ "SUPER" "CTRL" ] "c" (moveWs "empty" true)) ]
+  ++ map (a: bind [ "SUPER" "SHIFT" ] a.name (moveDir a.dir)) arrows
+  ++ map (a: bind [ "SUPER" "CTRL" ] a.name (resizeBy (dx a.dir) (dy a.dir))) arrows
+  ++ map (a: bind [ "SUPER" "ALT" ] a.name (moveBy (dx a.dir) (dy a.dir))) arrows
+  ++ [
+    (bind [ ] "XF86AudioPlay" (exec "playerctl play-pause"))
+    (bind [ ] "XF86AudioNext" (exec "playerctl next"))
+    (bind [ ] "XF86AudioPrev" (exec "playerctl previous"))
+    (bind [ ] "XF86AudioStop" (exec "playerctl stop"))
+
+    (bind [ "SUPER" ] "mouse_down" (focusWs "e-1"))
+    (bind [ "SUPER" ] "mouse_up" (focusWs "e+1"))
+
+    (bind [ "SUPER" ] "V" (exec "noctalia msg panel-toggle clipboard"))
+
+    (mediaBind "XF86AudioMute" "noctalia msg volume-mute")
+    (mediaBind "XF86AudioRaiseVolume" "noctalia msg volume-up")
+    (mediaBind "XF86AudioLowerVolume" "noctalia msg volume-down")
+    (mediaBind "XF86MonBrightnessUp" "noctalia msg brightness-up")
+    (mediaBind "XF86MonBrightnessDown" "noctalia msg brightness-down")
+
+    (bindWith { mouse = true; } [ "SUPER" ] "mouse:272" drag)
+    (bindWith { mouse = true; } [ "SUPER" ] "mouse:273" mouseResize)
+  ];
 }

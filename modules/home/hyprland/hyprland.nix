@@ -10,8 +10,6 @@
     wayland
     direnv
 
-    # Qt style plugin that makes Qt apps follow the GTK theme. Both Qt
-    # generations ship, so Qt5 apps and vesktop (Qt6) are both covered.
     adwaita-qt
     adwaita-qt6
   ];
@@ -20,13 +18,9 @@
   ];
   wayland.windowManager.hyprland = {
     enable = true;
-    configType = "hyprlang";
+    configType = "lua";
     package = null;
     portalPackage = null;
-
-    xwayland = {
-      enable = true;
-    };
     systemd.enable = true;
   };
 }

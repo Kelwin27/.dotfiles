@@ -1,8 +1,36 @@
 { ... }:
+let
+  bezier = x1: y1: x2: y2: [
+    [
+      x1
+      y1
+    ]
+    [
+      x2
+      y2
+    ]
+  ];
+
+  curve = name: points: {
+    _args = [
+      name
+      {
+        type = "bezier";
+        inherit points;
+      }
+    ];
+  };
+in
 {
-  wayland.windowManager.hyprland = {
-    settings = {
-      "$mainMod" = "SUPER";
+  wayland.windowManager.hyprland.settings = {
+    monitor = {
+      output = "";
+      mode = "preferred";
+      position = "auto";
+      scale = "auto";
+    };
+
+    config = {
       input = {
         kb_layout = "us,ru";
         kb_options = "grp:alt_shift_toggle";
@@ -11,9 +39,7 @@
         follow_mouse = 0;
         float_switch_override_focus = 0;
         mouse_refocus = 0;
-        touchpad = {
-          natural_scroll = true;
-        };
+        touchpad.natural_scroll = true;
       };
 
       general = {
@@ -21,8 +47,10 @@
         gaps_in = 6;
         gaps_out = 6;
         border_size = 2;
-        "col.active_border" = "rgb(8AADF4)";
-        "col.inactive_border" = "0x00000000";
+        col = {
+          active_border = "rgb(8AADF4)";
+          inactive_border = "0x00000000";
+        };
       };
 
       misc = {
@@ -51,9 +79,6 @@
 
       decoration = {
         rounding = 0;
-        # active_opacity = 0.90;
-        # inactive_opacity = 0.90;
-        # fullscreen_opacity = 1.0;
 
         blur = {
           enabled = true;
@@ -69,7 +94,6 @@
 
         shadow = {
           enabled = true;
-
           offset = "0 2";
           range = 20;
           render_power = 3;
@@ -77,49 +101,98 @@
         };
       };
 
-      animations = {
-        enabled = true;
+      animations.enabled = true;
 
-        bezier = [
-          "fluent_decel, 0, 0.2, 0.4, 1"
-          "easeOutCirc, 0, 0.55, 0.45, 1"
-          "easeOutCubic, 0.33, 1, 0.68, 1"
-          "fade_curve, 0, 0.55, 0.45, 1"
-          "easeOutQuint, 0.23, 1, 0.32, 1"
-          "almostLinear, 0.5, 0.5, 0.75, 1.0"
-          "quick, 0.15, 0, 0.1, 1"
-        ];
+      binds.movefocus_cycles_fullscreen = true;
 
-        animation = [
-          # name, enable, speed, curve, style
-
-          # Windows
-          "windows,     1, 3.79, easeOutQuint"
-          "windowsIn,   1, 4.1,  easeOutQuint, popin 87%"
-          "windowsOut,  1, 1.49, linear,       popin 87%"
-          "windowsMove, 1, 3.79, easeOutQuint"
-
-          # Fade
-          "fadeIn,      1, 1.73, almostLinear" # fade in (open) -> layers and windows
-          "fadeOut,     1, 1.46, almostLinear" # fade out (close) -> layers and windows
-          "fade,        1, 3.03, quick"
-          "fadeSwitch,  0, 1,   easeOutCirc" # fade on changing activewindow and its opacity
-          "fadeShadow,  1, 5,   easeOutCirc" # fade on changing activewindow for shadows
-          "fadeDim,     1, 4,   fluent_decel" # the easing of the dimming of inactive windows
-          # "border,      1, 2.7, easeOutCirc"  # for animating the border's color switch speed
-          # "borderangle, 1, 30,  fluent_decel, once" # for animating the border's gradient angle - styles: once (default), loop
-          "layers,      1, 3.81, easeOutQuint"
-          "workspaces,  1, 2,   easeOutCubic, fade" # styles: slide, slidevert, fade, slidefade, slidefadevert
-        ];
-      };
+      xwayland.force_zero_scaling = true;
     };
 
-    extraConfig = "
-      monitor=,preferred,auto,auto
+    curve = [
+      (curve "fluent_decel" (bezier 0 0.2 0.4 1))
+      (curve "easeOutCirc" (bezier 0 0.55 0.45 1))
+      (curve "easeOutCubic" (bezier 0.33 1 0.68 1))
+      (curve "fade_curve" (bezier 0 0.55 0.45 1))
+      (curve "easeOutQuint" (bezier 0.23 1 0.32 1))
+      (curve "almostLinear" (bezier 0.5 0.5 0.75 1.0))
+      (curve "quick" (bezier 0.15 0 0.1 1))
+    ];
 
-      xwayland {
-        force_zero_scaling = true
+    animation = [
+      {
+        leaf = "windows";
+        enabled = true;
+        speed = 3.79;
+        bezier = "easeOutQuint";
       }
-    ";
+      {
+        leaf = "windowsIn";
+        enabled = true;
+        speed = 4.1;
+        bezier = "easeOutQuint";
+        style = "popin 87%";
+      }
+      {
+        leaf = "windowsOut";
+        enabled = true;
+        speed = 1.49;
+        bezier = "linear";
+        style = "popin 87%";
+      }
+      {
+        leaf = "windowsMove";
+        enabled = true;
+        speed = 3.79;
+        bezier = "easeOutQuint";
+      }
+
+      {
+        leaf = "fadeIn";
+        enabled = true;
+        speed = 1.73;
+        bezier = "almostLinear";
+      }
+      {
+        leaf = "fadeOut";
+        enabled = true;
+        speed = 1.46;
+        bezier = "almostLinear";
+      }
+      {
+        leaf = "fade";
+        enabled = true;
+        speed = 3.03;
+        bezier = "quick";
+      }
+      {
+        leaf = "fadeSwitch";
+        enabled = false;
+      }
+      {
+        leaf = "fadeShadow";
+        enabled = true;
+        speed = 5;
+        bezier = "easeOutCirc";
+      }
+      {
+        leaf = "fadeDim";
+        enabled = true;
+        speed = 4;
+        bezier = "fluent_decel";
+      }
+      {
+        leaf = "layers";
+        enabled = true;
+        speed = 3.81;
+        bezier = "easeOutQuint";
+      }
+      {
+        leaf = "workspaces";
+        enabled = true;
+        speed = 2;
+        bezier = "easeOutCubic";
+        style = "fade";
+      }
+    ];
   };
 }
