@@ -17,6 +17,7 @@
     #./ollama.nix # ollama ai
     ./noctalia # desktop shell (bar, notifications, launcher, lock, wallpaper)
     ./obsidian.nix
+    ./opencode # ai agent
     ./p10k/p10k.nix
     ./packages # other packages
     ./poweralertd.nix # battery notifications, laptop only

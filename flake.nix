@@ -18,6 +18,9 @@
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    mcp-nixos.url = "github:utensils/mcp-nixos";
+    serena.url = "github:oraios/serena";
   };
 
   outputs =

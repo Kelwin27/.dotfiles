@@ -1,0 +1,30 @@
+{
+  "$schema": "https://raw.githubusercontent.com/cortexkit/magic-context/master/assets/magic-context.schema.json",
+  "enabled": true,
+
+  // Версией плагина управляет Nix (закрепление в opencode.nix), самообновление не нужно.
+  "auto_update": false,
+
+  // Historian сжимает старую историю в фоне. БЕЗ этого блока он работает на модели
+  // вашей текущей сессии (дорого). Укажите дешёвую модель своего провайдера:
+  // "historian": {
+  //   "opencode": {
+  //     "model": "<provider>/<cheap-model>",
+  //     "fallback_models": []
+  //   }
+  // },
+
+  // Dreamer по расписанию запускает фоновые задачи (verify, curate и др.): это
+  // дополнительные запросы к модели. Выключен, пока не выберете для него дешёвую модель.
+  "dreamer": { "disable": true },
+
+  // Локальные эмбеддинги скачивают модель с Hugging Face и запускают её в процессе.
+  // Сначала проверьте `doctor`, затем смените на "local". С "off" работает только
+  // полнотекстовый поиск (FTS5).
+  "embedding": { "provider": "off" },
+
+  "memory": {
+    "enabled": true,
+    "auto_promote": true
+  }
+}

@@ -32,11 +32,11 @@ in
 {
   home.packages = with pkgs; [
     ## Lsp
-    nil # nix
-    #ols # odin
+    nixd # nix lsp
 
     ## formating
     shfmt
+    shellcheck
     treefmt
     nixfmt
 
@@ -46,16 +46,16 @@ in
     ruff
     pyright
 
-    ## Odin
-    #odin
-
     ## Node
     bun-baseline
 
     #Go
     go
+    gopls # mcp for opencode
 
     # Vibe Coding
-    opencode
+    ast-grep
+    yq-go
+    difftastic
   ];
 }

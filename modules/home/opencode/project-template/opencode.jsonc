@@ -1,0 +1,20 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+
+  // Конфиг проекта сливается с глобальным ~/.config/opencode/opencode.json
+  // и при конфликте ключей побеждает.
+  "mcp": {
+    // Go-проект: раскомментируйте (глобально выключено).
+    // "gopls": { "enabled": true },
+
+    // Большой репозиторий: символьная навигация Serena (глобально выключено).
+    // Добавьте .serena/ в .gitignore.
+    // "serena": { "enabled": true }
+  }
+
+  // Дополнительные инструкции помимо AGENTS.md:
+  // "instructions": ["docs/CONTRIBUTING.md"],
+
+  // Права на уровне проекта (поверх глобальных):
+  // "permission": { "bash": { "pnpm publish*": "deny" } }
+}

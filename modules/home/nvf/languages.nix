@@ -48,7 +48,7 @@
       enable = true;
       extraDiagnostics.enable = true;
       lsp.enable = true;
-      lsp.servers = [ "nil" ];
+      lsp.servers = [ "nixd" ];
       treesitter.enable = true;
     };
 
@@ -66,12 +66,6 @@
     #  lsp.enable = true;
     #  treesitter.enable = true;
     #};
-
-    #odin = {
-    #  enable = true;
-    #   lsp.enable = true;
-    #   treesitter.enable = true;
-    # };
 
     typescript = {
       enable = true;

@@ -12,6 +12,7 @@
       diff = "delta --diff-so-fancy --side-by-side";
       less = "bat";
       f = "yazi";
+      oc = "opencode";
       py = "python";
       dsize = "du -hs";
       pdf = "tdf";
