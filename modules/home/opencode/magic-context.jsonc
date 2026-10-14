@@ -2,7 +2,10 @@
   "$schema": "https://raw.githubusercontent.com/cortexkit/magic-context/master/assets/magic-context.schema.json",
   "enabled": true,
 
-  // Версией плагина управляет Nix (закрепление в opencode.nix), самообновление не нужно.
+  // Версия плагина обновляется вручную: opencode не обновляет уже установленное.
+  // Чтобы взять свежую: rm -rf ~/.cache/opencode/packages/@cortexkit/opencode-magic-context@latest
+  // и перезапустить opencode. Версию в opencode.nix НЕ закрепляем — пин даёт новый
+  // каталог кэша на каждую версию, а старый opencode не удаляет.
   "auto_update": false,
 
   // Historian сжимает старую историю в фоне. БЕЗ этого блока он работает на модели

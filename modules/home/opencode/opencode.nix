@@ -43,7 +43,10 @@ in
 
       plugin = [
         "superpowers@git+https://github.com/obra/superpowers.git"
-        "@cortexkit/opencode-magic-context"
+        # Спека пишется ровно в эту строку и больше нигде. Каждая новая запись
+        # ("без версии" / "@latest" / "@0.x.y") — это отдельный каталог кэша на ~600M,
+        # а opencode старые не удаляет. Поэтому точную версию здесь не закрепляем.
+        "@cortexkit/opencode-magic-context@latest"
       ];
 
       # Magic Context сам управляет контекстом, встроенное сжатие выключаем.
