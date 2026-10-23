@@ -2,7 +2,7 @@
 {
   home.packages = with pkgs; [
     ## Multimedia
-    audacity
+    #audacity
     gimp
     #obs-studio
     pavucontrol
