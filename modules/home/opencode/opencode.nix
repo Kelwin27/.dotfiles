@@ -41,7 +41,7 @@ in
     settings = {
       autoupdate = false;
 
-      plugin = [
+      plugins = [
         "superpowers@git+https://github.com/obra/superpowers.git"
         # Спека пишется ровно в эту строку и больше нигде. Каждая новая запись
         # ("без версии" / "@latest" / "@0.x.y") — это отдельный каталог кэша на ~600M,
