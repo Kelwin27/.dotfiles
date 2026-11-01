@@ -87,7 +87,7 @@ end = [ "group:metrics", "group:sys", "group:notif", "session" ]
 [[bar.main.capsule_group]]
 id = "nav"
 members = [ "launcher", "workspaces" ]
-fill = "surface_variant"
+fill = "surface_container"
 opacity = 0.9
 radius = 12.0
 
@@ -97,7 +97,7 @@ id = "metrics"
 # nothing on the laptop. a group fixes its membership, so it cannot span a whole
 # list entry the way this marker did while the widgets sat ungrouped.
 members = [ "cpu", "memory", @diskWidget@"gpu" ]
-fill = "surface_variant"
+fill = "surface_container"
 opacity = 0.9
 radius = 12.0
 # folded down to cpu until hovered: the values reflow inside this pill instead of
@@ -109,14 +109,14 @@ accordion_direction = "end"
 [[bar.main.capsule_group]]
 id = "sys"
 members = [ "tray", "network", "volume", "battery" ]
-fill = "surface_variant"
+fill = "surface_container"
 opacity = 0.9
 radius = 12.0
 
 [[bar.main.capsule_group]]
 id = "notif"
 members = [ "keyboard_layout", "clipboard", "notifications" ]
-fill = "surface_variant"
+fill = "surface_container"
 opacity = 0.9
 radius = 12.0
 

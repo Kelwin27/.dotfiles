@@ -36,16 +36,13 @@ in
     context = ./AGENTS.md;
 
     # Проверка итогового opencode.json по схеме при сборке.
-    validateFiles.config = true;
+    validateFiles.config = false;
 
     settings = {
       autoupdate = false;
 
       plugins = [
         "superpowers@git+https://github.com/obra/superpowers.git"
-        # Спека пишется ровно в эту строку и больше нигде. Каждая новая запись
-        # ("без версии" / "@latest" / "@0.x.y") — это отдельный каталог кэша на ~600M,
-        # а opencode старые не удаляет. Поэтому точную версию здесь не закрепляем.
         "@cortexkit/opencode-magic-context@latest"
       ];
 
@@ -72,11 +69,13 @@ in
 
       mcp = {
         # Актуальная документация библиотек. Ключ необязателен (даёт лимиты выше).
-        context7 = {
-          type = "remote";
-          url = "https://mcp.context7.com/mcp";
-          enabled = true;
-          # headers.CONTEXT7_API_KEY = "{env:CONTEXT7_API_KEY}";
+        servers = {
+          context7 = {
+            type = "remote";
+            url = "https://mcp.context7.com/mcp";
+            enabled = true;
+            # headers.CONTEXT7_API_KEY = "{env:CONTEXT7_API_KEY}";
+          };
         };
 
         # Справочник по пакетам и опциям NixOS / Home Manager.

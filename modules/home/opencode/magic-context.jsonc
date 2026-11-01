@@ -2,14 +2,10 @@
   "$schema": "https://raw.githubusercontent.com/cortexkit/magic-context/master/assets/magic-context.schema.json",
   "enabled": true,
 
-  // Версия плагина обновляется вручную: opencode не обновляет уже установленное.
-  // Чтобы взять свежую: rm -rf ~/.cache/opencode/packages/@cortexkit/opencode-magic-context@latest
-  // и перезапустить opencode. Версию в opencode.nix НЕ закрепляем — пин даёт новый
-  // каталог кэша на каждую версию, а старый opencode не удаляет.
   "auto_update": false,
 
   "historian": {
-    "opencode": { "model": "cloudflare-workers-ai/@cf/zai-org/glm-4.7-flash" }
+    "opencode": { "model": "zai/glm-4.5-flash" }
   },
 
   // Dreamer по расписанию запускает фоновые задачи (verify, curate и др.): это
