@@ -43,13 +43,12 @@ compact = false
 
 [notification]
 enable_daemon = true
-timeout = 3000 
 show_app_name = true
 show_actions = true
 layer = "top"
 background_opacity = 0.9
 border = true
-border_color = "outline"
+border_color = "outline_variant"
 border_width = 1
 offset_x = 20
 offset_y = 8
@@ -159,7 +158,7 @@ orientation = "horizontal"
 hide_delay_ms = 1400
 background_opacity = 0.97
 border = true
-border_color = "outline"
+border_color = "outline_variant"
 border_width = 1
 follow_focused_output = false
 offset_x = 20
